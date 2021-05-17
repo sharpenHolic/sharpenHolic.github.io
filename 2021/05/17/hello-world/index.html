@@ -6,29 +6,33 @@
   <meta name="keywords" content="">
   <meta name="description" content="Hello World | Johnny&#39;s web">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="方案一使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动时间复杂度：O（n）空间复杂度：O（n） 123456789101112131415161718192021222324252627282930class Solution &amp;#123;public:    bool isPalindrome(ListNode* head) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/05/17/hello-world/index.html">
+<meta property="og:title" content="Johnny&#39;s web">
+<meta property="og:url" content="http://example.com/2021/05/17/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/index.html">
 <meta property="og:site_name" content="Johnny&#39;s web">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="方案一使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动时间复杂度：O（n）空间复杂度：O（n） 123456789101112131415161718192021222324252627282930class Solution &amp;#123;public:    bool isPalindrome(ListNode* head) &amp;#123;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-17T07:12:54.688Z">
-<meta property="article:modified_time" content="2021-05-17T07:12:54.688Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210512192256866.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210512195329523.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210512205004657.png">
+<meta property="article:published_time" content="2021-05-17T08:02:35.185Z">
+<meta property="article:modified_time" content="2021-05-17T08:02:50.536Z">
 <meta property="article:author" content="大长腿与小脑袋">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210512192256866.png">
 
 
 <link rel="icon" href="/img/my.jpg">
 
-<link href="/blog/css/style.css?v=1.1.0" rel="stylesheet">
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/blog/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
 <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/blog/js/titleTip.js?v=1.1.0" ></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
 
 <script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
 <script>
@@ -41,13 +45,13 @@
 
 <script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
 
-<script src="/blog/js/iconfont.js?v=1.1.0" ></script>
+<script src="/js/iconfont.js?v=1.1.0" ></script>
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
-  <input class="theme_blog_path" value="/blog">
+  <input class="theme_blog_path" value="">
   <input id="theme_shortcut" value="true" />
   <input id="theme_highlight_on" value="true" />
   <input id="theme_code_copy" value="true" />
@@ -58,16 +62,28 @@
 <body>
 <aside class="nav">
     <div class="nav-left">
-        <a href="/blog/"
+        <a href="/"
    class="avatar_target">
     <img class="avatar"
-         src="/blog/img/my.jpg"/>
+         src="/img/my.jpg"/>
 </a>
 <div class="author">
     <span>大长腿与小脑袋</span>
 </div>
 
 <div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-rss"></use>
+                    </svg>
+                
+            </a>
+        
     
         
             <a title="github"
@@ -150,7 +166,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(1)</small>
+                <small>(2)</small>
             
         </div>
     </li>
@@ -175,7 +191,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="1">
+<input type="hidden" id="yelog_site_posts_number" value="2">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -225,6 +241,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="All "
+           href="/2021/05/17/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-05-17 16:02:35">2021/05/17</span>
+        </a>
         
         <a  class="All "
            href="/2021/05/17/hello-world/"
@@ -359,8 +383,8 @@
     </div>
     <div class="shang_payimg">
         <div class="pay_img">
-            <img src="/blog/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/blog/img/weixin.jpg" class="weixin" title="扫码支持">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
         </div>
     </div>
     <div class="shang_payselect">
@@ -370,9 +394,9 @@
 
 
 </body>
-<script src="/blog/js/jquery.pjax.js?v=1.1.0" ></script>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
 
-<script src="/blog/js/script.js?v=1.1.0" ></script>
+<script src="/js/script.js?v=1.1.0" ></script>
 <script>
     var img_resize = 'default';
     function initArticle() {
