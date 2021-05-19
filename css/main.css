@@ -175,7 +175,7 @@ body {
   height: 100%;
 }
 body {
-  background: url("https://source.unsplash.com/random/1600x900");
+  background: url("https://s0.xinger.ink/acgimg/acgurl.php");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -1177,7 +1177,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff143c;
+  background: #a4cdff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
