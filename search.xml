@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>daka.md</title>
+    <url>/2021/05/19/daka-md/</url>
+    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1>]]></content>
+      <tags>
+        <tag>1</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>回文链表</title>
     <url>/2021/05/17/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
