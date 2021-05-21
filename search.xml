@@ -29,14 +29,14 @@
 </blockquote>
 <hr>
 <h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
-<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
+<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
+<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
 <hr>
 <h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
 <h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
 <li>coper电缆：cheaper、short distance、electric signal </li>
-<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
 </ol>
 <h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
 <li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
@@ -46,7 +46,6 @@
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
 <p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
 </blockquote>
-<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><p><a href="https://blog.csdn.net/weixin_45066412/article/details/115959959">【计算机网络】基础概念总结1-网络概念</a><br><a href="https://blog.csdn.net/weixin_45066412/article/details/115998812">【计算机网络】基础概念总结2-初识以太网协议</a><br><a href="https://blog.csdn.net/weixin_45066412/article/details/116012604">【计算机网络】基础概念总结3-网络寻址</a><br><a href="https://blog.csdn.net/weixin_45066412/article/details/116017817">【计算机网络】基础概念总结4-OSI模型</a></p>
 ]]></content>
       <categories>
         <category>计算机网络</category>
