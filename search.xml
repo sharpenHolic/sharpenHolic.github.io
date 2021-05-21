@@ -19,29 +19,47 @@
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结1-网络概念</title>
+    <title>【计算机网络】基础概念总结2-初识以太网协议</title>
     <url>/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
-    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
-<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
-<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
+    <content><![CDATA[<h1 id="2-以太网协议（简单认识）"><a href="#2-以太网协议（简单认识）" class="headerlink" title="2 以太网协议（简单认识）"></a>2 以太网协议（简单认识）</h1><p>The Ethernet protocol describes physical links， and how data is formatted<br>描述了线缆的类型以及不同线缆的传输速度；另一部分则描述了数据应该如何进行格式化和发送的操作。<br>由于「以太网」构建简单、成本低、可扩展性强、与IP网能够很好地结合等特点，使它成为局域网网络构建中最常用的一种技术。对于「以太网协议」，则代表了接入以太网的节点设备都达成一致的一组规则。想要接入以太网，就必须按「合同」办事。<img data-src="https://img-blog.csdnimg.cn/20210422083604490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IEEE标准"></p>
+<p>802.3an 可以写为 10GBase-T<br>10G = 10 Gigabits per second<br>BASE = Baseband （cables）：use digital signal<br>T = UTP（type of cable）<br>10G代表了其传输速度为「10 Gigabits per second」；<br>BASE = Baseband(cables) 是基带的意思，代表它使用数字信号进行传输（另一种是模拟信号）；<br>T代表所使用的线缆类型，T=UTP也就是双绞线（另一种是LX光纤）</p>
 <blockquote>
-<p> network : 网络  protocal : 协议</p>
+<p>UTP：Unshilded Twristed  （非屏蔽双绞线）</p>
 </blockquote>
 <hr>
-<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
-<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
-<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
-<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
+<h2 id="2-1-电缆"><a href="#2-1-电缆" class="headerlink" title="2.1 电缆"></a>2.1 电缆</h2><p>想要发送电信号，就需要拥有电路，这意味着我们需要准备多根电线以传输数据，而我们最常见的线缆称为「非屏蔽双绞线」（UTP，也就是常见的网线），每对电线构成一个电路。<br>双绞线消除串扰<br><img data-src="https://img-blog.csdnimg.cn/20210422084817697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="双绞线"><br>每对电线都是由纯色和条纹色组成<br>不同的<strong>以太网标准</strong>，需要使用不同的线缆，我们应该都听说过 【5类线】 或 【6类线】 这样的名称，其实这就是不同网线的专用术语，不同的类别对应了不同线缆的标准（例如：线缆的对数、线缆的粗细以及线缆的交合程度）。<br><img data-src="https://img-blog.csdnimg.cn/20210422085010233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="以太网标准"></p>
+<h3 id="2-1-1-电缆连接器"><a href="#2-1-1-电缆连接器" class="headerlink" title="2.1.1 电缆连接器"></a>2.1.1 电缆连接器</h3><p>线缆两端都会安装一个连接器，这个连接器的名字叫做【rj45连接器】，其实就是我们所说的水晶头，它们是接入到网卡与交换机端口的部分，该连接器有八个引脚，它们与电缆内部的八根铜线对齐，必须按正确的顺序与引脚对齐才能保证通信。<br><img data-src="https://img-blog.csdnimg.cn/2021042208524619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="rj45连接器"><br>橙白-橙，绿白-蓝，蓝白-绿，棕白-棕</p>
+<h3 id="2-2-2-连接方式"><a href="#2-2-2-连接方式" class="headerlink" title="2.2.2 连接方式"></a>2.2.2 连接方式</h3><hr>
+<p>HOST    —–    SWITCH   直连<br><img data-src="https://img-blog.csdnimg.cn/20210422085437201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="直连"></p>
 <hr>
-<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
-<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
-<li>coper电缆：cheaper、short distance、electric signal </li>
-<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
-</ol>
-<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
-<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
-</ol>
+<p>HOST    —–     HOST    交叉<br><img data-src="https://img-blog.csdnimg.cn/20210422085622972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="交叉"></p>
 <hr>
+<p>自动引脚切换。目前最常用<br>【Auto MDI-X】 可以支持的设备可以检测是否使用了错误的线缆，然后，可以再逻辑上切换引脚的功能，使其与电缆相匹配，但是需要注意的是在以太网为 100BASE-T 及以上的标准才可以支持这项技术。<br><img data-src="https://img-blog.csdnimg.cn/2021042208570122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Auto MDI-X"></p>
+<h2 id="2-2-两种光纤"><a href="#2-2-两种光纤" class="headerlink" title="2.2 两种光纤"></a>2.2 两种光纤</h2><p>① 单模光纤   Single Mode Fibre<br>Laser Light<br>2Km以上距离<br>Expensive<br>Half Duplex （半双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084034409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="单模光纤"></p>
+<p>② 多模光纤   Multi Mode Fibre<br>LED Light<br>500m<br>cheap<br>Full Duplex （全双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084102525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="多模光纤"></p>
+<p>光纤弯曲程度<br><img data-src="https://img-blog.csdnimg.cn/20210423140324611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="光纤弯曲程度"></p>
+<p>全双工：<br>同时接收和发送信息<br><img data-src="https://img-blog.csdnimg.cn/20210422084001785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="全双工"></p>
+<p>半双工：<br>不同时接受和发送消息<br><img data-src="https://img-blog.csdnimg.cn/20210422083935750.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="半双工"></p>
+<hr>
+<h2 id="2-3-Wi-Fi连接"><a href="#2-3-Wi-Fi连接" class="headerlink" title="2.3 Wi-Fi连接"></a>2.3 Wi-Fi连接</h2><p>我们的另一种通信方法就是无线Wi-Fi通信，它不需要使用电缆连接，无线网络就像一个无线的交换机，可以让手机、笔记本之类的无线设备链接到接入点，但这个接入点是需要链接到有线网络的，此时，有线和无线设备可以在同一个网络当中使用。当然，并不是所有的设备都会连接到无线接入点的，例如我们不能把路由器或服务器连接到无线接入点。<br><img data-src="https://img-blog.csdnimg.cn/20210422085954586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wi-Fi连接"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>网络可以是有线或无线的，网络连接可以使用铜缆或光缆</li>
+<li>以太网标准用于描述了物理连接线缆的类型以及如何格式化数据</li>
+<li>UTP有四对双绞线，其中一些用于数据发送，另一些用于数据接收</li>
+<li>线缆可以以直通方式或交叉方式连接到交换机</li>
+<li>现如今的大部分平台都支持 Auto MDI-X，可自动对线缆进行检测并做出调整</li>
+<li>双工设备可以同时发送和接受数据，半双工则需要收到响应后再发送数据</li>
+<li>双芯光纤支持全双工，单芯光纤支持半双工</li>
+<li>若想要短距离连接，并节省更多成本，可以选择多模光纤</li>
+<li>若想要远距离连接，则需要支付更高的价格，选择单模光纤，同时需采用正确收发器</li>
+<li>如果有线连接无法满足你的需求，可以采用无线网络连接<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1></li>
+<li>1000BASE-T以什么速度运行？需要使用什么类型的电缆？</li>
+<li>使用哪种类型的UTP电缆将主机连接到交换机？那种类型的电缆可以将一个交换机连接到另一个交换机？</li>
+<li>哪种情况下我们需要使用 Auto MDI-X 技术？</li>
+<li>那种情况下需要使用光纤代替UTP？什么时候需要单模式光纤而不是多模光纤？</li>
+<li>什么是弯曲半径？使用哪种类型的电缆，需要特别注意弯曲半径？</li>
+<li>请简单阐述全双工工作模式的特点</li>
+</ol>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
 <p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
