@@ -19,6 +19,29 @@
       </tags>
   </entry>
   <entry>
+    <title>写作模板</title>
+    <url>/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
+]]></content>
+      <categories>
+        <category>写作类</category>
+      </categories>
+      <tags>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>校园日记</title>
+    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
+    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
+<p>无聊</p>
+<p>还不能去实习呀，投了这么多没响应</p>
+]]></content>
+      <tags>
+        <tag>学校生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【计算机网络】基础概念总结2-初识以太网协议</title>
     <url>/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
     <content><![CDATA[<h1 id="2-以太网协议（简单认识）"><a href="#2-以太网协议（简单认识）" class="headerlink" title="2 以太网协议（简单认识）"></a>2 以太网协议（简单认识）</h1><p>The Ethernet protocol describes physical links， and how data is formatted<br>描述了线缆的类型以及不同线缆的传输速度；另一部分则描述了数据应该如何进行格式化和发送的操作。<br>由于「以太网」构建简单、成本低、可扩展性强、与IP网能够很好地结合等特点，使它成为局域网网络构建中最常用的一种技术。对于「以太网协议」，则代表了接入以太网的节点设备都达成一致的一组规则。想要接入以太网，就必须按「合同」办事。<img data-src="https://img-blog.csdnimg.cn/20210422083604490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IEEE标准"></p>
@@ -106,29 +129,6 @@
       </categories>
       <tags>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>写作模板</title>
-    <url>/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
-]]></content>
-      <categories>
-        <category>写作类</category>
-      </categories>
-      <tags>
-        <tag>模板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>校园日记</title>
-    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
-    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
-]]></content>
-      <tags>
-        <tag>学校生活</tag>
       </tags>
   </entry>
 </search>
