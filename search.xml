@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>主页</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
     <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
 ]]></content>
       <categories>
@@ -14,7 +14,7 @@
   </entry>
   <entry>
     <title>网站运行时间</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
     <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -29,7 +29,7 @@
   </entry>
   <entry>
     <title>标签云特效</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/21/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
     <content><![CDATA[<p>主站目录bash下</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">npm</span> install hexo-tag-cloud@^<span class="number">2</span>.<span class="number">0</span>.* --save </span><br></pre></td></tr></table></figure>
 
@@ -49,7 +49,7 @@
   </entry>
   <entry>
     <title>【计算机网络】基础概念总结2-初识以太网协议</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
     <content><![CDATA[<h1 id="2-以太网协议（简单认识）"><a href="#2-以太网协议（简单认识）" class="headerlink" title="2 以太网协议（简单认识）"></a>2 以太网协议（简单认识）</h1><p>The Ethernet protocol describes physical links， and how data is formatted<br>描述了线缆的类型以及不同线缆的传输速度；另一部分则描述了数据应该如何进行格式化和发送的操作。<br>由于「以太网」构建简单、成本低、可扩展性强、与IP网能够很好地结合等特点，使它成为局域网网络构建中最常用的一种技术。对于「以太网协议」，则代表了接入以太网的节点设备都达成一致的一组规则。想要接入以太网，就必须按「合同」办事。</p>
 <p><img data-src="https://img-blog.csdnimg.cn/20210422083604490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IEEE标准"></p>
 <span id="more"></span>
@@ -106,7 +106,7 @@
   </entry>
   <entry>
     <title>【计算机网络】基础概念总结1-网络概念</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
     <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
 <h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
 <span id="more"></span>
@@ -144,7 +144,7 @@
   </entry>
   <entry>
     <title>写作模板</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
 ]]></content>
       <categories>
@@ -156,7 +156,7 @@
   </entry>
   <entry>
     <title>校园日记</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
     <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
 <p>无聊</p>
 <p>还不能去实习呀，投了这么多没响应</p>
@@ -167,7 +167,7 @@
   </entry>
   <entry>
     <title>回文链表</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <url>/sharpenHolic/sharpenHolic.github.io/source/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
