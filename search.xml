@@ -1,30 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>主页</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
-    <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
+    <title>写作模板</title>
+    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
 ]]></content>
       <categories>
         <category>写作类</category>
       </categories>
       <tags>
         <tag>模板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网站运行时间</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>博客管理</category>
-      </categories>
-      <tags>
-        <tag>next</tag>
       </tags>
   </entry>
   <entry>
@@ -45,6 +30,94 @@
       </categories>
       <tags>
         <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站运行时间</title>
+    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>博客管理</category>
+      </categories>
+      <tags>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>主页</title>
+    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
+    <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
+]]></content>
+      <categories>
+        <category>写作类</category>
+      </categories>
+      <tags>
+        <tag>模板</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回文链表</title>
+    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
+<span id="more"></span>
+
+<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
+<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
+<p>缺点：破坏了链表的结构</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【计算机网络】基础概念总结1-网络概念</title>
+    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
+    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
+<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
+<span id="more"></span>
+
+<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
+<blockquote>
+<p> network : 网络  protocal : 协议</p>
+</blockquote>
+<hr>
+<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
+<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
+<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
+<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
+<hr>
+<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
+<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
+<li>coper电缆：cheaper、short distance、electric signal </li>
+<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
+</ol>
+<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
+<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
+</ol>
+<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
+<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -105,56 +178,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结1-网络概念</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
-    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
-<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
-<span id="more"></span>
-
-<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
-<blockquote>
-<p> network : 网络  protocal : 协议</p>
-</blockquote>
-<hr>
-<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
-<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
-<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
-<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
-<hr>
-<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
-<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
-<li>coper电缆：cheaper、short distance、electric signal </li>
-<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
-</ol>
-<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
-<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
-</ol>
-<hr>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>写作模板</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
-]]></content>
-      <categories>
-        <category>写作类</category>
-      </categories>
-      <tags>
-        <tag>模板</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>校园日记</title>
     <url>/sharpenHolic/sharpenHolic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
     <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
@@ -163,29 +186,6 @@
 ]]></content>
       <tags>
         <tag>学校生活</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回文链表</title>
-    <url>/sharpenHolic/sharpenHolic.github.io/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
-<span id="more"></span>
-
-<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
-<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
-<p>缺点：破坏了链表的结构</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>编程</tag>
       </tags>
   </entry>
 </search>
