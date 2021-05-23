@@ -13,6 +13,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Five Hundred Miles</title>
+    <url>/2021/05/23/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/Five-Hundred-Miles/</url>
+    <content><![CDATA[<p>If you missed the train I’m on</p>
+<p>You will know that I am gone</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>A hundred miles a hundred miles</p>
+<p>A hundred miles a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>Lord I’m one Lord I’m two</p>
+<p>Lord I’m three Lord I’m four</p>
+<p>Lord I’m five hundred miles away from home</p>
+<p>Away from home away from home</p>
+<p>Away from home away from home</p>
+<p>Lord I’m five hundred miles away from home</p>
+<p>Not a shirt on my back</p>
+<p>Not a penny to my name</p>
+<p>Lord I can’t go back home this a-way</p>
+<p>This a-way this a-way</p>
+<p>This a-way this a-way</p>
+<p>Lord I can’t go back home this a-way</p>
+<p>If you missed the train I’m on</p>
+<p>You will know that I am gone</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>生活的本质是重复的，无聊的</p>
+<p>有趣的也是这一点，生活给了我们机会不断修正自己对待生活的态度</p>
+]]></content>
+      <categories>
+        <category>写作类</category>
+      </categories>
+      <tags>
+        <tag>学校生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
     <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
     <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
