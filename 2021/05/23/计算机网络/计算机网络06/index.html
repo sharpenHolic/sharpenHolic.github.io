@@ -27,20 +27,27 @@
     var CONFIG = {"hostname":"sharpenholic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+  <meta name="description" content="计算机网络的基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="校园日记">
-<meta property="og:url" content="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/index.html">
+<meta property="og:title" content="【计算机网络】基础概念总结6-子网掩码">
+<meta property="og:url" content="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/index.html">
 <meta property="og:site_name" content="Johnの博客">
-<meta property="og:description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+<meta property="og:description" content="计算机网络的基础知识">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-19T09:27:35.000Z">
-<meta property="article:modified_time" content="2021-05-21T02:30:03.199Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424192155216.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-05-23T07:03:14.941Z">
+<meta property="article:modified_time" content="2021-05-23T07:08:58.565Z">
 <meta property="article:author" content="且听风吟">
-<meta property="article:tag" content="学校生活">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+<link rel="canonical" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/">
 
 
 <script id="page-configurations">
@@ -53,7 +60,7 @@
   };
 </script>
 
-  <title>校园日记 | Johnの博客</title>
+  <title>【计算机网络】基础概念总结6-子网掩码 | Johnの博客</title>
   
 
 
@@ -194,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://z3.ax1x.com/2021/05/19/g53hMF.png">
@@ -207,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          校园日记
+          【计算机网络】基础概念总结6-子网掩码
         </h1>
 
         <div class="post-meta">
@@ -216,16 +223,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-05-19 17:27:35" itemprop="dateCreated datePublished" datetime="2021-05-19T17:27:35+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-23 15:03:14 / 修改时间：15:08:58" itemprop="dateCreated datePublished" datetime="2021-05-23T15:03:14+08:00">2021-05-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 10:30:03" itemprop="dateModified" datetime="2021-05-21T10:30:03+08:00">2021-05-21</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -244,8 +254,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/19/学校写作/daka-md/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/23/计算机网络/计算机网络06/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -256,15 +266,16 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>32</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
+            <div class="post-description">计算机网络的基础知识</div>
 
         </div>
       </header>
@@ -275,9 +286,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
+        <h1 id="6-子网掩码"><a href="#6-子网掩码" class="headerlink" title="6 子网掩码"></a>6 子网掩码</h1><h2 id="6-1-为什么要有子网掩码"><a href="#6-1-为什么要有子网掩码" class="headerlink" title="6.1 为什么要有子网掩码"></a>6.1 为什么要有子网掩码</h2><p>随着互联网的飞速发展，我们消耗 IP 的速度越来越快，IP 地址渐渐的又不够用了，因此，在 1993 年，引入了一种新的方法，称为无类别域间路由（Classless Inter-Domain Routing）简称 CIDR。</p>
+<blockquote>
+<p>无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。</p>
+</blockquote>
+<h2 id="6-2-子网掩码的两种表示方式"><a href="#6-2-子网掩码的两种表示方式" class="headerlink" title="6.2 子网掩码的两种表示方式"></a>6.2 子网掩码的两种表示方式</h2><p><font color="blue">wiki解释</font><br>“子网掩码”（subnet mask），它是一种用来指明一个IP地址的哪些位标识的是主机所在的网络地址以及哪些位标识的是主机地址的位掩码。</p>
+<h3 id="6-2-1-与IPV4相同的表示方法1"><a href="#6-2-1-与IPV4相同的表示方法1" class="headerlink" title="6.2.1 与IPV4相同的表示方法1"></a>6.2.1 与IPV4相同的表示方法1</h3><p>通常情况下，子网掩码的表示方法和地址本身的表示方法是一样的。在IPv4中，就是点分十进制四组表示法。如图，255.255.0.0 就是 172.16.3.4 的子网掩码。<br><img data-src="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以ABC三类的子网掩码为：<br><img data-src="https://img-blog.csdnimg.cn/20210424192155216.png"></p>
+<h3 id="6-2-2-无类别域间路由表示方法2"><a href="#6-2-2-无类别域间路由表示方法2" class="headerlink" title="6.2.2 无类别域间路由表示方法2"></a>6.2.2 无类别域间路由表示方法2</h3><p>另一种更为简短的形式叫做无类别域间路由（CIDR）表示法，它给出的是一个地址加上一个斜杠以及网络掩码的二进制表示法中“1”的位数（即网络号中和网络掩码相关的是哪些位）。例如，172.16.3.4/16表示的是一个前16位被用作网络号的IP地址（和255.255.0.0的意思一样）。</p>
+<p><font color="red" size="5">使用CIDR表示，忘记掉该网络是第几类</font><br><img data-src="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运算（AND）即得出网络地址来。这样在路由器处理到来的分组时就可以采用同样的方法。</p>
+<hr>
+<h2 id="6-2-子网划分"><a href="#6-2-子网划分" class="headerlink" title="6.2 子网划分"></a>6.2 子网划分</h2><p>把基于每类的IP网络进一步分成更小的网络，每个子网由路由器界定并分配一个新的子网网络地址,子网地址是借用基于每类的网络地址的主机部分创建的。划分子网后，通过使用掩码，把子网隐藏起来，使得从外部看网络没有变化，这就是子网掩码。</p>
+<h3 id="子网划分例子"><a href="#子网划分例子" class="headerlink" title="子网划分例子"></a>子网划分例子</h3><p>上节知识我们计算了网络号的个数和主机数，下图大家计算一下，该网络属是几类网络，有多少主机。<br><img data-src="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>网络类：<br>172 = 1010 1100‬<br>10开头说明为B类<br>结点个数：<br>0.0 - 255.255个<br>2的16次方个<br>65536个<br><font color="green" size="5">大家思考一下，一个局域网网络中有65536个，是不是太多了，一个办公室根本不需要这么多，所以我们进行子网划分</font></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>经过划分之后，我们有了256个子网，每个子网有256个结点，合理多了！</p>
+<h2 id="6-3-CIDR-记录法"><a href="#6-3-CIDR-记录法" class="headerlink" title="6.3  CIDR 记录法"></a>6.3  CIDR 记录法</h2><p><img data-src="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>问：<br>为什么网段 A 中的设备无法通过路由器与网段 B 进行通信？<br>答：<br>问题的重点在中间路由器所在的网段，通过 172.16.2.0/30 得知，前30位都是掩码，因此只留下 2 位允许划分空间，根据 2 的 2 次方=4 可以确定该网段之划分了 4 个 IP 地址 172.16.2.0~172.16.2.3。右侧的路由器 IP 为 172.16.2.20，很明显不在正确范围内。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果，我们拥有一个 B 类地址，172.16.0.0，子网掩码为 255.255.0.0，我们使用子网划分将子网掩码设置为 255.255.240.0，请问：</p>
+<p>问：我们此时拥有多少个子网空间？<br>答：16 个，172.16.0.0 打开了八位位组的前 16 位，而【255.255.240.0】打开了八位位组的前 20 位，20-16=4 位，这是子网的另外 4 位，因此 2 的 4 次方=16，因此，我们此时拥有16个子网空间。分别为：<br>172.16.0.0<br>172.16.16.0<br>172.16.32.0<br>172.16.48.0<br>172.16.64.0<br>172.16.80.0<br>172.16.96.0<br>172.16.112.0<br>172.16.128.0<br>172.16.144.0<br>172.16.160.0<br>172.16.176.0<br>172.16.192.0<br>172.16.208.0<br>172.16.224.0<br>172.16.240.0<br>问：每个子网空间可以划分多少 IP 地址？【例如：176.16.0.1 ~176.16.15.255】<br>答：每个子网有 16 * 256 = 4096 个 IP 地址。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%BD%91">子网-wiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/64688#!">小白也能看懂的网络基础 04 | IP地址是如何工作的</a></p>
+</blockquote>
 
     </div>
 
@@ -285,6 +314,24 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络08\" rel="bookmark">【计算机网络】基础概念总结8-网关、广播和公/私IP</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络05\" rel="bookmark">【计算机网络】基础概念总结5-IP地址工作方式</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络04\" rel="bookmark">【计算机网络】基础概念总结4-OSI模型</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络07\" rel="bookmark">【计算机网络】基础概念总结7-VLSM可变长子网掩码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络03\" rel="bookmark">【计算机网络】基础概念总结3-网络寻址</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -315,7 +362,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/" title="校园日记">https://sharpenholic.github.io/2021/05/19/学校写作/daka-md/</a>
+    <a href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/" title="【计算机网络】基础概念总结6-子网掩码">https://sharpenholic.github.io/2021/05/23/计算机网络/计算机网络06/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -327,7 +374,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E6%A0%A1%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 学校生活</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           </div>
 
         
@@ -336,12 +383,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" rel="prev" title="回文链表">
-      <i class="fa fa-chevron-left"></i> 回文链表
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/" rel="prev" title="【计算机网络】基础概念总结5-IP地址工作方式">
+      <i class="fa fa-chevron-left"></i> 【计算机网络】基础概念总结5-IP地址工作方式
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/" rel="next" title="写作模板">
-      写作模板 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/" rel="next" title="【计算机网络】基础概念总结8-网关、广播和公/私IP">
+      【计算机网络】基础概念总结8-网关、广播和公/私IP <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -407,7 +454,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%8F%E5%A4%A9%E9%83%BD%E6%89%93%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">每天都打卡</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">6 子网掩码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 为什么要有子网掩码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 子网掩码的两种表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-1-%E4%B8%8EIPV4%E7%9B%B8%E5%90%8C%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%951"><span class="nav-number">1.2.1.</span> <span class="nav-text">6.2.1 与IPV4相同的表示方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-%E6%97%A0%E7%B1%BB%E5%88%AB%E5%9F%9F%E9%97%B4%E8%B7%AF%E7%94%B1%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%952"><span class="nav-number">1.2.2.</span> <span class="nav-text">6.2.2 无类别域间路由表示方法2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">6.2 子网划分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86%E4%BE%8B%E5%AD%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">子网划分例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-CIDR-%E8%AE%B0%E5%BD%95%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">6.3  CIDR 记录法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

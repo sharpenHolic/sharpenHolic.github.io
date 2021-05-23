@@ -27,20 +27,31 @@
     var CONFIG = {"hostname":"sharpenholic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+  <meta name="description" content="计算机网络的基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="校园日记">
-<meta property="og:url" content="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/index.html">
+<meta property="og:title" content="【计算机网络】基础概念总结7-VLSM可变长子网掩码">
+<meta property="og:url" content="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/index.html">
 <meta property="og:site_name" content="Johnの博客">
-<meta property="og:description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+<meta property="og:description" content="计算机网络的基础知识">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-19T09:27:35.000Z">
-<meta property="article:modified_time" content="2021-05-21T02:30:03.199Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425144853475.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-05-23T07:03:07.683Z">
+<meta property="article:modified_time" content="2021-05-23T07:10:23.042Z">
 <meta property="article:author" content="且听风吟">
-<meta property="article:tag" content="学校生活">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210425144853475.png">
 
-<link rel="canonical" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+<link rel="canonical" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/">
 
 
 <script id="page-configurations">
@@ -53,7 +64,7 @@
   };
 </script>
 
-  <title>校园日记 | Johnの博客</title>
+  <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码 | Johnの博客</title>
   
 
 
@@ -194,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://z3.ax1x.com/2021/05/19/g53hMF.png">
@@ -207,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          校园日记
+          【计算机网络】基础概念总结7-VLSM可变长子网掩码
         </h1>
 
         <div class="post-meta">
@@ -216,16 +227,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-05-19 17:27:35" itemprop="dateCreated datePublished" datetime="2021-05-19T17:27:35+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-23 15:03:07 / 修改时间：15:10:23" itemprop="dateCreated datePublished" datetime="2021-05-23T15:03:07+08:00">2021-05-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 10:30:03" itemprop="dateModified" datetime="2021-05-21T10:30:03+08:00">2021-05-21</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -244,8 +258,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/19/学校写作/daka-md/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/23/计算机网络/计算机网络07/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -256,7 +270,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>32</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -265,6 +279,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
+            <div class="post-description">计算机网络的基础知识</div>
 
         </div>
       </header>
@@ -275,9 +290,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
+        <h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
+<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
+<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
+<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
+<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
+</blockquote>
 
     </div>
 
@@ -285,6 +316,24 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络08\" rel="bookmark">【计算机网络】基础概念总结8-网关、广播和公/私IP</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络06\" rel="bookmark">【计算机网络】基础概念总结6-子网掩码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络05\" rel="bookmark">【计算机网络】基础概念总结5-IP地址工作方式</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络04\" rel="bookmark">【计算机网络】基础概念总结4-OSI模型</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络03\" rel="bookmark">【计算机网络】基础概念总结3-网络寻址</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -315,7 +364,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/" title="校园日记">https://sharpenholic.github.io/2021/05/19/学校写作/daka-md/</a>
+    <a href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/" title="【计算机网络】基础概念总结7-VLSM可变长子网掩码">https://sharpenholic.github.io/2021/05/23/计算机网络/计算机网络07/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -327,7 +376,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E6%A0%A1%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 学校生活</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           </div>
 
         
@@ -336,12 +385,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" rel="prev" title="回文链表">
-      <i class="fa fa-chevron-left"></i> 回文链表
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C03/" rel="prev" title="【计算机网络】基础概念总结3-网络寻址">
+      <i class="fa fa-chevron-left"></i> 【计算机网络】基础概念总结3-网络寻址
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/" rel="next" title="写作模板">
-      写作模板 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C04/" rel="next" title="【计算机网络】基础概念总结4-OSI模型">
+      【计算机网络】基础概念总结4-OSI模型 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -407,7 +456,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%8F%E5%A4%A9%E9%83%BD%E6%89%93%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">每天都打卡</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#7-VLSM%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">7 VLSM概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E5%85%88%E4%BA%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AFFLSM%EF%BC%88Fixed-Length-Subnet-Mask%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E4%BB%80%E4%B9%88%E6%98%AFVLSM%EF%BC%88Variable-Length-Subnet-Mask%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">7.2 什么是VLSM（Variable Length Subnet Mask）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E4%BD%BF%E7%94%A8VLSM%E5%88%92%E5%88%86%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.3.</span> <span class="nav-text">7.3 使用VLSM划分一个网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%E8%A7%82%E5%AF%9FIP%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text">7.3.1 观察IP范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-%E5%AD%90%E7%BD%91%E4%B8%AA%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">7.3.2 子网个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E5%AF%B9%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E6%8C%89%E7%85%A7%E7%BB%93%E7%82%B9%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">step1 对所有网络按照结点数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-2-%E7%BB%99%E6%9C%80%E5%A4%A7%E7%9A%84%E7%BD%91%E7%BB%9C%EF%BC%88LAN2%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.4.</span> <span class="nav-text">step 2 给最大的网络（LAN2）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E7%BB%99%E6%AC%A1%E5%A4%A7%E7%9A%84%E7%BD%91%E7%BB%9C%EF%BC%88LAN1%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.5.</span> <span class="nav-text">step3 给次大的网络（LAN1）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4-%E7%BB%99%E7%AC%AC%E4%B8%89%E5%A4%A7%E7%BD%91%E7%BB%9C%EF%BC%88LAN3%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.6.</span> <span class="nav-text">step4 给第三大网络（LAN3）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step5-%E7%BB%99LINK%E7%BD%91%E7%BB%9C%EF%BC%88LINKA%E3%80%81B%E3%80%81C%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.7.</span> <span class="nav-text">step5 给LINK网络（LINKA、B、C）分配</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VLSM%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">VLSM划分子网总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

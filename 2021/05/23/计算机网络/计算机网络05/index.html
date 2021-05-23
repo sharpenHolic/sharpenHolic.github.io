@@ -27,20 +27,30 @@
     var CONFIG = {"hostname":"sharpenholic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+  <meta name="description" content="计算机网络的基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="校园日记">
-<meta property="og:url" content="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/index.html">
+<meta property="og:title" content="【计算机网络】基础概念总结5-IP地址工作方式">
+<meta property="og:url" content="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/index.html">
 <meta property="og:site_name" content="Johnの博客">
-<meta property="og:description" content="每天都打卡啧啧啧，每天都打卡 无聊 还不能去实习呀，投了这么多没响应">
+<meta property="og:description" content="计算机网络的基础知识">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-19T09:27:35.000Z">
-<meta property="article:modified_time" content="2021-05-21T02:30:03.199Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-05-23T07:03:12.911Z">
+<meta property="article:modified_time" content="2021-05-23T07:07:53.534Z">
 <meta property="article:author" content="且听风吟">
-<meta property="article:tag" content="学校生活">
+<meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+<link rel="canonical" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/">
 
 
 <script id="page-configurations">
@@ -53,7 +63,7 @@
   };
 </script>
 
-  <title>校园日记 | Johnの博客</title>
+  <title>【计算机网络】基础概念总结5-IP地址工作方式 | Johnの博客</title>
   
 
 
@@ -194,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/">
+    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://z3.ax1x.com/2021/05/19/g53hMF.png">
@@ -207,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          校园日记
+          【计算机网络】基础概念总结5-IP地址工作方式
         </h1>
 
         <div class="post-meta">
@@ -216,16 +226,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-05-19 17:27:35" itemprop="dateCreated datePublished" datetime="2021-05-19T17:27:35+08:00">2021-05-19</time>
+              <time title="创建时间：2021-05-23 15:03:12 / 修改时间：15:07:53" itemprop="dateCreated datePublished" datetime="2021-05-23T15:03:12+08:00">2021-05-23</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-21 10:30:03" itemprop="dateModified" datetime="2021-05-21T10:30:03+08:00">2021-05-21</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -244,8 +257,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/19/学校写作/daka-md/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/23/计算机网络/计算机网络05/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -256,7 +269,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>32</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -265,6 +278,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
+            <div class="post-description">计算机网络的基础知识</div>
 
         </div>
       </header>
@@ -275,9 +289,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
+        <h1 id="5-IP地址工作"><a href="#5-IP地址工作" class="headerlink" title="5 IP地址工作"></a>5 IP地址工作</h1><h2 id="5-1-IP地址存在意义"><a href="#5-1-IP地址存在意义" class="headerlink" title="5.1 IP地址存在意义"></a>5.1 IP地址存在意义</h2><p>前面已经说过，全世界设备非常多，不可能通过【MAC地址】来寻址<br>通过【IP地址】我们可以很轻松的找到一台已经接入网络中的设备。</p>
+<h2 id="5-2-IP地址分类"><a href="#5-2-IP地址分类" class="headerlink" title="5.2 IP地址分类"></a>5.2 IP地址分类</h2><p><img data-src="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IPV4
+IPV6"></p>
+<p>介绍最常见的IPV4这种地址形式</p>
+<h2 id="5-3-IPV4地址"><a href="#5-3-IPV4地址" class="headerlink" title="5.3 IPV4地址"></a>5.3 IPV4地址</h2><p>IPv4 地址是一段由<strong>四组数字</strong>组成的整体，每组数字中间使用<strong>点</strong>来隔开，每组数字有八位字节<br><img data-src="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以IPV4的取值范围为<br><img data-src="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="5-4-IPV4由两部分组成"><a href="#5-4-IPV4由两部分组成" class="headerlink" title="5.4 IPV4由两部分组成"></a>5.4 IPV4由两部分组成<img data-src="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></h2><p>1 网络号<br>同一网络号就是处于同一网段<br>不同网段的主机要通信需要路由器<br>2 主机号</p>
+<h2 id="5-5-IPV4的分级"><a href="#5-5-IPV4的分级" class="headerlink" title="5.5 IPV4的分级"></a>5.5 IPV4的分级</h2><h3 id="5-5-1-Class-A–Large-Networks"><a href="#5-5-1-Class-A–Large-Networks" class="headerlink" title="5.5.1 Class A–Large Networks"></a>5.5.1 Class A–Large Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">第一位保留0</font><br>因为网络号的第一位保留，所以<br>【网络号】<br>0000 0000 - 0111 1111<br>共8位，锁一位，共128个<br>即0-127<br>共180个<br>【主机号】<br>0000 0000.0000 0000.0000 0000 - 1111 1111.1111 1111.1111 1111个<br>即0 - 16,777,215<br>共16,777,216个</p>
+<h3 id="5-5-2-Class-B-–-Medium-Networks"><a href="#5-5-2-Class-B-–-Medium-Networks" class="headerlink" title="5.5.2 Class B – Medium Networks"></a>5.5.2 Class B – Medium Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p><font color="green" size="5">前两位保留10</font><br>【网络号】<br>IP前两组从：1000 0000.0000 0000 到 1011 1111.1111 1111<br>即128.0-191.255<br>总共16位，锁了两位，剩14位，共16384个<br>共32768 - 49151个‬<br>共16384个<br>【主机号】<br>IP的后两组从：0000 0000.0000 0000 到1111 1111.1111 1111<br>即0.0 - 255.255<br>共0 - 65535个<br>共65536个</p>
+<h3 id="5-5-3-Class-C-–-Small-Networks"><a href="#5-5-3-Class-C-–-Small-Networks" class="headerlink" title="5.5.3 Class C – Small Networks"></a>5.5.3 Class C – Small Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">前三位保留110</font><br>【网络号】<br>IP前三组数从：1100 0000.0000 0000 到 1101 1111.1111 1111. 1111 1111<br>即192.0.0-223.255.255<br>由于前三位锁定，所以有21位网络可供使用<br>共2097152个<br>【主机号】<br>IP的最后一组数从：0000 0000 到1111 1111<br>即0 - 255<br>共256个</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img data-src="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>假如【172.16.0.1】的主机需要和【172.16.0.2】通信<br>0.1 主机首先就会查看 0.2 主机是否与自己在同一网段下</p>
+<p>两种方式查看：</p>
+<ol>
+<li>查看八位位组是否一致；</li>
+<li>查看IP地址的前两组数是否一致<br>若一致，则代表在同一网段，因此可以直接发送信息；</li>
+</ol>
+<p>若172.16 网段中的 0.1 主机想要发送信息给 172.17 网段中的 0.2 主机，同样是根据上述方法检测，此时发现 0.2 主机在另一网段，因此需要借助【路由器】来实现信息的交互。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>A、B 和 C 类 IP 地址的网络空间范围：<br>A 类 IP 地址：0.0.0.0 ~ 127.0.0.0<br>B 类 IP 地址：128.0.0.0 ~ 191.255.0.0<br>C 类 IP 地址：192.0.0.0 ~ 223.255.255.0</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
 
     </div>
 
@@ -285,6 +315,24 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络08\" rel="bookmark">【计算机网络】基础概念总结8-网关、广播和公/私IP</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络06\" rel="bookmark">【计算机网络】基础概念总结6-子网掩码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络04\" rel="bookmark">【计算机网络】基础概念总结4-OSI模型</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络07\" rel="bookmark">【计算机网络】基础概念总结7-VLSM可变长子网掩码</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络03\" rel="bookmark">【计算机网络】基础概念总结3-网络寻址</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -315,7 +363,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sharpenholic.github.io/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/" title="校园日记">https://sharpenholic.github.io/2021/05/19/学校写作/daka-md/</a>
+    <a href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/" title="【计算机网络】基础概念总结5-IP地址工作方式">https://sharpenholic.github.io/2021/05/23/计算机网络/计算机网络05/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -327,7 +375,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E6%A0%A1%E7%94%9F%E6%B4%BB/" rel="tag"><i class="fa fa-tag"></i> 学校生活</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
           </div>
 
         
@@ -336,12 +384,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" rel="prev" title="回文链表">
-      <i class="fa fa-chevron-left"></i> 回文链表
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C04/" rel="prev" title="【计算机网络】基础概念总结4-OSI模型">
+      <i class="fa fa-chevron-left"></i> 【计算机网络】基础概念总结4-OSI模型
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/" rel="next" title="写作模板">
-      写作模板 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/" rel="next" title="【计算机网络】基础概念总结6-子网掩码">
+      【计算机网络】基础概念总结6-子网掩码 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -407,7 +455,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AF%8F%E5%A4%A9%E9%83%BD%E6%89%93%E5%8D%A1"><span class="nav-number">1.</span> <span class="nav-text">每天都打卡</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#5-IP%E5%9C%B0%E5%9D%80%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">5 IP地址工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-IP%E5%9C%B0%E5%9D%80%E5%AD%98%E5%9C%A8%E6%84%8F%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">5.1 IP地址存在意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-IP%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">5.2 IP地址分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-IPV4%E5%9C%B0%E5%9D%80"><span class="nav-number">1.3.</span> <span class="nav-text">5.3 IPV4地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-IPV4%E7%94%B1%E4%B8%A4%E9%83%A8%E5%88%86%E7%BB%84%E6%88%90"><span class="nav-number">1.4.</span> <span class="nav-text">5.4 IPV4由两部分组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-IPV4%E7%9A%84%E5%88%86%E7%BA%A7"><span class="nav-number">1.5.</span> <span class="nav-text">5.5 IPV4的分级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-1-Class-A%E2%80%93Large-Networks"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.5.1 Class A–Large Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-2-Class-B-%E2%80%93-Medium-Networks"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.5.2 Class B – Medium Networks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-3-Class-C-%E2%80%93-Small-Networks"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.5.3 Class C – Small Networks</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
