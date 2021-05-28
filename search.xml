@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>主页</title>
-    <url>/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
-    <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
+    <title>写作模板</title>
+    <url>/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
 ]]></content>
       <categories>
         <category>写作类</category>
@@ -13,16 +13,15 @@
       </tags>
   </entry>
   <entry>
-    <title>无额外空间逆序栈</title>
-    <url>/2021/05/27/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
-    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2021/05/27H:\无额外空间的栈逆序-使用递归\无额外空间的栈逆序-使用递归.vcxproj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="built_in">printStack</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="keyword">int</span>&gt; mys;</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">3</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">2</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//cout &lt;&lt; getDownItem(mys) &lt;&lt; endl;</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆序之后&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">rStack</span>(mys);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主要功能函数，实现栈的逆序，并且不使用额外内存空间</span></span><br><span class="line"><span class="comment">//函数1 实现取到栈底元素，并且弹出栈底元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = s.<span class="built_in">top</span>();</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="comment">//base case</span></span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span> result;	<span class="comment">//只有一个元素，栈底就是栈头</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> last = <span class="built_in">getDownItem</span>(s);		<span class="comment">//取到剩余部分栈底元素，并且弹出栈底元素</span></span><br><span class="line">	s.<span class="built_in">push</span>(result);</span><br><span class="line">	<span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数2  实现栈的逆序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="built_in">getDownItem</span>(s);	<span class="comment">//得到栈底元素，并且原栈中该元素已弹出</span></span><br><span class="line">	<span class="built_in">rStack</span>(s);					<span class="comment">//对剩下的部分逆序</span></span><br><span class="line">	s.<span class="built_in">push</span>(ret);				<span class="comment">//把元素压回去</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+    <title>主页</title>
+    <url>/2021/05/22/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
+    <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>写作类</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>模板</tag>
       </tags>
   </entry>
   <entry>
@@ -70,161 +69,143 @@
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
-    <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
-<h2 id="8-2-默认网关"><a href="#8-2-默认网关" class="headerlink" title="8.2 默认网关"></a>8.2 默认网关</h2><p>如果搞清了什么是网关，默认网关也就好理解了。就好像一个房间可以有多扇门一样，一台主机可以有多个网关。默认网关的意思是一台主机如果找不到可用的网关，就把数据包发给默认指定的网关，由这个网关来处理数据包。现在主机使用的网关，一般指的是默认网关。</p>
-<p>默认网关必须是电脑自己所在的网段（将IP地址和子网掩码作与运算，得到网段）中的IP地址，而不能填写其他网段中的IP地址。</p>
-<h2 id="8-3-特殊的网络IP"><a href="#8-3-特殊的网络IP" class="headerlink" title="8.3 特殊的网络IP"></a>8.3 特殊的网络IP</h2><p>每一个网段的最后一个 IP 地址，都是广播IP。<br>另一个同样是用于广播的比较特殊的广播 IP，那就是 255.255.255.255。<br>这个地址指本网段内(同一个广播域)的所有主机，该地址用于主机配置过程中IP数据包的目的地址，这时主机可能还不知道它所在网络的网络掩码，甚至连自己的IP地址也还不知道。</p>
-<blockquote>
-<p>注 ：避免路由器转发255.255.255.255，造成死循环<br>在任何情况下，路由器都会禁止转发目的地址为受限的广播地址的数据包，这样的数据包仅会出现在本地网络中.</p>
-</blockquote>
-<h2 id="8-4-单播网络-unicast-traffic"><a href="#8-4-单播网络-unicast-traffic" class="headerlink" title="8.4 单播网络 unicast traffic"></a>8.4 单播网络 unicast traffic</h2><p>单播(unicast): 是指封包在计算机网络的传输中，目的地址为单一目标的一种传输方式。它是现今网络应用最为广泛，通常所使用的网络协议或服务大多采用单播传输，例如一切基于TCP的协议。<br><img data-src="https://img-blog.csdnimg.cn/20210427152005381.png"><br>单播在网络中得到了广泛的应用，网络上绝大部分的数据都是以单播的形式传输的，只是一般网络用户不知道而已。例如，你在收发电子邮件、浏览网页时，必须与邮件服务器、Web服务器建立连接，此时使用的就是单播数据传输方式。但是通常使用“点对点通信”（Point to Point）代替“单播”，因为“单播”一般与“多播”和“广播”相对应使用。</p>
-<h2 id="8-5-多播网络Multicast-traffic"><a href="#8-5-多播网络Multicast-traffic" class="headerlink" title="8.5 多播网络Multicast traffic"></a>8.5 多播网络Multicast traffic</h2><p>要向其他网络多个主机传递消息，单播网络局限性。255.255.255.255又只有本地有用。所以就有了多播网络<br>多播流量需要使用特殊 IP 地址，也就是我们之前所说的 D 类 IP 地址，D 类 IP 地址的地址范围从 224.0.0.0 到 239.255.255.255，多播是设备选择接受特定流量的一种方式。<br><img data-src="https://img-blog.csdnimg.cn/2021042715005090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="8-6-公-私IP"><a href="#8-6-公-私IP" class="headerlink" title="8.6 公/私IP"></a>8.6 公/私IP</h2><p>每个IP都是唯一</p>
-<h3 id="8-6-1-互联网号码分配局（IANA）"><a href="#8-6-1-互联网号码分配局（IANA）" class="headerlink" title="8.6.1 互联网号码分配局（IANA）"></a>8.6.1 互联网号码分配局（IANA）</h3><p>这些 IP 地址统一由 互联网号码分配局 （Internet Assigned Numbers Authority）简称 IANA 进行管理，它们将大量地址分配给分布于世界各地的子机构，我们也称其为 区域性互联网注册管理机构 （Regional Internet Registry）简称 RIR。</p>
-<ol>
-<li>RIPE：欧洲 IP 地址注册中心</li>
-<li>LACNIC：拉丁美洲和加勒比海 Internet 地址注册中心</li>
-<li>ARIN：美国 Internet 编号注册中心</li>
-<li>AFRINIC：非洲网络信息中心</li>
-<li>APNIC：亚太地址网络信息中心</li>
-</ol>
-<h3 id="8-6-2-互联网服务提供商（ISP）"><a href="#8-6-2-互联网服务提供商（ISP）" class="headerlink" title="8.6.2 互联网服务提供商（ISP）"></a>8.6.2 互联网服务提供商（ISP）</h3><p>RIR 为各地的互联网服务提供商（简称 ISP）分配地址空间，也会分配空间给拥有庞大用户量的【大客户】。</p>
-<p>IANA 分配地址给 RIR<br>RIR 分配地址给 ISP， 大客户<br>ISP 分配地址给小客户</p>
-<h2 id="8-7-私人-IP与公共-IP"><a href="#8-7-私人-IP与公共-IP" class="headerlink" title="8.7 私人 IP与公共 IP"></a>8.7 私人 IP与公共 IP</h2><h3 id="8-7-1-私人-IP"><a href="#8-7-1-私人-IP" class="headerlink" title="8.7.1 私人 IP"></a>8.7.1 私人 IP</h3><p>当我们想要创建一个新的网络，则需要获取更多的 IP 地址，我们需要找到当地的服务提供商进行申请。<br>私人IP包括以下：<br>10.0.0.0 /8<br>172.16.0.0 /12<br>192.168.0.0 /16</p>
-<p>由于IPV4的数量有限<br>这些IP只能在局域网中使用，不能在互联网上使用，使用NAT（网络地址转换）技术完成上网，将私人IP修改为公共IP<br><img data-src="https://img-blog.csdnimg.cn/20210427154826998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427154848918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427160531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="8-7-2-公共IP"><a href="#8-7-2-公共IP" class="headerlink" title="8.7.2 公共IP"></a>8.7.2 公共IP</h3><p>除了私人 IP 之外的 IP 地址，均属于公共 IP。</p>
+    <title>标签云特效</title>
+    <url>/2021/05/21/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
+    <content><![CDATA[<p>主站目录bash下</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">npm</span> install hexo-tag-cloud@^<span class="number">2</span>.<span class="number">0</span>.* --save </span><br></pre></td></tr></table></figure>
+
+<p>在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> site.tags.length &gt; 1 %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; list_tags() &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+<p>在主站配置文加下添加内容如下</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attribute">tag_cloud</span>:</span><br><span class="line">    <span class="attribute">textFont</span>: Trebuchet MS, Helvetica</span><br><span class="line">    <span class="attribute">textColor</span>: &#x27;#<span class="number">333</span>&#x27;</span><br><span class="line">    <span class="attribute">textHeight</span>: <span class="number">25</span></span><br><span class="line">    <span class="attribute">outlineColor</span>: &#x27;#E<span class="number">2</span>E<span class="number">1</span>D<span class="number">1</span>&#x27;</span><br><span class="line">    <span class="attribute">maxSpeed</span>: <span class="number">0</span>.<span class="number">1</span> </span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>博客管理</category>
       </categories>
       <tags>
-        <tag>计算机网络</tag>
+        <tag>next</tag>
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结6-子网掩码</title>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/</url>
-    <content><![CDATA[<h1 id="6-子网掩码"><a href="#6-子网掩码" class="headerlink" title="6 子网掩码"></a>6 子网掩码</h1><h2 id="6-1-为什么要有子网掩码"><a href="#6-1-为什么要有子网掩码" class="headerlink" title="6.1 为什么要有子网掩码"></a>6.1 为什么要有子网掩码</h2><p>随着互联网的飞速发展，我们消耗 IP 的速度越来越快，IP 地址渐渐的又不够用了，因此，在 1993 年，引入了一种新的方法，称为无类别域间路由（Classless Inter-Domain Routing）简称 CIDR。</p>
+    <title>windows安装 anaconda3 + pytorch</title>
+    <url>/2021/05/28/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/windows%E5%AE%89%E8%A3%85%20anaconda3%20+%20pytorch/</url>
+    <content><![CDATA[<h2 id="本机信息"><a href="#本机信息" class="headerlink" title="本机信息"></a>本机信息</h2><p>显卡：GTX-1650</p>
+<p>CUDA：10.2</p>
+<h2 id="1-安装Anaconda"><a href="#1-安装Anaconda" class="headerlink" title="1 安装Anaconda"></a>1 安装Anaconda</h2><p>官网下载，安装python3.8版本</p>
+<p>安装目录：D:\anaconda\</p>
+<h3 id="1-1-换源"><a href="#1-1-换源" class="headerlink" title="1.1 换源"></a>1.1 换源</h3><p>用户目录下找到.condarc</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">ssl_verify: true</span><br><span class="line">channels:</span><br><span class="line"></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line">  - default</span><br><span class="line">    show_channel_urls: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-测试"><a href="#1-2-测试" class="headerlink" title="1.2 测试"></a>1.2 测试</h3><p>打开anaconda prompt，输入以下内容，显示版本号，说明安装成功</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-创建自己的虚拟环境"><a href="#1-3-创建自己的虚拟环境" class="headerlink" title="1.3 创建自己的虚拟环境"></a>1.3 创建自己的虚拟环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
+
+<p>注：其中pytorch是虚拟环境的名字，python可指定版本号</p>
+<p>更换到自己创建的虚拟环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">activate pytorch</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-pycharm里面更换解释器"><a href="#1-4-pycharm里面更换解释器" class="headerlink" title="1.4 pycharm里面更换解释器"></a>1.4 pycharm里面更换解释器</h3><p>项目中更换解释器为anaconda里的版本即可</p>
+<h2 id="2-安装CUDA"><a href="#2-安装CUDA" class="headerlink" title="2 安装CUDA"></a>2 安装CUDA</h2><p>CUDA官网找到自己显卡支持的版本</p>
+<p>安装即可</p>
+<h3 id="2-1-测试"><a href="#2-1-测试" class="headerlink" title="2.1 测试"></a>2.1 测试</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装pytorch"><a href="#3-安装pytorch" class="headerlink" title="3 安装pytorch"></a>3 安装pytorch</h2><p>1 找到与自己显卡相符合的CUDA版本，我的显卡为GTX1650，CUDA为10.2</p>
+<p>2 在<a href="https://pytorch.org/get-started/previous-versions/%EF%BC%8C%E6%89%BE%E5%88%B0%E6%83%B3%E8%A6%81%E5%AE%89%E8%A3%85%E7%9A%84pytorch%E7%89%88%E6%9C%AC%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%B8%8ECUDA%E7%89%88%E6%9C%AC%E7%9B%B8%E5%90%8C">https://pytorch.org/get-started/previous-versions/，找到想要安装的pytorch版本，并且与CUDA版本相同</a></p>
+<p>3 在虚拟环境中进行安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CUDA 10.2</span></span><br><span class="line">conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>耐心等待~~~</p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2>]]></content>
+      <categories>
+        <category>编程类</category>
+      </categories>
+      <tags>
+        <tag>深度学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站运行时间</title>
+    <url>/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>博客管理</category>
+      </categories>
+      <tags>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>校园日记</title>
+    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
+    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
+<p>无聊</p>
+<p>还不能去实习呀，投了这么多没响应</p>
+]]></content>
+      <tags>
+        <tag>学校生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回文链表</title>
+    <url>/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
+<span id="more"></span>
+
+<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
+<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
+<p>缺点：破坏了链表的结构</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【计算机网络】基础概念总结1-网络概念</title>
+    <url>/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
+    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
+<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
+<span id="more"></span>
+
+<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
 <blockquote>
-<p>无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。</p>
+<p> network : 网络  protocal : 协议</p>
 </blockquote>
-<h2 id="6-2-子网掩码的两种表示方式"><a href="#6-2-子网掩码的两种表示方式" class="headerlink" title="6.2 子网掩码的两种表示方式"></a>6.2 子网掩码的两种表示方式</h2><p><font color="blue">wiki解释</font><br>“子网掩码”（subnet mask），它是一种用来指明一个IP地址的哪些位标识的是主机所在的网络地址以及哪些位标识的是主机地址的位掩码。</p>
-<h3 id="6-2-1-与IPV4相同的表示方法1"><a href="#6-2-1-与IPV4相同的表示方法1" class="headerlink" title="6.2.1 与IPV4相同的表示方法1"></a>6.2.1 与IPV4相同的表示方法1</h3><p>通常情况下，子网掩码的表示方法和地址本身的表示方法是一样的。在IPv4中，就是点分十进制四组表示法。如图，255.255.0.0 就是 172.16.3.4 的子网掩码。<br><img data-src="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以ABC三类的子网掩码为：<br><img data-src="https://img-blog.csdnimg.cn/20210424192155216.png"></p>
-<h3 id="6-2-2-无类别域间路由表示方法2"><a href="#6-2-2-无类别域间路由表示方法2" class="headerlink" title="6.2.2 无类别域间路由表示方法2"></a>6.2.2 无类别域间路由表示方法2</h3><p>另一种更为简短的形式叫做无类别域间路由（CIDR）表示法，它给出的是一个地址加上一个斜杠以及网络掩码的二进制表示法中“1”的位数（即网络号中和网络掩码相关的是哪些位）。例如，172.16.3.4/16表示的是一个前16位被用作网络号的IP地址（和255.255.0.0的意思一样）。</p>
-<p><font color="red" size="5">使用CIDR表示，忘记掉该网络是第几类</font><br><img data-src="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p>子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运算（AND）即得出网络地址来。这样在路由器处理到来的分组时就可以采用同样的方法。</p>
 <hr>
-<h2 id="6-2-子网划分"><a href="#6-2-子网划分" class="headerlink" title="6.2 子网划分"></a>6.2 子网划分</h2><p>把基于每类的IP网络进一步分成更小的网络，每个子网由路由器界定并分配一个新的子网网络地址,子网地址是借用基于每类的网络地址的主机部分创建的。划分子网后，通过使用掩码，把子网隐藏起来，使得从外部看网络没有变化，这就是子网掩码。</p>
-<h3 id="子网划分例子"><a href="#子网划分例子" class="headerlink" title="子网划分例子"></a>子网划分例子</h3><p>上节知识我们计算了网络号的个数和主机数，下图大家计算一下，该网络属是几类网络，有多少主机。<br><img data-src="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>网络类：<br>172 = 1010 1100‬<br>10开头说明为B类<br>结点个数：<br>0.0 - 255.255个<br>2的16次方个<br>65536个<br><font color="green" size="5">大家思考一下，一个局域网网络中有65536个，是不是太多了，一个办公室根本不需要这么多，所以我们进行子网划分</font></p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>经过划分之后，我们有了256个子网，每个子网有256个结点，合理多了！</p>
-<h2 id="6-3-CIDR-记录法"><a href="#6-3-CIDR-记录法" class="headerlink" title="6.3  CIDR 记录法"></a>6.3  CIDR 记录法</h2><p><img data-src="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>问：<br>为什么网段 A 中的设备无法通过路由器与网段 B 进行通信？<br>答：<br>问题的重点在中间路由器所在的网段，通过 172.16.2.0/30 得知，前30位都是掩码，因此只留下 2 位允许划分空间，根据 2 的 2 次方=4 可以确定该网段之划分了 4 个 IP 地址 172.16.2.0~172.16.2.3。右侧的路由器 IP 为 172.16.2.20，很明显不在正确范围内。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果，我们拥有一个 B 类地址，172.16.0.0，子网掩码为 255.255.0.0，我们使用子网划分将子网掩码设置为 255.255.240.0，请问：</p>
-<p>问：我们此时拥有多少个子网空间？<br>答：16 个，172.16.0.0 打开了八位位组的前 16 位，而【255.255.240.0】打开了八位位组的前 20 位，20-16=4 位，这是子网的另外 4 位，因此 2 的 4 次方=16，因此，我们此时拥有16个子网空间。分别为：<br>172.16.0.0<br>172.16.16.0<br>172.16.32.0<br>172.16.48.0<br>172.16.64.0<br>172.16.80.0<br>172.16.96.0<br>172.16.112.0<br>172.16.128.0<br>172.16.144.0<br>172.16.160.0<br>172.16.176.0<br>172.16.192.0<br>172.16.208.0<br>172.16.224.0<br>172.16.240.0<br>问：每个子网空间可以划分多少 IP 地址？【例如：176.16.0.1 ~176.16.15.255】<br>答：每个子网有 16 * 256 = 4096 个 IP 地址。</p>
+<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
+<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
+<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
+<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
+<hr>
+<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
+<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
+<li>coper电缆：cheaper、short distance、electric signal </li>
+<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
+</ol>
+<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
+<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
+</ol>
+<hr>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%BD%91">子网-wiki</a></p>
-<p><a href="https://sspai.com/post/64688#!">小白也能看懂的网络基础 04 | IP地址是如何工作的</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【计算机网络】基础概念总结5-IP地址工作方式</title>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/</url>
-    <content><![CDATA[<h1 id="5-IP地址工作"><a href="#5-IP地址工作" class="headerlink" title="5 IP地址工作"></a>5 IP地址工作</h1><h2 id="5-1-IP地址存在意义"><a href="#5-1-IP地址存在意义" class="headerlink" title="5.1 IP地址存在意义"></a>5.1 IP地址存在意义</h2><p>前面已经说过，全世界设备非常多，不可能通过【MAC地址】来寻址<br>通过【IP地址】我们可以很轻松的找到一台已经接入网络中的设备。</p>
-<h2 id="5-2-IP地址分类"><a href="#5-2-IP地址分类" class="headerlink" title="5.2 IP地址分类"></a>5.2 IP地址分类</h2><p><img data-src="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IPV4
-IPV6"></p>
-<p>介绍最常见的IPV4这种地址形式</p>
-<h2 id="5-3-IPV4地址"><a href="#5-3-IPV4地址" class="headerlink" title="5.3 IPV4地址"></a>5.3 IPV4地址</h2><p>IPv4 地址是一段由<strong>四组数字</strong>组成的整体，每组数字中间使用<strong>点</strong>来隔开，每组数字有八位字节<br><img data-src="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以IPV4的取值范围为<br><img data-src="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="5-4-IPV4由两部分组成"><a href="#5-4-IPV4由两部分组成" class="headerlink" title="5.4 IPV4由两部分组成"></a>5.4 IPV4由两部分组成<img data-src="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></h2><p>1 网络号<br>同一网络号就是处于同一网段<br>不同网段的主机要通信需要路由器<br>2 主机号</p>
-<h2 id="5-5-IPV4的分级"><a href="#5-5-IPV4的分级" class="headerlink" title="5.5 IPV4的分级"></a>5.5 IPV4的分级</h2><h3 id="5-5-1-Class-A–Large-Networks"><a href="#5-5-1-Class-A–Large-Networks" class="headerlink" title="5.5.1 Class A–Large Networks"></a>5.5.1 Class A–Large Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">第一位保留0</font><br>因为网络号的第一位保留，所以<br>【网络号】<br>0000 0000 - 0111 1111<br>共8位，锁一位，共128个<br>即0-127<br>共180个<br>【主机号】<br>0000 0000.0000 0000.0000 0000 - 1111 1111.1111 1111.1111 1111个<br>即0 - 16,777,215<br>共16,777,216个</p>
-<h3 id="5-5-2-Class-B-–-Medium-Networks"><a href="#5-5-2-Class-B-–-Medium-Networks" class="headerlink" title="5.5.2 Class B – Medium Networks"></a>5.5.2 Class B – Medium Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p><font color="green" size="5">前两位保留10</font><br>【网络号】<br>IP前两组从：1000 0000.0000 0000 到 1011 1111.1111 1111<br>即128.0-191.255<br>总共16位，锁了两位，剩14位，共16384个<br>共32768 - 49151个‬<br>共16384个<br>【主机号】<br>IP的后两组从：0000 0000.0000 0000 到1111 1111.1111 1111<br>即0.0 - 255.255<br>共0 - 65535个<br>共65536个</p>
-<h3 id="5-5-3-Class-C-–-Small-Networks"><a href="#5-5-3-Class-C-–-Small-Networks" class="headerlink" title="5.5.3 Class C – Small Networks"></a>5.5.3 Class C – Small Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">前三位保留110</font><br>【网络号】<br>IP前三组数从：1100 0000.0000 0000 到 1101 1111.1111 1111. 1111 1111<br>即192.0.0-223.255.255<br>由于前三位锁定，所以有21位网络可供使用<br>共2097152个<br>【主机号】<br>IP的最后一组数从：0000 0000 到1111 1111<br>即0 - 255<br>共256个</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img data-src="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>假如【172.16.0.1】的主机需要和【172.16.0.2】通信<br>0.1 主机首先就会查看 0.2 主机是否与自己在同一网段下</p>
-<p>两种方式查看：</p>
-<ol>
-<li>查看八位位组是否一致；</li>
-<li>查看IP地址的前两组数是否一致<br>若一致，则代表在同一网段，因此可以直接发送信息；</li>
-</ol>
-<p>若172.16 网段中的 0.1 主机想要发送信息给 172.17 网段中的 0.2 主机，同样是根据上述方法检测，此时发现 0.2 主机在另一网段，因此需要借助【路由器】来实现信息的交互。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>A、B 和 C 类 IP 地址的网络空间范围：<br>A 类 IP 地址：0.0.0.0 ~ 127.0.0.0<br>B 类 IP 地址：128.0.0.0 ~ 191.255.0.0<br>C 类 IP 地址：192.0.0.0 ~ 223.255.255.0</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【计算机网络】基础概念总结4-OSI模型</title>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C04/</url>
-    <content><![CDATA[<h1 id="4-OSI模型"><a href="#4-OSI模型" class="headerlink" title="4 OSI模型"></a>4 OSI模型</h1><p>应用层【第七层】(Application)<br>表示层【第六层】(Presentation)<br>会话层【第五层】(Session)<br>传输层【第四层】(Transport)<br>网络层【第三层】(Network)<br>链路层【第二层】(Data Link)<br>物理层【第一层】(Physical)<br><img data-src="https://img-blog.csdnimg.cn/20210422160327489.gif#pic_center"></p>
-<h2 id="发送顺序"><a href="#发送顺序" class="headerlink" title="发送顺序"></a>发送顺序</h2><h3 id="Application-应用层"><a href="#Application-应用层" class="headerlink" title="Application 应用层"></a>Application 应用层</h3><p>数据的出现是始于应用层的，（例如使用【主机A】通过FTP向【主机B】传输一个文件信息）应用程序都属于应用层的内容（例如：QQ、微信、Web浏览器等都属于应用层）；应用程序准备好信息后，就可以向表示层传递了。<br>文件传输协议：FTP<br>网页：HTTP、HTTPS<br>邮件：SMTP<br>虚拟终端：Telnet</p>
-<h3 id="Presentation-表示层"><a href="#Presentation-表示层" class="headerlink" title="Presentation 表示层"></a>Presentation 表示层</h3><p>表示层收到应用层传来的文件信息后，会把数据转换为能与接收者【主机B】的系统格式兼容并适合传输的格式（表示层可能对数据进行加密、压缩、编码等操作，无论如何，这都是为了迎合【主机B】），操作完毕，数据会传递到会话层。</p>
-<ol>
-<li>Translation</li>
-<li>Data Compression</li>
-<li>Encryption、Decryption<h3 id="Session-会话层"><a href="#Session-会话层" class="headerlink" title="Session 会话层"></a>Session 会话层</h3>会话层接收到表示层传来的数据信息后，负责在数据传输中设置和维护两台计算机之间的通信连接，以保证这段连接不会因中断而造成不必要的麻烦。建立好会话连接后，数据继续向下传递。</li>
-<li>确定：who are you？</li>
-<li>确定：if you have the permission to access file？<h3 id="Transport-传输层"><a href="#Transport-传输层" class="headerlink" title="Transport 传输层"></a>Transport 传输层</h3>对数据传输进行流量控制，也就是大文件分成多块进行传输。就好比我们搬家，一辆车装不下，那就多装几辆车，然后让这些车同时出发，同时呢，为了避免道路阻塞，它还可以选择多条路来进行传输，这就是传输层的流量控制、避免拥塞和多路复用的体现。</li>
-</ol>
-<p>同时，传输层还会给这些数据追加一个【源目端口】，一方面告知对方信息打哪来，一方面要让信息知道它们要到哪去（例如：我使用 Google 浏览器访问百度网站，这里就会添加了 Google 的端口和百度服务器的端口）。</p>
-<ol>
-<li>Segmentation </li>
-<li>Add Source Port and Des Port ，and the Sequence Num</li>
-<li>Flow Control</li>
-<li>Error Control<h3 id="Network-网络层"><a href="#Network-网络层" class="headerlink" title="Network 网络层"></a>Network 网络层</h3>如果我们要传递的信息是被异地主机接收，就需要靠ip地址来确定异地的网段。所以网络层会给数据追加一个【源ip地址】，再添加一个【目的ip地址】。<br>这就解决了数据从哪里来，要到哪里去的问题。</li>
-<li>Add network address ：①source address ②destination address</li>
-<li>Add routing<h3 id="Data-Link-数据链路层"><a href="#Data-Link-数据链路层" class="headerlink" title="Data Link 数据链路层"></a>Data Link 数据链路层</h3>网络层解决了异地网段的问题，但数据走到这里还无法确定要传递到该网段下的那一台机器，因此，数据链路层会把【主机A】和【主机B】的【MAC地址】再进行追加，这就是【源MAC地址】与【目的MAC地址】，因为MAC地址是唯一的，【主机B】始终能找到【主机A】。</li>
-</ol>
-<p>同时，数据链路层在数据的尾部追加了一个【FSC帧校验】，因为我们的数据再传输层有可能已经被切片，因此，为了检测数据的完整性，就有了这个【FSC帧校验】。</p>
-<h3 id="Physical-物理层"><a href="#Physical-物理层" class="headerlink" title="Physical 物理层"></a>Physical 物理层</h3><p>将编码后的数据转换为物理信号010101010110101010110进行传输，就是之前说的通过有线或者无线。</p>
-<h2 id="接收顺序"><a href="#接收顺序" class="headerlink" title="接收顺序"></a>接收顺序</h2><p>与发送顺序相反</p>
-<h2 id="全过程"><a href="#全过程" class="headerlink" title="全过程"></a>全过程</h2><p>如下图所示<br><img data-src="https://img-blog.csdnimg.cn/20210422160032395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
-<li>高带宽应用导致网络速度「变慢」，问题出在哪一层？我们应该如何解决？</li>
-<li>请阐述以下内容分别来自OSI模型的哪一层<br>FTP（文件传输协议）<br>Session Control Protocol（会话控制协议）<br>Service Requests（请求服务）<br>JPEG（图像格式）<br>GIF（图像格式）<br>MPEG（图像格式）<br>SMTP（电子邮件传输的协议）<br>TIFF（图像格式）<br>Telnet（隶属于TCP/IP协议族）<br>Flow Control（流量控制）</li>
-<li>把描述连到正确的OSI模型分层<br><img data-src="https://img-blog.csdnimg.cn/20210423143807285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码</title>
-    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/</url>
-    <content><![CDATA[<h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
-<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
-<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
-<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
-<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
-<p><a href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
+<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -270,38 +251,16 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>网站运行时间</title>
-    <url>/2021/05/22/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+    <title>无额外空间逆序栈</title>
+    <url>/2021/05/27/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
+    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2021/05/27H:\无额外空间的栈逆序-使用递归\无额外空间的栈逆序-使用递归.vcxproj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="built_in">printStack</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="keyword">int</span>&gt; mys;</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">3</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">2</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//cout &lt;&lt; getDownItem(mys) &lt;&lt; endl;</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆序之后&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">rStack</span>(mys);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主要功能函数，实现栈的逆序，并且不使用额外内存空间</span></span><br><span class="line"><span class="comment">//函数1 实现取到栈底元素，并且弹出栈底元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = s.<span class="built_in">top</span>();</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="comment">//base case</span></span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span> result;	<span class="comment">//只有一个元素，栈底就是栈头</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> last = <span class="built_in">getDownItem</span>(s);		<span class="comment">//取到剩余部分栈底元素，并且弹出栈底元素</span></span><br><span class="line">	s.<span class="built_in">push</span>(result);</span><br><span class="line">	<span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数2  实现栈的逆序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="built_in">getDownItem</span>(s);	<span class="comment">//得到栈底元素，并且原栈中该元素已弹出</span></span><br><span class="line">	<span class="built_in">rStack</span>(s);					<span class="comment">//对剩下的部分逆序</span></span><br><span class="line">	s.<span class="built_in">push</span>(ret);				<span class="comment">//把元素压回去</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>博客管理</category>
+        <category>C++</category>
       </categories>
       <tags>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>标签云特效</title>
-    <url>/2021/05/21/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
-    <content><![CDATA[<p>主站目录bash下</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">npm</span> install hexo-tag-cloud@^<span class="number">2</span>.<span class="number">0</span>.* --save </span><br></pre></td></tr></table></figure>
-
-<p>在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> site.tags.length &gt; 1 %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; list_tags() &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
-
-<p>在主站配置文加下添加内容如下</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attribute">tag_cloud</span>:</span><br><span class="line">    <span class="attribute">textFont</span>: Trebuchet MS, Helvetica</span><br><span class="line">    <span class="attribute">textColor</span>: &#x27;#<span class="number">333</span>&#x27;</span><br><span class="line">    <span class="attribute">textHeight</span>: <span class="number">25</span></span><br><span class="line">    <span class="attribute">outlineColor</span>: &#x27;#E<span class="number">2</span>E<span class="number">1</span>D<span class="number">1</span>&#x27;</span><br><span class="line">    <span class="attribute">maxSpeed</span>: <span class="number">0</span>.<span class="number">1</span> </span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>博客管理</category>
-      </categories>
-      <tags>
-        <tag>next</tag>
+        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
@@ -362,34 +321,28 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结1-网络概念</title>
-    <url>/2021/05/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
-    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
-<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
-<span id="more"></span>
-
-<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
+    <title>【计算机网络】基础概念总结6-子网掩码</title>
+    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/</url>
+    <content><![CDATA[<h1 id="6-子网掩码"><a href="#6-子网掩码" class="headerlink" title="6 子网掩码"></a>6 子网掩码</h1><h2 id="6-1-为什么要有子网掩码"><a href="#6-1-为什么要有子网掩码" class="headerlink" title="6.1 为什么要有子网掩码"></a>6.1 为什么要有子网掩码</h2><p>随着互联网的飞速发展，我们消耗 IP 的速度越来越快，IP 地址渐渐的又不够用了，因此，在 1993 年，引入了一种新的方法，称为无类别域间路由（Classless Inter-Domain Routing）简称 CIDR。</p>
 <blockquote>
-<p> network : 网络  protocal : 协议</p>
+<p>无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。</p>
 </blockquote>
+<h2 id="6-2-子网掩码的两种表示方式"><a href="#6-2-子网掩码的两种表示方式" class="headerlink" title="6.2 子网掩码的两种表示方式"></a>6.2 子网掩码的两种表示方式</h2><p><font color="blue">wiki解释</font><br>“子网掩码”（subnet mask），它是一种用来指明一个IP地址的哪些位标识的是主机所在的网络地址以及哪些位标识的是主机地址的位掩码。</p>
+<h3 id="6-2-1-与IPV4相同的表示方法1"><a href="#6-2-1-与IPV4相同的表示方法1" class="headerlink" title="6.2.1 与IPV4相同的表示方法1"></a>6.2.1 与IPV4相同的表示方法1</h3><p>通常情况下，子网掩码的表示方法和地址本身的表示方法是一样的。在IPv4中，就是点分十进制四组表示法。如图，255.255.0.0 就是 172.16.3.4 的子网掩码。<br><img data-src="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以ABC三类的子网掩码为：<br><img data-src="https://img-blog.csdnimg.cn/20210424192155216.png"></p>
+<h3 id="6-2-2-无类别域间路由表示方法2"><a href="#6-2-2-无类别域间路由表示方法2" class="headerlink" title="6.2.2 无类别域间路由表示方法2"></a>6.2.2 无类别域间路由表示方法2</h3><p>另一种更为简短的形式叫做无类别域间路由（CIDR）表示法，它给出的是一个地址加上一个斜杠以及网络掩码的二进制表示法中“1”的位数（即网络号中和网络掩码相关的是哪些位）。例如，172.16.3.4/16表示的是一个前16位被用作网络号的IP地址（和255.255.0.0的意思一样）。</p>
+<p><font color="red" size="5">使用CIDR表示，忘记掉该网络是第几类</font><br><img data-src="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运算（AND）即得出网络地址来。这样在路由器处理到来的分组时就可以采用同样的方法。</p>
 <hr>
-<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
-<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
-<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
-<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
-<hr>
-<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
-<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
-<li>coper电缆：cheaper、short distance、electric signal </li>
-<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
-</ol>
-<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
-<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
-</ol>
-<hr>
+<h2 id="6-2-子网划分"><a href="#6-2-子网划分" class="headerlink" title="6.2 子网划分"></a>6.2 子网划分</h2><p>把基于每类的IP网络进一步分成更小的网络，每个子网由路由器界定并分配一个新的子网网络地址,子网地址是借用基于每类的网络地址的主机部分创建的。划分子网后，通过使用掩码，把子网隐藏起来，使得从外部看网络没有变化，这就是子网掩码。</p>
+<h3 id="子网划分例子"><a href="#子网划分例子" class="headerlink" title="子网划分例子"></a>子网划分例子</h3><p>上节知识我们计算了网络号的个数和主机数，下图大家计算一下，该网络属是几类网络，有多少主机。<br><img data-src="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>网络类：<br>172 = 1010 1100‬<br>10开头说明为B类<br>结点个数：<br>0.0 - 255.255个<br>2的16次方个<br>65536个<br><font color="green" size="5">大家思考一下，一个局域网网络中有65536个，是不是太多了，一个办公室根本不需要这么多，所以我们进行子网划分</font></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>经过划分之后，我们有了256个子网，每个子网有256个结点，合理多了！</p>
+<h2 id="6-3-CIDR-记录法"><a href="#6-3-CIDR-记录法" class="headerlink" title="6.3  CIDR 记录法"></a>6.3  CIDR 记录法</h2><p><img data-src="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>问：<br>为什么网段 A 中的设备无法通过路由器与网段 B 进行通信？<br>答：<br>问题的重点在中间路由器所在的网段，通过 172.16.2.0/30 得知，前30位都是掩码，因此只留下 2 位允许划分空间，根据 2 的 2 次方=4 可以确定该网段之划分了 4 个 IP 地址 172.16.2.0~172.16.2.3。右侧的路由器 IP 为 172.16.2.20，很明显不在正确范围内。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果，我们拥有一个 B 类地址，172.16.0.0，子网掩码为 255.255.0.0，我们使用子网划分将子网掩码设置为 255.255.240.0，请问：</p>
+<p>问：我们此时拥有多少个子网空间？<br>答：16 个，172.16.0.0 打开了八位位组的前 16 位，而【255.255.240.0】打开了八位位组的前 20 位，20-16=4 位，这是子网的另外 4 位，因此 2 的 4 次方=16，因此，我们此时拥有16个子网空间。分别为：<br>172.16.0.0<br>172.16.16.0<br>172.16.32.0<br>172.16.48.0<br>172.16.64.0<br>172.16.80.0<br>172.16.96.0<br>172.16.112.0<br>172.16.128.0<br>172.16.144.0<br>172.16.160.0<br>172.16.176.0<br>172.16.192.0<br>172.16.208.0<br>172.16.224.0<br>172.16.240.0<br>问：每个子网空间可以划分多少 IP 地址？【例如：176.16.0.1 ~176.16.15.255】<br>答：每个子网有 16 * 256 = 4096 个 IP 地址。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%BD%91">子网-wiki</a></p>
+<p><a href="https://sspai.com/post/64688#!">小白也能看懂的网络基础 04 | IP地址是如何工作的</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -400,49 +353,136 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>写作模板</title>
-    <url>/2021/05/21/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>title: 写作模板<br>date: 1621579946009<br>urlname:<br>tags:<br>categories:<br>description:</p>
+    <title>【计算机网络】基础概念总结4-OSI模型</title>
+    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C04/</url>
+    <content><![CDATA[<h1 id="4-OSI模型"><a href="#4-OSI模型" class="headerlink" title="4 OSI模型"></a>4 OSI模型</h1><p>应用层【第七层】(Application)<br>表示层【第六层】(Presentation)<br>会话层【第五层】(Session)<br>传输层【第四层】(Transport)<br>网络层【第三层】(Network)<br>链路层【第二层】(Data Link)<br>物理层【第一层】(Physical)<br><img data-src="https://img-blog.csdnimg.cn/20210422160327489.gif#pic_center"></p>
+<h2 id="发送顺序"><a href="#发送顺序" class="headerlink" title="发送顺序"></a>发送顺序</h2><h3 id="Application-应用层"><a href="#Application-应用层" class="headerlink" title="Application 应用层"></a>Application 应用层</h3><p>数据的出现是始于应用层的，（例如使用【主机A】通过FTP向【主机B】传输一个文件信息）应用程序都属于应用层的内容（例如：QQ、微信、Web浏览器等都属于应用层）；应用程序准备好信息后，就可以向表示层传递了。<br>文件传输协议：FTP<br>网页：HTTP、HTTPS<br>邮件：SMTP<br>虚拟终端：Telnet</p>
+<h3 id="Presentation-表示层"><a href="#Presentation-表示层" class="headerlink" title="Presentation 表示层"></a>Presentation 表示层</h3><p>表示层收到应用层传来的文件信息后，会把数据转换为能与接收者【主机B】的系统格式兼容并适合传输的格式（表示层可能对数据进行加密、压缩、编码等操作，无论如何，这都是为了迎合【主机B】），操作完毕，数据会传递到会话层。</p>
+<ol>
+<li>Translation</li>
+<li>Data Compression</li>
+<li>Encryption、Decryption<h3 id="Session-会话层"><a href="#Session-会话层" class="headerlink" title="Session 会话层"></a>Session 会话层</h3>会话层接收到表示层传来的数据信息后，负责在数据传输中设置和维护两台计算机之间的通信连接，以保证这段连接不会因中断而造成不必要的麻烦。建立好会话连接后，数据继续向下传递。</li>
+<li>确定：who are you？</li>
+<li>确定：if you have the permission to access file？<h3 id="Transport-传输层"><a href="#Transport-传输层" class="headerlink" title="Transport 传输层"></a>Transport 传输层</h3>对数据传输进行流量控制，也就是大文件分成多块进行传输。就好比我们搬家，一辆车装不下，那就多装几辆车，然后让这些车同时出发，同时呢，为了避免道路阻塞，它还可以选择多条路来进行传输，这就是传输层的流量控制、避免拥塞和多路复用的体现。</li>
+</ol>
+<p>同时，传输层还会给这些数据追加一个【源目端口】，一方面告知对方信息打哪来，一方面要让信息知道它们要到哪去（例如：我使用 Google 浏览器访问百度网站，这里就会添加了 Google 的端口和百度服务器的端口）。</p>
+<ol>
+<li>Segmentation </li>
+<li>Add Source Port and Des Port ，and the Sequence Num</li>
+<li>Flow Control</li>
+<li>Error Control<h3 id="Network-网络层"><a href="#Network-网络层" class="headerlink" title="Network 网络层"></a>Network 网络层</h3>如果我们要传递的信息是被异地主机接收，就需要靠ip地址来确定异地的网段。所以网络层会给数据追加一个【源ip地址】，再添加一个【目的ip地址】。<br>这就解决了数据从哪里来，要到哪里去的问题。</li>
+<li>Add network address ：①source address ②destination address</li>
+<li>Add routing<h3 id="Data-Link-数据链路层"><a href="#Data-Link-数据链路层" class="headerlink" title="Data Link 数据链路层"></a>Data Link 数据链路层</h3>网络层解决了异地网段的问题，但数据走到这里还无法确定要传递到该网段下的那一台机器，因此，数据链路层会把【主机A】和【主机B】的【MAC地址】再进行追加，这就是【源MAC地址】与【目的MAC地址】，因为MAC地址是唯一的，【主机B】始终能找到【主机A】。</li>
+</ol>
+<p>同时，数据链路层在数据的尾部追加了一个【FSC帧校验】，因为我们的数据再传输层有可能已经被切片，因此，为了检测数据的完整性，就有了这个【FSC帧校验】。</p>
+<h3 id="Physical-物理层"><a href="#Physical-物理层" class="headerlink" title="Physical 物理层"></a>Physical 物理层</h3><p>将编码后的数据转换为物理信号010101010110101010110进行传输，就是之前说的通过有线或者无线。</p>
+<h2 id="接收顺序"><a href="#接收顺序" class="headerlink" title="接收顺序"></a>接收顺序</h2><p>与发送顺序相反</p>
+<h2 id="全过程"><a href="#全过程" class="headerlink" title="全过程"></a>全过程</h2><p>如下图所示<br><img data-src="https://img-blog.csdnimg.cn/20210422160032395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><ol>
+<li>高带宽应用导致网络速度「变慢」，问题出在哪一层？我们应该如何解决？</li>
+<li>请阐述以下内容分别来自OSI模型的哪一层<br>FTP（文件传输协议）<br>Session Control Protocol（会话控制协议）<br>Service Requests（请求服务）<br>JPEG（图像格式）<br>GIF（图像格式）<br>MPEG（图像格式）<br>SMTP（电子邮件传输的协议）<br>TIFF（图像格式）<br>Telnet（隶属于TCP/IP协议族）<br>Flow Control（流量控制）</li>
+<li>把描述连到正确的OSI模型分层<br><img data-src="https://img-blog.csdnimg.cn/20210423143807285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>计算机网络</category>
       </categories>
       <tags>
-        <tag>模板</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
-    <title>校园日记</title>
-    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
-    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
+    <title>【计算机网络】基础概念总结5-IP地址工作方式</title>
+    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/</url>
+    <content><![CDATA[<h1 id="5-IP地址工作"><a href="#5-IP地址工作" class="headerlink" title="5 IP地址工作"></a>5 IP地址工作</h1><h2 id="5-1-IP地址存在意义"><a href="#5-1-IP地址存在意义" class="headerlink" title="5.1 IP地址存在意义"></a>5.1 IP地址存在意义</h2><p>前面已经说过，全世界设备非常多，不可能通过【MAC地址】来寻址<br>通过【IP地址】我们可以很轻松的找到一台已经接入网络中的设备。</p>
+<h2 id="5-2-IP地址分类"><a href="#5-2-IP地址分类" class="headerlink" title="5.2 IP地址分类"></a>5.2 IP地址分类</h2><p><img data-src="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IPV4
+IPV6"></p>
+<p>介绍最常见的IPV4这种地址形式</p>
+<h2 id="5-3-IPV4地址"><a href="#5-3-IPV4地址" class="headerlink" title="5.3 IPV4地址"></a>5.3 IPV4地址</h2><p>IPv4 地址是一段由<strong>四组数字</strong>组成的整体，每组数字中间使用<strong>点</strong>来隔开，每组数字有八位字节<br><img data-src="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以IPV4的取值范围为<br><img data-src="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="5-4-IPV4由两部分组成"><a href="#5-4-IPV4由两部分组成" class="headerlink" title="5.4 IPV4由两部分组成"></a>5.4 IPV4由两部分组成<img data-src="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></h2><p>1 网络号<br>同一网络号就是处于同一网段<br>不同网段的主机要通信需要路由器<br>2 主机号</p>
+<h2 id="5-5-IPV4的分级"><a href="#5-5-IPV4的分级" class="headerlink" title="5.5 IPV4的分级"></a>5.5 IPV4的分级</h2><h3 id="5-5-1-Class-A–Large-Networks"><a href="#5-5-1-Class-A–Large-Networks" class="headerlink" title="5.5.1 Class A–Large Networks"></a>5.5.1 Class A–Large Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">第一位保留0</font><br>因为网络号的第一位保留，所以<br>【网络号】<br>0000 0000 - 0111 1111<br>共8位，锁一位，共128个<br>即0-127<br>共180个<br>【主机号】<br>0000 0000.0000 0000.0000 0000 - 1111 1111.1111 1111.1111 1111个<br>即0 - 16,777,215<br>共16,777,216个</p>
+<h3 id="5-5-2-Class-B-–-Medium-Networks"><a href="#5-5-2-Class-B-–-Medium-Networks" class="headerlink" title="5.5.2 Class B – Medium Networks"></a>5.5.2 Class B – Medium Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p><font color="green" size="5">前两位保留10</font><br>【网络号】<br>IP前两组从：1000 0000.0000 0000 到 1011 1111.1111 1111<br>即128.0-191.255<br>总共16位，锁了两位，剩14位，共16384个<br>共32768 - 49151个‬<br>共16384个<br>【主机号】<br>IP的后两组从：0000 0000.0000 0000 到1111 1111.1111 1111<br>即0.0 - 255.255<br>共0 - 65535个<br>共65536个</p>
+<h3 id="5-5-3-Class-C-–-Small-Networks"><a href="#5-5-3-Class-C-–-Small-Networks" class="headerlink" title="5.5.3 Class C – Small Networks"></a>5.5.3 Class C – Small Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">前三位保留110</font><br>【网络号】<br>IP前三组数从：1100 0000.0000 0000 到 1101 1111.1111 1111. 1111 1111<br>即192.0.0-223.255.255<br>由于前三位锁定，所以有21位网络可供使用<br>共2097152个<br>【主机号】<br>IP的最后一组数从：0000 0000 到1111 1111<br>即0 - 255<br>共256个</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img data-src="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>假如【172.16.0.1】的主机需要和【172.16.0.2】通信<br>0.1 主机首先就会查看 0.2 主机是否与自己在同一网段下</p>
+<p>两种方式查看：</p>
+<ol>
+<li>查看八位位组是否一致；</li>
+<li>查看IP地址的前两组数是否一致<br>若一致，则代表在同一网段，因此可以直接发送信息；</li>
+</ol>
+<p>若172.16 网段中的 0.1 主机想要发送信息给 172.17 网段中的 0.2 主机，同样是根据上述方法检测，此时发现 0.2 主机在另一网段，因此需要借助【路由器】来实现信息的交互。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>A、B 和 C 类 IP 地址的网络空间范围：<br>A 类 IP 地址：0.0.0.0 ~ 127.0.0.0<br>B 类 IP 地址：128.0.0.0 ~ 191.255.0.0<br>C 类 IP 地址：192.0.0.0 ~ 223.255.255.0</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
 ]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
       <tags>
-        <tag>学校生活</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
-    <title>回文链表</title>
-    <url>/2021/05/17/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
-<span id="more"></span>
-
-<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
-<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
-<p>缺点：破坏了链表的结构</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
+    <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
+    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
+    <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
+<h2 id="8-2-默认网关"><a href="#8-2-默认网关" class="headerlink" title="8.2 默认网关"></a>8.2 默认网关</h2><p>如果搞清了什么是网关，默认网关也就好理解了。就好像一个房间可以有多扇门一样，一台主机可以有多个网关。默认网关的意思是一台主机如果找不到可用的网关，就把数据包发给默认指定的网关，由这个网关来处理数据包。现在主机使用的网关，一般指的是默认网关。</p>
+<p>默认网关必须是电脑自己所在的网段（将IP地址和子网掩码作与运算，得到网段）中的IP地址，而不能填写其他网段中的IP地址。</p>
+<h2 id="8-3-特殊的网络IP"><a href="#8-3-特殊的网络IP" class="headerlink" title="8.3 特殊的网络IP"></a>8.3 特殊的网络IP</h2><p>每一个网段的最后一个 IP 地址，都是广播IP。<br>另一个同样是用于广播的比较特殊的广播 IP，那就是 255.255.255.255。<br>这个地址指本网段内(同一个广播域)的所有主机，该地址用于主机配置过程中IP数据包的目的地址，这时主机可能还不知道它所在网络的网络掩码，甚至连自己的IP地址也还不知道。</p>
+<blockquote>
+<p>注 ：避免路由器转发255.255.255.255，造成死循环<br>在任何情况下，路由器都会禁止转发目的地址为受限的广播地址的数据包，这样的数据包仅会出现在本地网络中.</p>
+</blockquote>
+<h2 id="8-4-单播网络-unicast-traffic"><a href="#8-4-单播网络-unicast-traffic" class="headerlink" title="8.4 单播网络 unicast traffic"></a>8.4 单播网络 unicast traffic</h2><p>单播(unicast): 是指封包在计算机网络的传输中，目的地址为单一目标的一种传输方式。它是现今网络应用最为广泛，通常所使用的网络协议或服务大多采用单播传输，例如一切基于TCP的协议。<br><img data-src="https://img-blog.csdnimg.cn/20210427152005381.png"><br>单播在网络中得到了广泛的应用，网络上绝大部分的数据都是以单播的形式传输的，只是一般网络用户不知道而已。例如，你在收发电子邮件、浏览网页时，必须与邮件服务器、Web服务器建立连接，此时使用的就是单播数据传输方式。但是通常使用“点对点通信”（Point to Point）代替“单播”，因为“单播”一般与“多播”和“广播”相对应使用。</p>
+<h2 id="8-5-多播网络Multicast-traffic"><a href="#8-5-多播网络Multicast-traffic" class="headerlink" title="8.5 多播网络Multicast traffic"></a>8.5 多播网络Multicast traffic</h2><p>要向其他网络多个主机传递消息，单播网络局限性。255.255.255.255又只有本地有用。所以就有了多播网络<br>多播流量需要使用特殊 IP 地址，也就是我们之前所说的 D 类 IP 地址，D 类 IP 地址的地址范围从 224.0.0.0 到 239.255.255.255，多播是设备选择接受特定流量的一种方式。<br><img data-src="https://img-blog.csdnimg.cn/2021042715005090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="8-6-公-私IP"><a href="#8-6-公-私IP" class="headerlink" title="8.6 公/私IP"></a>8.6 公/私IP</h2><p>每个IP都是唯一</p>
+<h3 id="8-6-1-互联网号码分配局（IANA）"><a href="#8-6-1-互联网号码分配局（IANA）" class="headerlink" title="8.6.1 互联网号码分配局（IANA）"></a>8.6.1 互联网号码分配局（IANA）</h3><p>这些 IP 地址统一由 互联网号码分配局 （Internet Assigned Numbers Authority）简称 IANA 进行管理，它们将大量地址分配给分布于世界各地的子机构，我们也称其为 区域性互联网注册管理机构 （Regional Internet Registry）简称 RIR。</p>
+<ol>
+<li>RIPE：欧洲 IP 地址注册中心</li>
+<li>LACNIC：拉丁美洲和加勒比海 Internet 地址注册中心</li>
+<li>ARIN：美国 Internet 编号注册中心</li>
+<li>AFRINIC：非洲网络信息中心</li>
+<li>APNIC：亚太地址网络信息中心</li>
+</ol>
+<h3 id="8-6-2-互联网服务提供商（ISP）"><a href="#8-6-2-互联网服务提供商（ISP）" class="headerlink" title="8.6.2 互联网服务提供商（ISP）"></a>8.6.2 互联网服务提供商（ISP）</h3><p>RIR 为各地的互联网服务提供商（简称 ISP）分配地址空间，也会分配空间给拥有庞大用户量的【大客户】。</p>
+<p>IANA 分配地址给 RIR<br>RIR 分配地址给 ISP， 大客户<br>ISP 分配地址给小客户</p>
+<h2 id="8-7-私人-IP与公共-IP"><a href="#8-7-私人-IP与公共-IP" class="headerlink" title="8.7 私人 IP与公共 IP"></a>8.7 私人 IP与公共 IP</h2><h3 id="8-7-1-私人-IP"><a href="#8-7-1-私人-IP" class="headerlink" title="8.7.1 私人 IP"></a>8.7.1 私人 IP</h3><p>当我们想要创建一个新的网络，则需要获取更多的 IP 地址，我们需要找到当地的服务提供商进行申请。<br>私人IP包括以下：<br>10.0.0.0 /8<br>172.16.0.0 /12<br>192.168.0.0 /16</p>
+<p>由于IPV4的数量有限<br>这些IP只能在局域网中使用，不能在互联网上使用，使用NAT（网络地址转换）技术完成上网，将私人IP修改为公共IP<br><img data-src="https://img-blog.csdnimg.cn/20210427154826998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427154848918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427160531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="8-7-2-公共IP"><a href="#8-7-2-公共IP" class="headerlink" title="8.7.2 公共IP"></a>8.7.2 公共IP</h3><p>除了私人 IP 之外的 IP 地址，均属于公共 IP。</p>
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>计算机网络</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码</title>
+    <url>/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/</url>
+    <content><![CDATA[<h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
+<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
+<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
+<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
+<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
+<p><a href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
 </search>
