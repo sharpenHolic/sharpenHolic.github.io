@@ -25,6 +25,36 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2021/06/08/mySQL/mysql%20%208%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="mysql-8-快速入门"><a href="#mysql-8-快速入门" class="headerlink" title="mysql  8 快速入门"></a>mysql  8 快速入门</h1><p>ubuntu 20.04</p>
+<p>mysql 8.0.25</p>
+<h2 id="安装、登陆以及修改密码"><a href="#安装、登陆以及修改密码" class="headerlink" title="安装、登陆以及修改密码"></a>安装、登陆以及修改密码</h2><p>1 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install mysql-server </span><br><span class="line">sudo apt-get install mysql-client </span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p>2 登陆</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf    <span class="comment"># 查看默认配置文件</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/.io//.%5Cmysql8%5Cimage-20210608201613786.png" alt="image-20210608201613786"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p        <span class="comment"># 登陆  用户名以上图的user后名字为准</span></span><br></pre></td></tr></table></figure>
+
+<p>提示输入密码，这里要输入的就是上一步的‘password=855euFyQpqMhe6v0’（密码以自己的配置文件为准）。</p>
+<p>记得不要手敲密码，复制粘贴</p>
+<p>3 修改密码</p>
+<p>安装完之后，在家目录下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf  <span class="comment"># 查看debian-sys-maint的密码</span></span><br><span class="line">mysql -u debian-sys-maint -p  <span class="comment"># 使用debian-sys-maint登录</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; use mysql;  <span class="comment"># 切换到mysql数据库</span></span><br><span class="line">mysql&gt; alter user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified with mysql_native_password by <span class="string">&#x27;123456&#x27;</span>;  <span class="comment"># 修改密码为123456</span></span><br><span class="line">mysql&gt; quit；  <span class="comment"># 退出</span></span><br></pre></td></tr></table></figure>
+
+<p>重新进入，成功进入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p </span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>windows安装 anaconda3 + pytorch</title>
     <url>/2021/05/28/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/windows%E5%AE%89%E8%A3%85%20anaconda3%20+%20pytorch/</url>
     <content><![CDATA[<h2 id="本机信息"><a href="#本机信息" class="headerlink" title="本机信息"></a>本机信息</h2><p>显卡：GTX-1650</p>
