@@ -27,22 +27,20 @@
     var CONFIG = {"hostname":"sharpenholic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="写在前面写本文的原因：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：  不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行">
+  <meta name="description" content="不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更加高效规范的开发--技巧篇（持续更新）">
-<meta property="og:url" content="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/index.html">
+<meta property="og:title" content="人生需要停下来看看风景">
+<meta property="og:url" content="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/index.html">
 <meta property="og:site_name" content="Johnの博客">
-<meta property="og:description" content="写在前面写本文的原因：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：  不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行">
+<meta property="og:description" content="不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16">
-<meta property="article:published_time" content="2021-10-18T09:27:35.000Z">
-<meta property="article:modified_time" content="2021-10-18T08:06:32.528Z">
+<meta property="article:published_time" content="2021-10-18T08:07:45.756Z">
+<meta property="article:modified_time" content="2021-06-07T12:56:18.083Z">
 <meta property="article:author" content="且听风吟">
-<meta property="article:tag" content="工作 学习">
+<meta property="article:tag" content="思想">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16">
 
-<link rel="canonical" href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
+<link rel="canonical" href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/">
 
 
 <script id="page-configurations">
@@ -55,7 +53,7 @@
   };
 </script>
 
-  <title>更加高效规范的开发--技巧篇（持续更新） | Johnの博客</title>
+  <title>人生需要停下来看看风景 | Johnの博客</title>
   
 
 
@@ -196,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://z3.ax1x.com/2021/05/19/g53hMF.png">
@@ -209,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          更加高效规范的开发--技巧篇（持续更新）
+          人生需要停下来看看风景
         </h1>
 
         <div class="post-meta">
@@ -218,17 +216,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-10-18 17:27:35 / 修改时间：16:06:32" itemprop="dateCreated datePublished" datetime="2021-10-18T17:27:35+08:00">2021-10-18</time>
+              <time title="创建时间：2021-10-18 16:07:45" itemprop="dateCreated datePublished" datetime="2021-10-18T16:07:45+08:00">2021-10-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-07 20:56:18" itemprop="dateModified" datetime="2021-06-07T20:56:18+08:00">2021-06-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">学习方法技巧</span></a>
+                  <a href="/categories/%E5%86%99%E4%BD%9C%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">写作类</span></a>
                 </span>
             </span>
 
@@ -249,8 +253,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/10/18/学校写作/2021-10-18-更加高效规范的开发--技巧篇（持续更新）/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/10/18/学校写作/发发牢骚/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -261,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>58</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -280,56 +284,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>写本文的原因</strong>：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：</p>
-<ol>
-<li>不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行学习 </li>
-<li>从提升个人的效率的方面进行学习（例如Linux技术等）</li>
-<li>其次多了解行业的广度</li>
-<li>由于2中个人效率的提高，可以更快的从项目中了解行业的深度</li>
-</ol>
-<p>以下是本人在学习工作中遇到的困难，面向百度谷歌记录下来的一些提升效率的小技巧，遇到了就持续更新进来。<br>写文章的目的也是为了监督自己，做技术最害怕的就是停留在自己的小圈里，不提升学习一些新技术。</p>
-<span id="more"></span>
-
-<h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><p>git在项目中使用非常多，掌握好git的技巧可以事半功倍的完成开发</p>
-<h2 id="git项目搭建方面"><a href="#git项目搭建方面" class="headerlink" title="git项目搭建方面"></a>git项目搭建方面</h2><ol>
-<li>使用github gitee gitlab等托管代码</li>
-<li>首先将ssh公钥加入到设置中</li>
-<li>创建仓库，并且pull下代码<h2 id="个人工作使用方面"><a href="#个人工作使用方面" class="headerlink" title="个人工作使用方面"></a>个人工作使用方面</h2><h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3></li>
-<li>确定好本次分支的需求<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先做pull确保使用的是最新分支</span></span><br><span class="line">git pull origin/&lt;远程主分支(最好为主分支)&gt;</span><br><span class="line"><span class="comment"># 以当前分支为模板创建并且检出到该分支</span></span><br><span class="line">git checkout -b &lt;分支名&gt;</span><br></pre></td></tr></table></figure></li>
-<li>修改完代码之后的事情<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;code&gt;</span><br><span class="line">git commit -m <span class="string">&quot;本次提交的信息&quot;</span></span><br><span class="line">git push origin &lt;分支名&gt;</span><br><span class="line"><span class="comment"># 若遇到冲突，在本次分支做merge，再做上面的事情</span></span><br><span class="line">git merge master</span><br></pre></td></tr></table></figure></li>
-<li>到远程merge本次commit</li>
-</ol>
-<h3 id="查看相关修改"><a href="#查看相关修改" class="headerlink" title="查看相关修改"></a>查看相关修改</h3><ol>
-<li>使用<code>git diff </code>查看相关代码的异同。在本分支commit了之后，常使用<code>git diff origin/&lt;分支名&gt;</code>来比较本次修改的内容与远程的<code>&lt;分支名&gt;</code>的异同</li>
-<li>使用<code>git blame</code> 查看相关代码是何时何人做的提交</li>
-</ol>
-<h3 id="查看信息与分支切换"><a href="#查看信息与分支切换" class="headerlink" title="查看信息与分支切换"></a>查看信息与分支切换</h3><ol>
-<li>使用<code>git status</code> 查看代码修改情况</li>
-<li>使用<code>git branch</code>查看本地分支，加-a参数为本地远程所有分支</li>
-<li>使用<code>git checkout &lt;分支名&gt;</code>切换到相应分支</li>
-</ol>
-<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><ol>
-<li><code>git log</code>来查看历史的提交版本</li>
-<li><code>git reset --hard &lt;commit ID&gt;</code> 来回退版本<h3 id="submodule问题"><a href="#submodule问题" class="headerlink" title="submodule问题"></a>submodule问题</h3>当项目中存在submodule时候，在做每次分支代码时，确保用到最新的submodule，使用以下代码<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="同时处理多个分支"><a href="#同时处理多个分支" class="headerlink" title="同时处理多个分支"></a>同时处理多个分支</h3><p>在开发中，当前分支做了一些修改之后，突然接到任务要处理其他的情况。这时应该首先考虑两个事件的优先级。确定好之后，</p>
-<ol>
-<li>使用<code>git stash</code>来保存住当前分支的快照</li>
-<li>到优先级高的任务处理</li>
-<li><code>git checkout &lt;之前的分支&gt;</code>， 使用<code>git stash pop</code>拿出</li>
-</ol>
-<h1 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h1><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ol>
-<li>工作中遇到了需要通过名字定位到文件的需求，但是有时候文件名字也没有记清楚，通过以下命令来完成这个操作<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用通配符* ？ 等实现模糊查找</span></span><br><span class="line">find &lt;directory&gt; -name *aaa*</span><br></pre></td></tr></table></figure></li>
-<li>查找文件里面的内容<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;search content&quot;</span> filename1</span><br><span class="line"><span class="comment"># 查找当前目录下所有的文件内容</span></span><br><span class="line">grep <span class="string">&quot;search content&quot;</span> *</span><br><span class="line"><span class="comment"># 递归查找</span></span><br><span class="line">grep -nr <span class="string">&quot;search content&quot;</span> *</span><br></pre></td></tr></table></figure>
-<h2 id="编辑（vim）"><a href="#编辑（vim）" class="headerlink" title="编辑（vim）"></a>编辑（vim）</h2>有时候需要使用vim进行编辑，vim真的太强大了！！<br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/vim/vim-o6bc3keq.html">W3Cschool</a><br><img data-src="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h3><h3 id="查找定位跳转"><a href="#查找定位跳转" class="headerlink" title="查找定位跳转"></a>查找定位跳转</h3><h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h1 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h1><h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h1 id="C-C-语言"><a href="#C-C-语言" class="headerlink" title="C/C++语言"></a>C/C++语言</h1><h2 id="string的处理"><a href="#string的处理" class="headerlink" title="string的处理"></a>string的处理</h2><h3 id="情景一"><a href="#情景一" class="headerlink" title="情景一"></a>情景一</h3><blockquote>
-<p>输入带空格的一串英文，将每个单词存入向量之中。即每个向量的元素是一个string</p>
-</blockquote>
-<p>在询问东哥得到解决方法</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testVector3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s1;</span><br><span class="line">	vector&lt;string&gt; s2;</span><br><span class="line">	<span class="keyword">char</span> ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">		cin &gt;&gt; s1;</span><br><span class="line">		ch = <span class="built_in">getchar</span>();</span><br><span class="line">		s2.<span class="built_in">push_back</span>(s1);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>总结收获</strong><br>cin 用法介绍<br>getchar用法介绍</p>
-<h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></p>
+        <p>不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树</p>
 
     </div>
 
@@ -337,6 +292,12 @@
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2021\06\07\学校写作\cscs\" rel="bookmark">人生需要停下来看看风景</a></div>
+    </li>
+  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -367,7 +328,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" title="更加高效规范的开发--技巧篇（持续更新）">https://sharpenholic.github.io/2021/10/18/学校写作/2021-10-18-更加高效规范的开发--技巧篇（持续更新）/</a>
+    <a href="https://sharpenholic.github.io/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/" title="人生需要停下来看看风景">https://sharpenholic.github.io/2021/10/18/学校写作/发发牢骚/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -379,7 +340,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E5%B7%A5%E4%BD%9C-%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 工作 学习</a>
+              <a href="/tags/%E6%80%9D%E6%83%B3/" rel="tag"><i class="fa fa-tag"></i> 思想</a>
           </div>
 
         
@@ -388,10 +349,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E5%8F%91%E5%8F%91%E7%89%A2%E9%AA%9A/" rel="prev" title="人生需要停下来看看风景">
-      <i class="fa fa-chevron-left"></i> 人生需要停下来看看风景
+    <a href="/2021/06/28/git%E6%95%99%E7%A8%8B/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" rel="next" title="更加高效规范的开发--技巧篇（持续更新）">
+      更加高效规范的开发--技巧篇（持续更新） <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -456,7 +420,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">git使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E6%96%B9%E9%9D%A2"><span class="nav-number">2.1.</span> <span class="nav-text">git项目搭建方面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E5%B7%A5%E4%BD%9C%E4%BD%BF%E7%94%A8%E6%96%B9%E9%9D%A2"><span class="nav-number">2.2.</span> <span class="nav-text">个人工作使用方面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.1.</span> <span class="nav-text">提交代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%9B%B8%E5%85%B3%E4%BF%AE%E6%94%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">查看相关修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E4%BF%A1%E6%81%AF%E4%B8%8E%E5%88%86%E6%94%AF%E5%88%87%E6%8D%A2"><span class="nav-number">2.2.3.</span> <span class="nav-text">查看信息与分支切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.4.</span> <span class="nav-text">版本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#submodule%E9%97%AE%E9%A2%98"><span class="nav-number">2.2.5.</span> <span class="nav-text">submodule问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%97%B6%E5%A4%84%E7%90%86%E5%A4%9A%E4%B8%AA%E5%88%86%E6%94%AF"><span class="nav-number">2.2.6.</span> <span class="nav-text">同时处理多个分支</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%9B%B8%E5%85%B3"><span class="nav-number">3.</span> <span class="nav-text">文件相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE"><span class="nav-number">3.1.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%EF%BC%88vim%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">编辑（vim）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%8F%E6%93%8D%E4%BD%9C"><span class="nav-number">3.2.1.</span> <span class="nav-text">分屏操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%AE%9A%E4%BD%8D%E8%B7%B3%E8%BD%AC"><span class="nav-number">3.2.2.</span> <span class="nav-text">查找定位跳转</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Shell%E8%84%9A%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">Shell脚本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gdb"><span class="nav-number">5.</span> <span class="nav-text">gdb</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="nav-number">6.</span> <span class="nav-text">开发规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">7.</span> <span class="nav-text">docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmake"><span class="nav-number">9.</span> <span class="nav-text">cmake</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-C-%E8%AF%AD%E8%A8%80"><span class="nav-number">10.</span> <span class="nav-text">C&#x2F;C++语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">10.1.</span> <span class="nav-text">string的处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%83%85%E6%99%AF%E4%B8%80"><span class="nav-number">10.1.1.</span> <span class="nav-text">情景一</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><span class="nav-number">11.</span> <span class="nav-text">学习网站</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
