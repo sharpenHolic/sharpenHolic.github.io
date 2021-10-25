@@ -27,31 +27,20 @@
     var CONFIG = {"hostname":"sharpenholic.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","Pisces | Gemini":240,"width":300,"display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="计算机网络的基础知识">
+  <meta name="description" content="快速了解芯片">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【计算机网络】基础概念总结7-VLSM可变长子网掩码">
-<meta property="og:url" content="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/index.html">
+<meta property="og:title" content="快速了解芯片行业">
+<meta property="og:url" content="https://sharpenholic.github.io/2021/10/25/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="Johnの博客">
-<meta property="og:description" content="计算机网络的基础知识">
+<meta property="og:description" content="快速了解芯片">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425144853475.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2021-05-23T07:03:07.683Z">
-<meta property="article:modified_time" content="2021-05-23T07:14:23.617Z">
+<meta property="article:published_time" content="2021-10-25T14:07:02.988Z">
+<meta property="article:modified_time" content="2021-10-25T14:16:36.967Z">
 <meta property="article:author" content="且听风吟">
-<meta property="article:tag" content="计算机网络">
+<meta property="article:tag" content="芯片">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20210425144853475.png">
 
-<link rel="canonical" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/">
+<link rel="canonical" href="https://sharpenholic.github.io/2021/10/25/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
 
 <script id="page-configurations">
@@ -64,7 +53,7 @@
   };
 </script>
 
-  <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码 | Johnの博客</title>
+  <title>快速了解芯片行业 | Johnの博客</title>
   
 
 
@@ -205,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/">
+    <link itemprop="mainEntityOfPage" href="https://sharpenholic.github.io/2021/10/25/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://z3.ax1x.com/2021/05/19/g53hMF.png">
@@ -218,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【计算机网络】基础概念总结7-VLSM可变长子网掩码
+          快速了解芯片行业
         </h1>
 
         <div class="post-meta">
@@ -229,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-23 15:03:07 / 修改时间：15:14:23" itemprop="dateCreated datePublished" datetime="2021-05-23T15:03:07+08:00">2021-05-23</time>
+              <time title="创建时间：2021-10-25 22:07:02 / 修改时间：22:16:36" itemprop="dateCreated datePublished" datetime="2021-10-25T22:07:02+08:00">2021-10-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,7 +226,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                  <a href="/categories/%E7%A7%91%E6%8A%80%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">科技类</span></a>
                 </span>
             </span>
 
@@ -258,8 +247,8 @@
       <span class="post-meta-item-text">Changyan：</span>
     
     
-      <a title="changyan" href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/05/23/计算机网络/计算机网络07/" itemprop="commentCount"></span>
+      <a title="changyan" href="/2021/10/25/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2021/10/25/学校写作/芯片行业知识点/" itemprop="commentCount"></span>
       </a>
     
   </span>
@@ -270,7 +259,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>452</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -279,7 +268,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
-            <div class="post-description">计算机网络的基础知识</div>
+            <div class="post-description">快速了解芯片</div>
 
         </div>
       </header>
@@ -290,25 +279,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
-<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
-<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
-<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
-<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
-<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
-</blockquote>
+        <h1 id="快速了解芯片行业"><a href="#快速了解芯片行业" class="headerlink" title="快速了解芯片行业"></a>快速了解芯片行业</h1><h2 id="芯片行业国内外现状"><a href="#芯片行业国内外现状" class="headerlink" title="芯片行业国内外现状"></a>芯片行业国内外现状</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/fVBpVLF8Sa-TIjcwMqiHvQ">报告 | 半导体硅片行业深度研究报告</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/tXtXI0h6bmDdg_SJpT103w">超详细的集成电路产业链</a></p>
+<h2 id="芯片设计流程"><a href="#芯片设计流程" class="headerlink" title="芯片设计流程"></a>芯片设计流程</h2><ol>
+<li>RTL</li>
+<li>门级</li>
+<li>实体设计</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/SVnrV0Ge5zqUStPz-KSmxg">外国小伙打造出家庭芯片工厂！溅射、氧化、光刻、蚀刻、绑定、封装全包括！高中时期就制出集成放大器，目前工艺已达10微米</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kYUhk6FQwBc&list=PLam3Xgtb1DU4tEfCpjZcVHc_8U58QvLRW&index=1">阿嬤都能懂的 IC 設計流程 (R Ma Knows IC Design Flow)</a></p>
+<h1 id="EDA"><a href="#EDA" class="headerlink" title="EDA"></a>EDA</h1><p><a target="_blank" rel="noopener" href="https://www.toutiao.com/i6982817248201261605/?tt_from=weixin&utm_campaign=client_share&wxshare_count=1&timestamp=1626355291&app=news_article&utm_source=weixin&utm_medium=toutiao_ios&use_new_style=1&req_id=202107152121300102120742260311A0A9&share_token=FEBB7795-793B-4A36-BF0F-2F4BB0DCBC7B&group_id=6982817248201261605&wid=1635168628683">EDA软件行业深度报告：国产EDA逆风而上 (toutiao.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/WOVTnmIcD2w2esBN5G5RkA">国产EDA深度报告</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D4411k7bf?from=search&seid=17566113868107703497&spm_id_from=333.337.0.0">UPF理论和实践_哔哩哔哩_bilibili</a></p>
+<h2 id="数字电路验证"><a href="#数字电路验证" class="headerlink" title="数字电路验证"></a>数字电路验证</h2><h3 id="需要知识点（may-be）"><a href="#需要知识点（may-be）" class="headerlink" title="需要知识点（may be）"></a>需要知识点（may be）</h3><ol>
+<li><p>数电 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1np4y1y7Yj?p=37">数字电子技术基础第六版 清华大学阎石王红_哔哩哔哩_bilibili</a>)</p>
+</li>
+<li><p>C++</p>
+</li>
+<li><p>Linux</p>
+</li>
+<li><p>perl/python/tcl</p>
+</li>
+<li><p>Verilog HDL</p>
+</li>
+<li><p>SystemVerilog验证  — 绿皮书</p>
+</li>
+<li><p>芯片验证漫游指南    — 红皮书</p>
+</li>
+<li><p>UVM实战</p>
+</li>
+</ol>
+<h3 id="数字电路验证划分"><a href="#数字电路验证划分" class="headerlink" title="数字电路验证划分"></a>数字电路验证划分</h3><h4 id="划分方式一"><a href="#划分方式一" class="headerlink" title="划分方式一"></a>划分方式一</h4><ol>
+<li>静态验证<ol>
+<li>低功耗</li>
+</ol>
+</li>
+<li>动态验证</li>
+</ol>
+<h4 id="划分方式二"><a href="#划分方式二" class="headerlink" title="划分方式二"></a>划分方式二</h4><ol>
+<li>RTL级</li>
+<li>门级</li>
+<li>后端实体验证</li>
+</ol>
+<h2 id="电路设计"><a href="#电路设计" class="headerlink" title="电路设计"></a>电路设计</h2><h3 id="后端设计和优化"><a href="#后端设计和优化" class="headerlink" title="后端设计和优化"></a>后端设计和优化</h3><p>Physical design and optimization</p>
+<h1 id="目前有用的公众号"><a href="#目前有用的公众号" class="headerlink" title="目前有用的公众号"></a>目前有用的公众号</h1><p>芯榜+</p>
+<p>EETOP</p>
+<p>旺财芯片</p>
+<p>芯师爷</p>
+<p>国际电子商情</p>
 
     </div>
 
@@ -316,24 +334,6 @@
     
     
       
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络08\" rel="bookmark">【计算机网络】基础概念总结8-网关、广播和公/私IP</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络06\" rel="bookmark">【计算机网络】基础概念总结6-子网掩码</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络05\" rel="bookmark">【计算机网络】基础概念总结5-IP地址工作方式</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络04\" rel="bookmark">【计算机网络】基础概念总结4-OSI模型</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2021\05\23\计算机网络\计算机网络03\" rel="bookmark">【计算机网络】基础概念总结3-网络寻址</a></div>
-    </li>
-  </ul>
 
         <div class="reward-container">
   <div></div>
@@ -364,7 +364,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sharpenholic.github.io/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/" title="【计算机网络】基础概念总结7-VLSM可变长子网掩码">https://sharpenholic.github.io/2021/05/23/计算机网络/计算机网络07/</a>
+    <a href="https://sharpenholic.github.io/2021/10/25/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/" title="快速了解芯片行业">https://sharpenholic.github.io/2021/10/25/学校写作/芯片行业知识点/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -376,7 +376,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i> 计算机网络</a>
+              <a href="/tags/%E8%8A%AF%E7%89%87/" rel="tag"><i class="fa fa-tag"></i> 芯片</a>
           </div>
 
         
@@ -385,13 +385,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C03/" rel="prev" title="【计算机网络】基础概念总结3-网络寻址">
-      <i class="fa fa-chevron-left"></i> 【计算机网络】基础概念总结3-网络寻址
+    <a href="/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/" rel="prev" title="更加高效规范的开发--技巧篇（持续更新）">
+      <i class="fa fa-chevron-left"></i> 更加高效规范的开发--技巧篇（持续更新）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/05/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C04/" rel="next" title="【计算机网络】基础概念总结4-OSI模型">
-      【计算机网络】基础概念总结4-OSI模型 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -456,7 +453,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#7-VLSM%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">7 VLSM概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E5%85%88%E4%BA%86%E8%A7%A3%E4%BB%80%E4%B9%88%E6%98%AFFLSM%EF%BC%88Fixed-Length-Subnet-Mask%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E4%BB%80%E4%B9%88%E6%98%AFVLSM%EF%BC%88Variable-Length-Subnet-Mask%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">7.2 什么是VLSM（Variable Length Subnet Mask）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E4%BD%BF%E7%94%A8VLSM%E5%88%92%E5%88%86%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.3.</span> <span class="nav-text">7.3 使用VLSM划分一个网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%E8%A7%82%E5%AF%9FIP%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.1.</span> <span class="nav-text">7.3.1 观察IP范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-%E5%AD%90%E7%BD%91%E4%B8%AA%E6%95%B0"><span class="nav-number">1.3.2.</span> <span class="nav-text">7.3.2 子网个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E5%AF%B9%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E6%8C%89%E7%85%A7%E7%BB%93%E7%82%B9%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">step1 对所有网络按照结点数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-2-%E7%BB%99%E6%9C%80%E5%A4%A7%E7%9A%84%E7%BD%91%E7%BB%9C%EF%BC%88LAN2%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.4.</span> <span class="nav-text">step 2 给最大的网络（LAN2）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E7%BB%99%E6%AC%A1%E5%A4%A7%E7%9A%84%E7%BD%91%E7%BB%9C%EF%BC%88LAN1%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.5.</span> <span class="nav-text">step3 给次大的网络（LAN1）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4-%E7%BB%99%E7%AC%AC%E4%B8%89%E5%A4%A7%E7%BD%91%E7%BB%9C%EF%BC%88LAN3%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.6.</span> <span class="nav-text">step4 给第三大网络（LAN3）分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step5-%E7%BB%99LINK%E7%BD%91%E7%BB%9C%EF%BC%88LINKA%E3%80%81B%E3%80%81C%EF%BC%89%E5%88%86%E9%85%8D"><span class="nav-number">1.3.7.</span> <span class="nav-text">step5 给LINK网络（LINKA、B、C）分配</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VLSM%E5%88%92%E5%88%86%E5%AD%90%E7%BD%91%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">VLSM划分子网总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E4%BA%86%E8%A7%A3%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A"><span class="nav-number">1.</span> <span class="nav-text">快速了解芯片行业</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E5%9B%BD%E5%86%85%E5%A4%96%E7%8E%B0%E7%8A%B6"><span class="nav-number">1.1.</span> <span class="nav-text">芯片行业国内外现状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%AF%E7%89%87%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">芯片设计流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EDA"><span class="nav-number">2.</span> <span class="nav-text">EDA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E9%AA%8C%E8%AF%81"><span class="nav-number">2.1.</span> <span class="nav-text">数字电路验证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88may-be%EF%BC%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">需要知识点（may be）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF%E9%AA%8C%E8%AF%81%E5%88%92%E5%88%86"><span class="nav-number">2.1.2.</span> <span class="nav-text">数字电路验证划分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%92%E5%88%86%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">划分方式一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%92%E5%88%86%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="nav-number">2.1.2.2.</span> <span class="nav-text">划分方式二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.2.</span> <span class="nav-text">电路设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1%E5%92%8C%E4%BC%98%E5%8C%96"><span class="nav-number">2.2.1.</span> <span class="nav-text">后端设计和优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E6%9C%89%E7%94%A8%E7%9A%84%E5%85%AC%E4%BC%97%E5%8F%B7"><span class="nav-number">3.</span> <span class="nav-text">目前有用的公众号</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
