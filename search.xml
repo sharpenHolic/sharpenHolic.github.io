@@ -109,6 +109,51 @@
       </tags>
   </entry>
   <entry>
+    <title>配置ruoyi</title>
+    <url>/2023/11/19/ruoyi/%E9%85%8D%E7%BD%AEruoyi/</url>
+    <content><![CDATA[<h2 id="若依前后端分离配置"><a href="#若依前后端分离配置" class="headerlink" title="若依前后端分离配置"></a>若依前后端分离配置</h2><p>文档：<a href="http://doc.ruoyi.vip/ruoyi/">介绍 | RuoYi</a></p>
+<h3 id="1-云服务器准备工作"><a href="#1-云服务器准备工作" class="headerlink" title="1. 云服务器准备工作"></a>1. 云服务器准备工作</h3><ol>
+<li>安装 centos<ol>
+<li>放行 1000 - 10000 端口，0.0.0.0</li>
+</ol>
+</li>
+<li>安装宝塔，使用LAMP面板推荐</li>
+<li>安装若依所需依赖，注意jdk使用1.8，避免不必要的配置</li>
+<li>放行端口，链接测试</li>
+</ol>
+<h3 id="2-本地配置修改"><a href="#2-本地配置修改" class="headerlink" title="2. 本地配置修改"></a>2. 本地配置修改</h3><h5 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h5><p>修改端口：ruoyi-admin/src/main/resources/application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发环境配置</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="comment"># 服务器的HTTP端口，默认为8080</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">7777</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="comment"># 应用的访问路径</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="comment"># tomcat的URI编码</span></span><br><span class="line">    <span class="attr">uri-encoding:</span> <span class="string">UTF-8</span></span><br><span class="line">    <span class="comment"># 连接数满后的排队数，默认为100</span></span><br><span class="line">    <span class="attr">accept-count:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">threads:</span></span><br><span class="line">      <span class="comment"># tomcat最大线程数，默认为200</span></span><br><span class="line">      <span class="attr">max:</span> <span class="number">800</span></span><br><span class="line">      <span class="comment"># Tomcat启动初始化的线程数，默认值10</span></span><br><span class="line">      <span class="attr">min-spare:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql 配置修改：ruoyi-admin/src/main/resources/application-druid.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">master:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://&#123;数据库URL&#125;:3306/&#123;数据库名称&#125;?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">数据库用户名</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">密码</span></span><br></pre></td></tr></table></figure>
+
+<p>修改权限，允许匿名访问，测试接口：ruoyi-framework/src/main/java/com/ruoyi/framework/config/SecurityConfig.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = false/*修改为false*/, securedEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 静态资源，可匿名访问</span></span><br><span class="line">                .antMatchers(HttpMethod.GET, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;/*.html&quot;</span>, <span class="string">&quot;/**/*.html&quot;</span>, <span class="string">&quot;/**/*.css&quot;</span>, <span class="string">&quot;/**/*.js&quot;</span>, <span class="string">&quot;/profile/**&quot;</span>,<span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(HttpMethod.POST, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(<span class="string">&quot;/swagger-ui.html&quot;</span>, <span class="string">&quot;/swagger-resources/**&quot;</span>, <span class="string">&quot;/webjars/**&quot;</span>, <span class="string">&quot;/*/api-docs&quot;</span>, <span class="string">&quot;/druid/**&quot;</span>, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br></pre></td></tr></table></figure>
+
+<h5 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h5><p>前端端口：ruoyi-ui/vue.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> port = process.env.port || process.env.npm_config_port || <span class="number">70</span> <span class="comment">// 端口</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack-dev-server 相关配置</span></span><br><span class="line"> <span class="attr">devServer</span>: &#123;</span><br><span class="line">   <span class="attr">host</span>: <span class="string">&#x27;0.0.0.0&#x27;</span>,</span><br><span class="line">   <span class="attr">port</span>: port,</span><br><span class="line">   <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">proxy</span>: &#123;</span><br><span class="line">     <span class="comment">// detail: https://cli.vuejs.org/config/#devserver-proxy</span></span><br><span class="line">     [process.env.VUE_APP_BASE_API]: &#123;</span><br><span class="line">       <span class="attr">target</span>: <span class="string">`http://服务器地址:7777`</span>,</span><br><span class="line">       <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">         [<span class="string">&#x27;^&#x27;</span> + process.env.VUE_APP_BASE_API]: <span class="string">&#x27;&#x27;</span></span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-云端部署配置"><a href="#3-云端部署配置" class="headerlink" title="3.云端部署配置"></a>3.云端部署配置</h3><ol>
+<li><p>前端打包后dist，放在根目录下</p>
+</li>
+<li><p>后端java包随便放位置，java -jar 启动即可</p>
+</li>
+<li><p>网站/伪静态配置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PROXY-STARTprod-api</span></span><br><span class="line"><span class="string">location</span> <span class="string">/prod-api/</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">proxy_pass</span> <span class="string">http://服务器地址:7777/;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">Host</span> <span class="string">$host;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Real-IP</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Forwarded-For</span> <span class="string">$proxy_add_x_forwarded_for;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">REMOTE-HOST</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">add_header</span> <span class="string">X-Cache</span> <span class="string">$upstream_cache_status;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#Set Nginx Cache</span></span><br><span class="line">    </span><br><span class="line">    	<span class="string">add_header</span> <span class="string">Cache-Control</span> <span class="literal">no</span><span class="string">-cache;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">######!!!!!!!</span></span><br><span class="line"><span class="comment">########!!!!!!!!</span></span><br><span class="line"><span class="string">location</span> <span class="string">/</span> &#123;</span><br><span class="line">    <span class="string">try_files</span> <span class="string">$uri</span> <span class="string">$uri/</span> <span class="string">/index.html;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#PROXY-ENDprod-api</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>前后端分离</category>
+      </categories>
+      <tags>
+        <tag>若依</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
     <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
     <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
