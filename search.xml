@@ -130,6 +130,18 @@
       </tags>
   </entry>
   <entry>
+    <title>博客List</title>
+    <url>/2023/11/19/%E8%BD%AC%E8%BD%BD/%E5%8D%9A%E5%AE%A2List/</url>
+    <content><![CDATA[<p><a href="https://evestorm.github.io/tags/">https://evestorm.github.io/tags/</a></p>
+]]></content>
+      <categories>
+        <category>转载</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前后端学习</title>
     <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot/</url>
     <content><![CDATA[<h1 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h1><p>用于快速构建Spring应用程序</p>
