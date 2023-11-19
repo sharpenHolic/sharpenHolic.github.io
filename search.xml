@@ -53,7 +53,7 @@
 <p>国际电子商情</p>
 ]]></content>
       <categories>
-        <category>科技类</category>
+        <category>行业知识</category>
       </categories>
       <tags>
         <tag>芯片</tag>
@@ -78,10 +78,10 @@
 <p>”我爱哭的时候便哭，想笑的时候便笑，只要这一切出于自然。我不求深刻，只求简单”</p>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>摘抄类</category>
       </categories>
       <tags>
-        <tag>思想</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
@@ -90,23 +90,74 @@
     <content><![CDATA[<p>不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树</p>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>摘抄类</category>
       </categories>
       <tags>
-        <tag>思想</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
   <entry>
     <title>主页</title>
     <url>/2023/11/19/%E4%B8%BB%E9%A1%B5/%E4%B8%BB%E9%A1%B5/</url>
-    <content><![CDATA[<p><a href="https://imgtu.com/i/g7wufU"><img data-src="https://z3.ax1x.com/2021/05/21/g7wufU.jpg" alt="g7wufU.jpg"></a></p>
+    <content><![CDATA[<h3 id="tags"><a href="#tags" class="headerlink" title="tags"></a>tags</h3><ol>
+<li>next</li>
+<li>c++</li>
+<li>若依</li>
+<li>计算机网络</li>
+<li>springboot</li>
+<li>深度学习</li>
+<li>工作 学习</li>
+<li>思考</li>
+<li>音乐</li>
+<li>芯片</li>
+</ol>
+<h3 id="categories"><a href="#categories" class="headerlink" title="categories"></a>categories</h3><ol>
+<li>博客管理</li>
+<li>安装教程</li>
+<li>编程语言</li>
+<li>计算机基础</li>
+<li>前后端分离</li>
+<li>方法技巧</li>
+<li>摘抄类</li>
+<li>行业知识</li>
+</ol>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>博客管理</category>
       </categories>
       <tags>
-        <tag>模板</tag>
+        <tag>next</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>前后端学习</title>
+    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot/</url>
+    <content><![CDATA[<h1 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h1><p>用于快速构建Spring应用程序</p>
+<p>面向注解编程</p>
+<p>自动引入依赖</p>
+]]></content>
+      <categories>
+        <category>前后端分离</category>
+      </categories>
+      <tags>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前后端学习</title>
+    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>什么是前后端分离</strong>？</p>
+<p>前端HTML页面通过AJAX调用后端的RESTFUL API接口并使用JSON数据进行交互</p>
+<blockquote>
+<p><a href="https://eolink.csdn.net/64376d0d7de2bc0e53e304f7.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQxNjA4NywiZXhwIjoxNzAwODI4NTQ1LCJpYXQiOjE3MDAyMjM3NDUsInVzZXJuYW1lIjoid2VpeGluXzQ1MDY2NDEyIn0.anTo0I4uRccESjtRzy6MTCdGb4jhh4UApYEuZ2XR9ao">前后端分离架构概述_GeorgiaStar-Eolink 开发者社区 (csdn.net)</a></p>
+</blockquote>
+<p><img data-src="https://img-blog.csdn.net/20180811205658171" alt="img"></p>
+<h3 id="全栈学习路线"><a href="#全栈学习路线" class="headerlink" title="全栈学习路线"></a>全栈学习路线</h3><p><a href="https://blog.csdn.net/guorui_java/article/details/120643691?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=1">Java学习路线总结（思维导图篇）_哪 吒的博客-CSDN博客</a></p>
+<p><a href="https://www.bilibili.com/video/BV14z4y1N7pg/?spm_id_from=333.337.search-card.all.click&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">黑马程序员SpringBoot3+Vue3全套视频教程，springboot+vue企业级全栈开发从基础、实战到面试一套通关_哔哩哔哩_bilibili</a></p>
+<h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
+      <categories>
+        <category>前后端分离</category>
+      </categories>
   </entry>
   <entry>
     <title>配置ruoyi</title>
@@ -147,7 +198,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>前后端分离</category>
+        <category>安装教程</category>
       </categories>
       <tags>
         <tag>若依</tag>
@@ -181,7 +232,7 @@
 <h3 id="8-7-2-公共IP"><a href="#8-7-2-公共IP" class="headerlink" title="8.7.2 公共IP"></a>8.7.2 公共IP</h3><p>除了私人 IP 之外的 IP 地址，均属于公共 IP。</p>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -211,7 +262,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -243,7 +294,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -273,7 +324,7 @@ IPV6"></p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -312,7 +363,7 @@ IPV6"></p>
 </ol>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -347,7 +398,7 @@ IPV6"></p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -404,7 +455,7 @@ IPV6"></p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -442,7 +493,7 @@ IPV6"></p>
 </blockquote>
 ]]></content>
       <categories>
-        <category>计算机网络</category>
+        <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机网络</tag>
@@ -450,20 +501,20 @@ IPV6"></p>
   </entry>
   <entry>
     <title>无额外空间逆序栈</title>
-    <url>/2023/11/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
+    <url>/2023/11/19/c++/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
     <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2021/05/27H:\无额外空间的栈逆序-使用递归\无额外空间的栈逆序-使用递归.vcxproj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="built_in">printStack</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="keyword">int</span>&gt; mys;</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">3</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">2</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//cout &lt;&lt; getDownItem(mys) &lt;&lt; endl;</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆序之后&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">rStack</span>(mys);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主要功能函数，实现栈的逆序，并且不使用额外内存空间</span></span><br><span class="line"><span class="comment">//函数1 实现取到栈底元素，并且弹出栈底元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = s.<span class="built_in">top</span>();</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="comment">//base case</span></span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span> result;	<span class="comment">//只有一个元素，栈底就是栈头</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> last = <span class="built_in">getDownItem</span>(s);		<span class="comment">//取到剩余部分栈底元素，并且弹出栈底元素</span></span><br><span class="line">	s.<span class="built_in">push</span>(result);</span><br><span class="line">	<span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数2  实现栈的逆序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="built_in">getDownItem</span>(s);	<span class="comment">//得到栈底元素，并且原栈中该元素已弹出</span></span><br><span class="line">	<span class="built_in">rStack</span>(s);					<span class="comment">//对剩下的部分逆序</span></span><br><span class="line">	s.<span class="built_in">push</span>(ret);				<span class="comment">//把元素压回去</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>编程语言</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
     <title>回文链表</title>
-    <url>/2023/11/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <url>/2023/11/19/c++/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
@@ -478,10 +529,10 @@ IPV6"></p>
 <p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
 ]]></content>
       <categories>
-        <category>C++</category>
+        <category>编程语言</category>
       </categories>
       <tags>
-        <tag>编程</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -533,7 +584,7 @@ IPV6"></p>
         <category>摘抄类</category>
       </categories>
       <tags>
-        <tag>回忆</tag>
+        <tag>音乐</tag>
       </tags>
   </entry>
   <entry>
@@ -574,10 +625,10 @@ IPV6"></p>
 <p>有趣的也是这一点，生活给了我们机会不断修正自己对待生活的态度</p>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>摘抄类</category>
       </categories>
       <tags>
-        <tag>学校生活</tag>
+        <tag>音乐</tag>
       </tags>
   </entry>
   <entry>
@@ -657,125 +708,10 @@ IPV6"></p>
     <content><![CDATA[<p>title: 写作模板<br>date: 1700365689969<br>urlname:<br>tags:<br>categories:<br>description:</p>
 ]]></content>
       <categories>
-        <category>写作类</category>
+        <category>博客管理</category>
       </categories>
       <tags>
-        <tag>模板</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2023/11/19/git%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Git怎么用"><a href="#Git怎么用" class="headerlink" title="Git怎么用"></a>Git怎么用</h1><p>Git：</p>
-<p>Github：</p>
-<h1 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h1><p>版本迭代，新的版本，老的版本又不能直接delete</p>
-<p>多人开发必须使用版本控制，否则代价太大</p>
-<p>主流版本控制器：</p>
-<ul>
-<li>Git</li>
-<li>SVN</li>
-<li>CVS</li>
-<li>VSS</li>
-<li>TFS</li>
-</ul>
-<h2 id="1-本地版本控制-RCS"><a href="#1-本地版本控制-RCS" class="headerlink" title="1 本地版本控制 RCS"></a>1 本地版本控制 RCS</h2><p>记录文件每次的更新，可以对每个版本做一个快照，或者是记录补丁文件，适合个人用，如RCS</p>
-<h2 id="2-集中式版本控制-SVN"><a href="#2-集中式版本控制-SVN" class="headerlink" title="2 集中式版本控制 SVN"></a>2 集中式版本控制 SVN</h2><p>所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改</p>
-<p>多人提交代码，发生冲突的话，选择最优</p>
-<p>如果用户不联网，不能看到历史版本</p>
-<h2 id="3-分布式版本控制系统-Git"><a href="#3-分布式版本控制系统-Git" class="headerlink" title="3 分布式版本控制系统 Git"></a>3 分布式版本控制系统 Git</h2><p>每个人都拥有全部的代码！安全隐患</p>
-<p>所有版本信息仓库全部同步到本地的每个用户，这样可以在本地查看所有的版本历史，可以离线在本地提交，只需要联网时push到相应的服务器或者其他用户那里</p>
-<p>不会因为服务器损坏造成不能工作的情况！</p>
-<p><img data-src="/.io//Users\Xiong\AppData\Roaming\Typora\typora-user-images\image-20210628210905069.png" alt="image-20210628210905069"></p>
-<h1 id="Git是目前最先进的分布式版本管理器"><a href="#Git是目前最先进的分布式版本管理器" class="headerlink" title="Git是目前最先进的分布式版本管理器"></a>Git是目前最先进的分布式版本管理器</h1><h1 id="Git历史"><a href="#Git历史" class="headerlink" title="Git历史"></a>Git历史</h1><p>Linux大佬破解了Bitkeeper</p>
-<p>两周开源了Git</p>
-<p><img data-src="/.io//Users\Xiong\AppData\Roaming\Typora\typora-user-images\image-20210628211351461.png" alt="image-20210628211351461"></p>
-<p>头发挺多的</p>
-<h1 id="Git环境配置"><a href="#Git环境配置" class="headerlink" title="Git环境配置"></a>Git环境配置</h1><blockquote>
-<p>设置用户名与邮箱（用户标识，必要）</p>
-</blockquote>
-<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.name</span> <span class="string">&quot;kuangshen&quot;</span>  #名称git <span class="keyword">config</span> --<span class="keyword">global</span> user<span class="variable">.email</span> <span class="number">24736743</span>@qq<span class="variable">.com</span>   #邮箱</span><br></pre></td></tr></table></figure>
-
-<p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
-<h1 id="Git基本理论"><a href="#Git基本理论" class="headerlink" title="Git基本理论"></a>Git基本理论</h1><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
-<p><img data-src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p0NJ4L9OPI9ia1MmibpvDd6cSddBdvrlbdEtyEOrh4CKnWVibyfCHa3lzXw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<ul>
-<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
-<li>Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
-<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
-<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
-</ul>
-<p><img data-src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p0icz6X2aibIgUWzHxtwX8kicPCKpDrsiaPzZk04OlI2bzlydzicBuXTJvLEQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<blockquote>
-<p>工作流程</p>
-</blockquote>
-<p>git的工作流程一般是这样的：</p>
-<p>１、在工作目录中添加、修改文件；</p>
-<p>２、将需要进行版本管理的文件放入暂存区域；</p>
-<p>３、将暂存区域的文件提交到git仓库。</p>
-<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
-<p><img data-src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Ksu8UlITwMlbX3kMGtZ9p09iaOhl0dACfLrMwNbDzucGQ30s3HnsiaczfcR6dC9OehicuwibKuHjRlzg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>更加高效规范的开发--技巧篇（持续更新）</title>
-    <url>/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>写本文的原因</strong>：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：</p>
-<ol>
-<li>不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行学习 </li>
-<li>从提升个人的效率的方面进行学习（例如Linux技术等）</li>
-<li>其次多了解行业的广度</li>
-<li>由于2中个人效率的提高，可以更快的从项目中了解行业的深度</li>
-</ol>
-<p>以下是本人在学习工作中遇到的困难，面向百度谷歌记录下来的一些提升效率的小技巧，遇到了就持续更新进来。<br>写文章的目的也是为了监督自己，做技术最害怕的就是停留在自己的小圈里，不提升学习一些新技术。</p>
-<span id="more"></span>
-
-<h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><p>git在项目中使用非常多，掌握好git的技巧可以事半功倍的完成开发</p>
-<h2 id="git项目搭建方面"><a href="#git项目搭建方面" class="headerlink" title="git项目搭建方面"></a>git项目搭建方面</h2><ol>
-<li>使用github gitee gitlab等托管代码</li>
-<li>首先将ssh公钥加入到设置中</li>
-<li>创建仓库，并且pull下代码<h2 id="个人工作使用方面"><a href="#个人工作使用方面" class="headerlink" title="个人工作使用方面"></a>个人工作使用方面</h2><h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3></li>
-<li>确定好本次分支的需求<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先做pull确保使用的是最新分支</span></span><br><span class="line">git pull origin/&lt;远程主分支(最好为主分支)&gt;</span><br><span class="line"><span class="comment"># 以当前分支为模板创建并且检出到该分支</span></span><br><span class="line">git checkout -b &lt;分支名&gt;</span><br></pre></td></tr></table></figure></li>
-<li>修改完代码之后的事情<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;code&gt;</span><br><span class="line">git commit -m <span class="string">&quot;本次提交的信息&quot;</span></span><br><span class="line">git push origin &lt;分支名&gt;</span><br><span class="line"><span class="comment"># 若遇到冲突，在本次分支做merge，再做上面的事情</span></span><br><span class="line">git merge master</span><br></pre></td></tr></table></figure></li>
-<li>到远程merge本次commit</li>
-</ol>
-<h3 id="查看相关修改"><a href="#查看相关修改" class="headerlink" title="查看相关修改"></a>查看相关修改</h3><ol>
-<li>使用<code>git diff </code>查看相关代码的异同。在本分支commit了之后，常使用<code>git diff origin/&lt;分支名&gt;</code>来比较本次修改的内容与远程的<code>&lt;分支名&gt;</code>的异同</li>
-<li>使用<code>git blame</code> 查看相关代码是何时何人做的提交</li>
-</ol>
-<h3 id="查看信息与分支切换"><a href="#查看信息与分支切换" class="headerlink" title="查看信息与分支切换"></a>查看信息与分支切换</h3><ol>
-<li>使用<code>git status</code> 查看代码修改情况</li>
-<li>使用<code>git branch</code>查看本地分支，加-a参数为本地远程所有分支</li>
-<li>使用<code>git checkout &lt;分支名&gt;</code>切换到相应分支</li>
-</ol>
-<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><ol>
-<li><code>git log</code>来查看历史的提交版本</li>
-<li><code>git reset --hard &lt;commit ID&gt;</code> 来回退版本<h3 id="submodule问题"><a href="#submodule问题" class="headerlink" title="submodule问题"></a>submodule问题</h3>当项目中存在submodule时候，在做每次分支代码时，确保用到最新的submodule，使用以下代码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule update</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="同时处理多个分支"><a href="#同时处理多个分支" class="headerlink" title="同时处理多个分支"></a>同时处理多个分支</h3><p>在开发中，当前分支做了一些修改之后，突然接到任务要处理其他的情况。这时应该首先考虑两个事件的优先级。确定好之后，</p>
-<ol>
-<li>使用<code>git stash</code>来保存住当前分支的快照</li>
-<li>到优先级高的任务处理</li>
-<li><code>git checkout &lt;之前的分支&gt;</code>， 使用<code>git stash pop</code>拿出</li>
-</ol>
-<h1 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h1><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ol>
-<li>工作中遇到了需要通过名字定位到文件的需求，但是有时候文件名字也没有记清楚，通过以下命令来完成这个操作<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用通配符* ？ 等实现模糊查找</span></span><br><span class="line">find &lt;directory&gt; -name *aaa*</span><br></pre></td></tr></table></figure></li>
-<li>查找文件里面的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;search content&quot;</span> filename1</span><br><span class="line"><span class="comment"># 查找当前目录下所有的文件内容</span></span><br><span class="line">grep <span class="string">&quot;search content&quot;</span> *</span><br><span class="line"><span class="comment"># 递归查找</span></span><br><span class="line">grep -nr <span class="string">&quot;search content&quot;</span> *</span><br></pre></td></tr></table></figure>
-<h2 id="编辑（vim）"><a href="#编辑（vim）" class="headerlink" title="编辑（vim）"></a>编辑（vim）</h2>有时候需要使用vim进行编辑，vim真的太强大了！！<br><a href="https://www.w3cschool.cn/vim/vim-o6bc3keq.html">W3Cschool</a><br><img data-src="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h3><h3 id="查找定位跳转"><a href="#查找定位跳转" class="headerlink" title="查找定位跳转"></a>查找定位跳转</h3><h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h1 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h1><h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h1 id="C-C-语言"><a href="#C-C-语言" class="headerlink" title="C/C++语言"></a>C/C++语言</h1><h2 id="string的处理"><a href="#string的处理" class="headerlink" title="string的处理"></a>string的处理</h2><h3 id="情景一"><a href="#情景一" class="headerlink" title="情景一"></a>情景一</h3><blockquote>
-<p>输入带空格的一串英文，将每个单词存入向量之中。即每个向量的元素是一个string</p>
-</blockquote>
-<p>在询问东哥得到解决方法</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testVector3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s1;</span><br><span class="line">	vector&lt;string&gt; s2;</span><br><span class="line">	<span class="keyword">char</span> ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">		cin &gt;&gt; s1;</span><br><span class="line">		ch = <span class="built_in">getchar</span>();</span><br><span class="line">		s2.<span class="built_in">push_back</span>(s1);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>总结收获</strong><br>cin 用法介绍<br>getchar用法介绍</p>
-<h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.runoob.com/">菜鸟教程</a></p>
-]]></content>
-      <categories>
-        <category>学习方法技巧</category>
-      </categories>
-      <tags>
-        <tag>工作 学习</tag>
+        <tag>next</tag>
       </tags>
   </entry>
   <entry>
@@ -786,7 +722,7 @@ IPV6"></p>
 <p>还不能去实习呀，投了这么多没响应</p>
 ]]></content>
       <tags>
-        <tag>学校生活</tag>
+        <tag>思考</tag>
       </tags>
   </entry>
 </search>
