@@ -110,6 +110,7 @@
 <li>思考</li>
 <li>音乐</li>
 <li>芯片</li>
+<li>vue</li>
 </ol>
 <h3 id="categories"><a href="#categories" class="headerlink" title="categories"></a>categories</h3><ol>
 <li>博客管理</li>
@@ -120,6 +121,7 @@
 <li>方法技巧</li>
 <li>摘抄类</li>
 <li>行业知识</li>
+<li>转载</li>
 </ol>
 ]]></content>
       <categories>
@@ -127,6 +129,25 @@
       </categories>
       <tags>
         <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue 开发流程总结</title>
+    <url>/2023/11/21/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>由于主要做后端开发，对于前端开发不怎么熟悉，在最近学习 vue 后，下载了一个 vue-admin 快速开发框架，框架中把基本需要的组件都集成好了，在实现功能的时候，对相关的页面进行一定的修改就能达到目的。<br>由此，各个不同业务对应的修改流程是差不多的，这里做一个小的总结。</p>
+<h2 id="基本页面确定"><a href="#基本页面确定" class="headerlink" title="基本页面确定"></a>基本页面确定</h2><p>业务需要什么页面就对其进行复制，然后在复制后的页面上进行修改。</p>
+<h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ol>
+<li>页面引用 api 目录下对应的文件，其中定义了前后端交互接口及方式</li>
+<li>api 中引用了 request.js 其中定义了前后端交互的服务器地址</li>
+<li>前端对返回的数据进行相应解析 <h2 id="前端效果控制"><a href="#前端效果控制" class="headerlink" title="前端效果控制"></a>前端效果控制</h2>在页面获取相应的数据后，需要进行数据加载，然后页面呈现出相应的效果，同时根据业务的需要进行页面元素修改。</li>
+</ol>
+<p>参考自：<br><a href="https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/">https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/</a></p>
+]]></content>
+      <categories>
+        <category>前后端分离|转载|前端</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
       </tags>
   </entry>
   <entry>
@@ -144,9 +165,9 @@
   <entry>
     <title>前后端学习</title>
     <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot/</url>
-    <content><![CDATA[<h1 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h1><p>用于快速构建Spring应用程序</p>
-<p>面向注解编程</p>
-<p>自动引入依赖</p>
+    <content><![CDATA[<h1 id="springboot-概述"><a href="#springboot-概述" class="headerlink" title="springboot 概述"></a>springboot 概述</h1><h2 id="1-什么是-spring"><a href="#1-什么是-spring" class="headerlink" title="1. 什么是 spring"></a>1. 什么是 spring</h2><p><a href="https://potoyang.gitbook.io/spring-in-action-v5/">spring实战（第五版）</a></p>
+<p>Spring 是一个开源框架，Spring是于2003 年兴起的一个轻量级的Java 开发框架。</p>
+<p>简单来说，它是一个容器框架，用来装 javabean（java对象），中间层框架（万能胶）可以起一个连接作用，比如说把 Struts 和 hibernate 粘合在一起运用。简单来说，Spring 是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。</p>
 ]]></content>
       <categories>
         <category>前后端分离</category>
@@ -161,11 +182,12 @@
     <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>什么是前后端分离</strong>？</p>
 <p>前端HTML页面通过AJAX调用后端的RESTFUL API接口并使用JSON数据进行交互</p>
 <blockquote>
-<p><a href="https://eolink.csdn.net/64376d0d7de2bc0e53e304f7.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQxNjA4NywiZXhwIjoxNzAwODI4NTQ1LCJpYXQiOjE3MDAyMjM3NDUsInVzZXJuYW1lIjoid2VpeGluXzQ1MDY2NDEyIn0.anTo0I4uRccESjtRzy6MTCdGb4jhh4UApYEuZ2XR9ao">前后端分离架构概述_GeorgiaStar-Eolink 开发者社区 (csdn.net)</a></p>
+<p><a href="https://eolink.csdn.net/64376d0d7de2bc0e53e304f7.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQxNjA4NywiZXhwIjoxNzAwODI4NTQ1LCJpYXQiOjE3MDAyMjM3NDUsInVzZXJuYW1lIjoid2VpeGluXzQ1MDY2NDEyIn0.anTo0I4uRccESjtRzy6MTCdGb4jhh4UApYEuZ2XR9ao">前后端分离架构概述</a></p>
 </blockquote>
-<p><img data-src="https://img-blog.csdn.net/20180811205658171" alt="img"></p>
+<p><img data-src="/.io//quanzhan1.png" alt="img"></p>
 <h3 id="全栈学习路线"><a href="#全栈学习路线" class="headerlink" title="全栈学习路线"></a>全栈学习路线</h3><p><a href="https://blog.csdn.net/guorui_java/article/details/120643691?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=1">Java学习路线总结（思维导图篇）_哪 吒的博客-CSDN博客</a></p>
 <p><a href="https://www.bilibili.com/video/BV14z4y1N7pg/?spm_id_from=333.337.search-card.all.click&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">黑马程序员SpringBoot3+Vue3全套视频教程，springboot+vue企业级全栈开发从基础、实战到面试一套通关_哔哩哔哩_bilibili</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Learn">web开发学习</a></p>
 <h2 id><a href="#" class="headerlink" title></a></h2>]]></content>
       <categories>
         <category>前后端分离</category>
