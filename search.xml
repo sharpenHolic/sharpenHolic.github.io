@@ -1,6 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>写作模板</title>
+    <url>/2023/11/19/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
+    <content><![CDATA[<p>title: 写作模板<br>date: 1700365689969<br>urlname:<br>tags:<br>categories:<br>description:</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql  8 快速入门</title>
+    <url>/2023/11/19/mySQL/mysql%20%208%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="mysql-8-快速入门"><a href="#mysql-8-快速入门" class="headerlink" title="mysql  8 快速入门"></a>mysql  8 快速入门</h1><p>ubuntu 20.04</p>
+<p>mysql 8.0.25</p>
+<h2 id="安装、登陆以及修改密码"><a href="#安装、登陆以及修改密码" class="headerlink" title="安装、登陆以及修改密码"></a>安装、登陆以及修改密码</h2><p>1 安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install mysql-server </span><br><span class="line">sudo apt-get install mysql-client </span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p>2 登陆</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf    <span class="comment"># 查看默认配置文件</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://imgtu.com/i/2oCYy4"><img data-src="https://z3.ax1x.com/2021/06/13/2oCYy4.png" alt="2oCYy4.png"></a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p        <span class="comment"># 登陆  用户名以上图的user后名字为准</span></span><br></pre></td></tr></table></figure>
+
+<p>提示输入密码，这里要输入的就是上一步的‘password=855euFyQpqMhe6v0’（密码以自己的配置文件为准）。</p>
+<p>记得不要手敲密码，复制粘贴</p>
+<p>3 修改密码</p>
+<p>安装完之后，在家目录下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf  <span class="comment"># 查看debian-sys-maint的密码</span></span><br><span class="line">mysql -u debian-sys-maint -p  <span class="comment"># 使用debian-sys-maint登录</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; use mysql;  <span class="comment"># 切换到mysql数据库</span></span><br><span class="line">mysql&gt; alter user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified with mysql_native_password by <span class="string">&#x27;123456&#x27;</span>;  <span class="comment"># 修改密码为123456</span></span><br><span class="line">mysql&gt; quit；  <span class="comment"># 退出</span></span><br></pre></td></tr></table></figure>
+
+<p>重新进入，成功进入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回文链表</title>
+    <url>/2023/11/19/c++/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
+<span id="more"></span>
+
+<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
+<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
+<p>缺点：破坏了链表的结构</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
+]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>无额外空间逆序栈</title>
+    <url>/2023/11/19/c++/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
+    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2021/05/27H:\无额外空间的栈逆序-使用递归\无额外空间的栈逆序-使用递归.vcxproj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="built_in">printStack</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="keyword">int</span>&gt; mys;</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">3</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">2</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//cout &lt;&lt; getDownItem(mys) &lt;&lt; endl;</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆序之后&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">rStack</span>(mys);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主要功能函数，实现栈的逆序，并且不使用额外内存空间</span></span><br><span class="line"><span class="comment">//函数1 实现取到栈底元素，并且弹出栈底元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = s.<span class="built_in">top</span>();</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="comment">//base case</span></span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span> result;	<span class="comment">//只有一个元素，栈底就是栈头</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> last = <span class="built_in">getDownItem</span>(s);		<span class="comment">//取到剩余部分栈底元素，并且弹出栈底元素</span></span><br><span class="line">	s.<span class="built_in">push</span>(result);</span><br><span class="line">	<span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数2  实现栈的逆序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="built_in">getDownItem</span>(s);	<span class="comment">//得到栈底元素，并且原栈中该元素已弹出</span></span><br><span class="line">	<span class="built_in">rStack</span>(s);					<span class="comment">//对剩下的部分逆序</span></span><br><span class="line">	s.<span class="built_in">push</span>(ret);				<span class="comment">//把元素压回去</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>编程语言</category>
+        <category>c++</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置ruoyi</title>
+    <url>/2023/11/19/ruoyi/%E9%85%8D%E7%BD%AEruoyi/</url>
+    <content><![CDATA[<h2 id="若依前后端分离配置"><a href="#若依前后端分离配置" class="headerlink" title="若依前后端分离配置"></a>若依前后端分离配置</h2><p>文档：<a href="http://doc.ruoyi.vip/ruoyi/">介绍 | RuoYi</a></p>
+<h3 id="1-云服务器准备工作"><a href="#1-云服务器准备工作" class="headerlink" title="1. 云服务器准备工作"></a>1. 云服务器准备工作</h3><ol>
+<li>安装 centos<ol>
+<li>放行 1000 - 10000 端口，0.0.0.0</li>
+</ol>
+</li>
+<li>安装宝塔，使用LAMP面板推荐</li>
+<li>安装若依所需依赖，注意jdk使用1.8，避免不必要的配置</li>
+<li>放行端口，链接测试</li>
+</ol>
+<h3 id="2-本地配置修改"><a href="#2-本地配置修改" class="headerlink" title="2. 本地配置修改"></a>2. 本地配置修改</h3><h5 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h5><p>修改端口：ruoyi-admin/src/main/resources/application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发环境配置</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="comment"># 服务器的HTTP端口，默认为8080</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">7777</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="comment"># 应用的访问路径</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="comment"># tomcat的URI编码</span></span><br><span class="line">    <span class="attr">uri-encoding:</span> <span class="string">UTF-8</span></span><br><span class="line">    <span class="comment"># 连接数满后的排队数，默认为100</span></span><br><span class="line">    <span class="attr">accept-count:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">threads:</span></span><br><span class="line">      <span class="comment"># tomcat最大线程数，默认为200</span></span><br><span class="line">      <span class="attr">max:</span> <span class="number">800</span></span><br><span class="line">      <span class="comment"># Tomcat启动初始化的线程数，默认值10</span></span><br><span class="line">      <span class="attr">min-spare:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<p>mysql 配置修改：ruoyi-admin/src/main/resources/application-druid.yml</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">master:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://&#123;数据库URL&#125;:3306/&#123;数据库名称&#125;?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">数据库用户名</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">密码</span></span><br></pre></td></tr></table></figure>
+
+<p>修改权限，允许匿名访问，测试接口：ruoyi-framework/src/main/java/com/ruoyi/framework/config/SecurityConfig.java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = false/*修改为false*/, securedEnabled = true)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 静态资源，可匿名访问</span></span><br><span class="line">                .antMatchers(HttpMethod.GET, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;/*.html&quot;</span>, <span class="string">&quot;/**/*.html&quot;</span>, <span class="string">&quot;/**/*.css&quot;</span>, <span class="string">&quot;/**/*.js&quot;</span>, <span class="string">&quot;/profile/**&quot;</span>,<span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(HttpMethod.POST, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(<span class="string">&quot;/swagger-ui.html&quot;</span>, <span class="string">&quot;/swagger-resources/**&quot;</span>, <span class="string">&quot;/webjars/**&quot;</span>, <span class="string">&quot;/*/api-docs&quot;</span>, <span class="string">&quot;/druid/**&quot;</span>, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br></pre></td></tr></table></figure>
+
+<h5 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h5><p>前端端口：ruoyi-ui/vue.config.js</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> port = process.env.port || process.env.npm_config_port || <span class="number">70</span> <span class="comment">// 端口</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack-dev-server 相关配置</span></span><br><span class="line"> <span class="attr">devServer</span>: &#123;</span><br><span class="line">   <span class="attr">host</span>: <span class="string">&#x27;0.0.0.0&#x27;</span>,</span><br><span class="line">   <span class="attr">port</span>: port,</span><br><span class="line">   <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">proxy</span>: &#123;</span><br><span class="line">     <span class="comment">// detail: https://cli.vuejs.org/config/#devserver-proxy</span></span><br><span class="line">     [process.env.VUE_APP_BASE_API]: &#123;</span><br><span class="line">       <span class="attr">target</span>: <span class="string">`http://服务器地址:7777`</span>,</span><br><span class="line">       <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">         [<span class="string">&#x27;^&#x27;</span> + process.env.VUE_APP_BASE_API]: <span class="string">&#x27;&#x27;</span></span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-云端部署配置"><a href="#3-云端部署配置" class="headerlink" title="3.云端部署配置"></a>3.云端部署配置</h3><ol>
+<li><p>前端打包后dist，放在根目录下</p>
+</li>
+<li><p>后端java包随便放位置，java -jar 启动即可</p>
+</li>
+<li><p>网站/伪静态配置</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PROXY-STARTprod-api</span></span><br><span class="line"><span class="string">location</span> <span class="string">/prod-api/</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">proxy_pass</span> <span class="string">http://服务器地址:7777/;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">Host</span> <span class="string">$host;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Real-IP</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Forwarded-For</span> <span class="string">$proxy_add_x_forwarded_for;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">REMOTE-HOST</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">add_header</span> <span class="string">X-Cache</span> <span class="string">$upstream_cache_status;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#Set Nginx Cache</span></span><br><span class="line">    </span><br><span class="line">    	<span class="string">add_header</span> <span class="string">Cache-Control</span> <span class="literal">no</span><span class="string">-cache;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">######!!!!!!!</span></span><br><span class="line"><span class="comment">########!!!!!!!!</span></span><br><span class="line"><span class="string">location</span> <span class="string">/</span> &#123;</span><br><span class="line">    <span class="string">try_files</span> <span class="string">$uri</span> <span class="string">$uri/</span> <span class="string">/index.html;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#PROXY-ENDprod-api</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>若依</category>
+      </categories>
+      <tags>
+        <tag>若依</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网站运行时间</title>
+    <url>/2023/11/19/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>标签云特效</title>
+    <url>/2023/11/19/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
+    <content><![CDATA[<p>主站目录bash下</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">npm</span> install hexo-tag-cloud@^<span class="number">2</span>.<span class="number">0</span>.* --save </span><br></pre></td></tr></table></figure>
+
+<p>在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> site.tags.length &gt; 1 %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; list_tags() &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
+
+<p>在主站配置文加下添加内容如下</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attribute">tag_cloud</span>:</span><br><span class="line">    <span class="attribute">textFont</span>: Trebuchet MS, Helvetica</span><br><span class="line">    <span class="attribute">textColor</span>: &#x27;#<span class="number">333</span>&#x27;</span><br><span class="line">    <span class="attribute">textHeight</span>: <span class="number">25</span></span><br><span class="line">    <span class="attribute">outlineColor</span>: &#x27;#E<span class="number">2</span>E<span class="number">1</span>D<span class="number">1</span>&#x27;</span><br><span class="line">    <span class="attribute">maxSpeed</span>: <span class="number">0</span>.<span class="number">1</span> </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>人生需要停下来看看风景</title>
+    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/cscs/</url>
+    <content><![CDATA[<p>不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树</p>
+]]></content>
+      <categories>
+        <category>摘抄</category>
+        <category>文学</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>校园日记</title>
+    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
+    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
+<p>无聊</p>
+<p>还不能去实习呀，投了这么多没响应</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Five Hundred Miles</title>
+    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/Five-Hundred-Miles/</url>
+    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/song?id=1403133995&userid=292202272"></iframe>
+
+
+<p>If you missed the train I’m on</p>
+<p>You will know that I am gone</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>A hundred miles a hundred miles</p>
+<p>A hundred miles a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>Lord I’m one Lord I’m two</p>
+<p>Lord I’m three Lord I’m four</p>
+<p>Lord I’m five hundred miles away from home</p>
+<p>Away from home away from home</p>
+<p>Away from home away from home</p>
+<p>Lord I’m five hundred miles away from home</p>
+<p>Not a shirt on my back</p>
+<p>Not a penny to my name</p>
+<p>Lord I can’t go back home this a-way</p>
+<p>This a-way this a-way</p>
+<p>This a-way this a-way</p>
+<p>Lord I can’t go back home this a-way</p>
+<p>If you missed the train I’m on</p>
+<p>You will know that I am gone</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>A hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>You can hear the whistle blow a hundred miles</p>
+<p>生活的本质是重复的，无聊的</p>
+<p>有趣的也是这一点，生活给了我们机会不断修正自己对待生活的态度</p>
+]]></content>
+      <categories>
+        <category>摘抄</category>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>音乐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我不求深刻，只求简单-三毛</title>
+    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E6%91%98%E6%8A%84-%E4%B8%89%E6%AF%9B/</url>
+    <content><![CDATA[<blockquote>
+<p>这世界有那么多人</p>
+<p>多幸运 我有个我们</p>
+</blockquote>
+<p>【1】</p>
+<p>“每想你一次，天空飘落一粒沙，从此形成了撒哈拉。每想你一次，天空就掉下一滴水，于是形成了太平洋。”</p>
+<p>【2】</p>
+<p>“爱情如果不落到穿衣、吃饭、睡觉、数钱这些实实在在的生活中去，是不会长久的”</p>
+<p>【3】</p>
+<p>“人之所以悲伤，是因为我们留不住岁月，更无法不承认，青春，有一日是要这么自然的消失过去”</p>
+<p>【4】</p>
+<p>“可进可退，若即若离，可爱可怨，可聚而不会散，才是最天长地久的一种好朋友”</p>
+<p>【5】</p>
+<p>”我爱哭的时候便哭，想笑的时候便笑，只要这一切出于自然。我不求深刻，只求简单”</p>
+]]></content>
+      <categories>
+        <category>摘抄</category>
+        <category>文学</category>
+      </categories>
+      <tags>
+        <tag>思考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用 git 进行更加高效规范的开发</title>
+    <url>/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>写本文的原因</strong>：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：</p>
+<ol>
+<li>不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行学习 </li>
+<li>从提升个人的效率的方面进行学习（例如Linux技术等）</li>
+<li>其次多了解行业的广度</li>
+<li>由于2中个人效率的提高，可以更快的从项目中了解行业的深度</li>
+</ol>
+<p>以下是本人在学习工作中遇到的困难，面向百度谷歌记录下来的一些提升效率的小技巧，遇到了就持续更新进来。<br>写文章的目的也是为了监督自己，做技术最害怕的就是停留在自己的小圈里，不提升学习一些新技术。</p>
+<span id="more"></span>
+
+<h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><p>git在项目中使用非常多，掌握好git的技巧可以事半功倍的完成开发</p>
+<h2 id="git项目搭建方面"><a href="#git项目搭建方面" class="headerlink" title="git项目搭建方面"></a>git项目搭建方面</h2><ol>
+<li>使用github gitee gitlab等托管代码</li>
+<li>首先将ssh公钥加入到设置中</li>
+<li>创建仓库，并且pull下代码<h2 id="个人工作使用方面"><a href="#个人工作使用方面" class="headerlink" title="个人工作使用方面"></a>个人工作使用方面</h2><h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3></li>
+<li>确定好本次分支的需求<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先做pull确保使用的是最新分支</span></span><br><span class="line">git pull origin/&lt;远程主分支(最好为主分支)&gt;</span><br><span class="line"><span class="comment"># 以当前分支为模板创建并且检出到该分支</span></span><br><span class="line">git checkout -b &lt;分支名&gt;</span><br></pre></td></tr></table></figure></li>
+<li>修改完代码之后的事情<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;code&gt;</span><br><span class="line">git commit -m <span class="string">&quot;本次提交的信息&quot;</span></span><br><span class="line">git push origin &lt;分支名&gt;</span><br><span class="line"><span class="comment"># 若遇到冲突，在本次分支做merge，再做上面的事情</span></span><br><span class="line">git merge master</span><br></pre></td></tr></table></figure></li>
+<li>到远程merge本次commit</li>
+</ol>
+<h3 id="查看相关修改"><a href="#查看相关修改" class="headerlink" title="查看相关修改"></a>查看相关修改</h3><ol>
+<li>使用<code>git diff </code>查看相关代码的异同。在本分支commit了之后，常使用<code>git diff origin/&lt;分支名&gt;</code>来比较本次修改的内容与远程的<code>&lt;分支名&gt;</code>的异同</li>
+<li>使用<code>git blame</code> 查看相关代码是何时何人做的提交</li>
+</ol>
+<h3 id="查看信息与分支切换"><a href="#查看信息与分支切换" class="headerlink" title="查看信息与分支切换"></a>查看信息与分支切换</h3><ol>
+<li>使用<code>git status</code> 查看代码修改情况</li>
+<li>使用<code>git branch</code>查看本地分支，加-a参数为本地远程所有分支</li>
+<li>使用<code>git checkout &lt;分支名&gt;</code>切换到相应分支</li>
+</ol>
+<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><ol>
+<li><code>git log</code>来查看历史的提交版本</li>
+<li><code>git reset --hard &lt;commit ID&gt;</code> 来回退版本<h3 id="submodule问题"><a href="#submodule问题" class="headerlink" title="submodule问题"></a>submodule问题</h3>当项目中存在submodule时候，在做每次分支代码时，确保用到最新的submodule，使用以下代码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule update</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="同时处理多个分支"><a href="#同时处理多个分支" class="headerlink" title="同时处理多个分支"></a>同时处理多个分支</h3><p>在开发中，当前分支做了一些修改之后，突然接到任务要处理其他的情况。这时应该首先考虑两个事件的优先级。确定好之后，</p>
+<ol>
+<li>使用<code>git stash</code>来保存住当前分支的快照</li>
+<li>到优先级高的任务处理</li>
+<li><code>git checkout &lt;之前的分支&gt;</code>， 使用<code>git stash pop</code>拿出</li>
+</ol>
+<h1 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h1><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ol>
+<li>工作中遇到了需要通过名字定位到文件的需求，但是有时候文件名字也没有记清楚，通过以下命令来完成这个操作<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用通配符* ？ 等实现模糊查找</span></span><br><span class="line">find &lt;directory&gt; -name *aaa*</span><br></pre></td></tr></table></figure></li>
+<li>查找文件里面的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;search content&quot;</span> filename1</span><br><span class="line"><span class="comment"># 查找当前目录下所有的文件内容</span></span><br><span class="line">grep <span class="string">&quot;search content&quot;</span> *</span><br><span class="line"><span class="comment"># 递归查找</span></span><br><span class="line">grep -nr <span class="string">&quot;search content&quot;</span> *</span><br></pre></td></tr></table></figure>
+<h2 id="编辑（vim）"><a href="#编辑（vim）" class="headerlink" title="编辑（vim）"></a>编辑（vim）</h2>有时候需要使用vim进行编辑，vim真的太强大了！！<br><a href="https://www.w3cschool.cn/vim/vim-o6bc3keq.html">W3Cschool</a><br><img data-src="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
+</ol>
+<h3 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h3><h3 id="查找定位跳转"><a href="#查找定位跳转" class="headerlink" title="查找定位跳转"></a>查找定位跳转</h3><h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h1 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h1><h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h1 id="C-C-语言"><a href="#C-C-语言" class="headerlink" title="C/C++语言"></a>C/C++语言</h1><h2 id="string的处理"><a href="#string的处理" class="headerlink" title="string的处理"></a>string的处理</h2><h3 id="情景一"><a href="#情景一" class="headerlink" title="情景一"></a>情景一</h3><blockquote>
+<p>输入带空格的一串英文，将每个单词存入向量之中。即每个向量的元素是一个string</p>
+</blockquote>
+<p>在询问东哥得到解决方法</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testVector3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s1;</span><br><span class="line">	vector&lt;string&gt; s2;</span><br><span class="line">	<span class="keyword">char</span> ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">		cin &gt;&gt; s1;</span><br><span class="line">		ch = <span class="built_in">getchar</span>();</span><br><span class="line">		s2.<span class="built_in">push_back</span>(s1);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>总结收获</strong><br>cin 用法介绍<br>getchar用法介绍</p>
+<h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.runoob.com/">菜鸟教程</a></p>
+]]></content>
+      <categories>
+        <category>工具</category>
+        <category>版本控制</category>
+      </categories>
+      <tags>
+        <tag>工作</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一半人生</title>
+    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E4%B8%80%E5%8D%8A%E4%BA%BA%E7%94%9F/</url>
+    <content><![CDATA[<p>在某個清晨 回望我一生<br>活得雖認真 卻微小如塵<br>想要唱首歌 去唱哭別人<br>最後卻是我 滿臉淚痕<br>早告別青春 活成了別人<br>經歷的時代 已如此陌生<br>年少時的話 又不敢承認<br>低頭在人海 浮浮沉沉<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>在某個清晨 回望我一生<br>活得雖認真 卻微小如塵<br>想要唱首歌 去唱哭別人<br>最後卻是我 滿臉淚痕<br>早告別青春 活成了別人<br>經歷的時代 已如此陌生<br>年少時的話 又不敢承認<br>低頭在人海 浮浮沉沉<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>有熱愛有恨 有未知的前程</p>
+]]></content>
+      <categories>
+        <category>摘抄</category>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>音乐</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速了解芯片行业</title>
     <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E8%8A%AF%E7%89%87%E8%A1%8C%E4%B8%9A%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h1 id="快速了解芯片行业"><a href="#快速了解芯片行业" class="headerlink" title="快速了解芯片行业"></a>快速了解芯片行业</h1><h2 id="芯片行业国内外现状"><a href="#芯片行业国内外现状" class="headerlink" title="芯片行业国内外现状"></a>芯片行业国内外现状</h2><p><a href="https://mp.weixin.qq.com/s/fVBpVLF8Sa-TIjcwMqiHvQ">报告 | 半导体硅片行业深度研究报告</a></p>
@@ -61,303 +406,75 @@
       </tags>
   </entry>
   <entry>
-    <title>我不求深刻，只求简单-三毛</title>
-    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E6%91%98%E6%8A%84-%E4%B8%89%E6%AF%9B/</url>
-    <content><![CDATA[<blockquote>
-<p>这世界有那么多人</p>
-<p>多幸运 我有个我们</p>
-</blockquote>
-<p>【1】</p>
-<p>“每想你一次，天空飘落一粒沙，从此形成了撒哈拉。每想你一次，天空就掉下一滴水，于是形成了太平洋。”</p>
-<p>【2】</p>
-<p>“爱情如果不落到穿衣、吃饭、睡觉、数钱这些实实在在的生活中去，是不会长久的”</p>
-<p>【3】</p>
-<p>“人之所以悲伤，是因为我们留不住岁月，更无法不承认，青春，有一日是要这么自然的消失过去”</p>
-<p>【4】</p>
-<p>“可进可退，若即若离，可爱可怨，可聚而不会散，才是最天长地久的一种好朋友”</p>
-<p>【5】</p>
-<p>”我爱哭的时候便哭，想笑的时候便笑，只要这一切出于自然。我不求深刻，只求简单”</p>
-]]></content>
-      <categories>
-        <category>摘抄</category>
-        <category>文学</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>人生需要停下来看看风景</title>
-    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/cscs/</url>
-    <content><![CDATA[<p>不必太纠结于当下，也不必太忧虑未来，人生没有无用的经历，当你经历一些事情后，眼前的风景已经和以前不一样了。 —村上春树</p>
-]]></content>
-      <categories>
-        <category>摘抄</category>
-        <category>文学</category>
-      </categories>
-      <tags>
-        <tag>思考</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring 基础篇</title>
-    <url>/2023/11/26/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<h1 id="Spring-基础篇"><a href="#Spring-基础篇" class="headerlink" title="Spring 基础篇"></a>Spring 基础篇</h1><h2 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1. 配置文件"></a>1. 配置文件</h2><h4 id="properties配置文件"><a href="#properties配置文件" class="headerlink" title="properties配置文件"></a>properties配置文件</h4><p>官方文档：<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.core">Common Application Properties (spring.io)</a></p>
-<p>springboot可以自动识别</p>
-<p>yml使用最多 </p>
-<h4 id="yml-实际使用方式"><a href="#yml-实际使用方式" class="headerlink" title="yml 实际使用方式"></a>yml 实际使用方式</h4><ol>
-<li><p>三方技术配置信息</p>
-</li>
-<li><p>自定义配置信息</p>
-</li>
-</ol>
-<h4 id="配置信息的书写和获取"><a href="#配置信息的书写和获取" class="headerlink" title="配置信息的书写和获取"></a>配置信息的书写和获取</h4><p>书写配置  yml 文件</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">email:</span></span><br><span class="line"><span class="string">&lt;左侧对齐&gt;user:&lt;空格&gt;1111</span></span><br><span class="line">	<span class="attr">code:</span> <span class="number">2222</span></span><br><span class="line">	<span class="attr">host:</span> <span class="number">3333</span></span><br><span class="line">	<span class="attr">auth:</span> <span class="number">4444</span></span><br></pre></td></tr></table></figure>
+    <title>windows安装 anaconda3 + pytorch</title>
+    <url>/2023/11/19/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/windows%E5%AE%89%E8%A3%85%20anaconda3%20+%20pytorch/</url>
+    <content><![CDATA[<h2 id="本机信息"><a href="#本机信息" class="headerlink" title="本机信息"></a>本机信息</h2><p>显卡：GTX-1650</p>
+<p>CUDA：10.2</p>
+<h2 id="1-安装Anaconda"><a href="#1-安装Anaconda" class="headerlink" title="1 安装Anaconda"></a>1 安装Anaconda</h2><p>官网下载，安装python3.8版本</p>
+<p>安装目录：D:\anaconda\</p>
+<h3 id="1-1-换源"><a href="#1-1-换源" class="headerlink" title="1.1 换源"></a>1.1 换源</h3><p>用户目录下找到.condarc</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">ssl_verify: true</span><br><span class="line">channels:</span><br><span class="line"></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line">  - default</span><br><span class="line">    show_channel_urls: true</span><br></pre></td></tr></table></figure>
 
-<p>获取配置信息</p>
-<p>方法一：  利用注解 @Value(“${键名}”)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;email.user&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String user;</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-测试"><a href="#1-2-测试" class="headerlink" title="1.2 测试"></a>1.2 测试</h3><p>打开anaconda prompt，输入以下内容，显示版本号，说明安装成功</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
 
-<p>方法二： @ConfigurationProperties(prefix=”前缀”)</p>
-<p>​    实体类的成员变量名与配置文件中的键名保持一致</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix=&quot;email&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmailProperties</span> </span>&#123;</span><br><span class="line">  ...  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-创建自己的虚拟环境"><a href="#1-3-创建自己的虚拟环境" class="headerlink" title="1.3 创建自己的虚拟环境"></a>1.3 创建自己的虚拟环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
 
+<p>注：其中pytorch是虚拟环境的名字，python可指定版本号</p>
+<p>更换到自己创建的虚拟环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">activate pytorch</span><br></pre></td></tr></table></figure>
 
+<h3 id="1-4-pycharm里面更换解释器"><a href="#1-4-pycharm里面更换解释器" class="headerlink" title="1.4 pycharm里面更换解释器"></a>1.4 pycharm里面更换解释器</h3><p>项目中更换解释器为anaconda里的版本即可</p>
+<h2 id="2-安装CUDA"><a href="#2-安装CUDA" class="headerlink" title="2 安装CUDA"></a>2 安装CUDA</h2><p>CUDA官网找到自己显卡支持的版本</p>
+<p>安装即可</p>
+<h3 id="2-1-测试"><a href="#2-1-测试" class="headerlink" title="2.1 测试"></a>2.1 测试</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
 
+<h2 id="3-安装pytorch"><a href="#3-安装pytorch" class="headerlink" title="3 安装pytorch"></a>3 安装pytorch</h2><p>1 找到与自己显卡相符合的CUDA版本，我的显卡为GTX1650，CUDA为10.2</p>
+<p>2 在<a href="https://pytorch.org/get-started/previous-versions/%EF%BC%8C%E6%89%BE%E5%88%B0%E6%83%B3%E8%A6%81%E5%AE%89%E8%A3%85%E7%9A%84pytorch%E7%89%88%E6%9C%AC%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%B8%8ECUDA%E7%89%88%E6%9C%AC%E7%9B%B8%E5%90%8C">https://pytorch.org/get-started/previous-versions/，找到想要安装的pytorch版本，并且与CUDA版本相同</a></p>
+<p>3 在虚拟环境中进行安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CUDA 10.2</span></span><br><span class="line">conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-整合Mybatis"><a href="#2-整合Mybatis" class="headerlink" title="2. 整合Mybatis"></a>2. 整合Mybatis</h2><h2 id="3-Bean管理"><a href="#3-Bean管理" class="headerlink" title="3. Bean管理"></a>3. Bean管理</h2><h2 id="4-自动配置原理"><a href="#4-自动配置原理" class="headerlink" title="4. 自动配置原理"></a>4. 自动配置原理</h2><h2 id="5-自定义starter"><a href="#5-自定义starter" class="headerlink" title="5. 自定义starter"></a>5. 自定义starter</h2>]]></content>
-      <categories>
-        <category>全栈开发</category>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>springboot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue 开发流程总结</title>
-    <url>/2023/11/21/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</url>
-    <content><![CDATA[<p>由于主要做后端开发，对于前端开发不怎么熟悉，在最近学习 vue 后，下载了一个 vue-admin 快速开发框架，框架中把基本需要的组件都集成好了，在实现功能的时候，对相关的页面进行一定的修改就能达到目的。<br>由此，各个不同业务对应的修改流程是差不多的，这里做一个小的总结。</p>
-<h2 id="基本页面确定"><a href="#基本页面确定" class="headerlink" title="基本页面确定"></a>基本页面确定</h2><p>业务需要什么页面就对其进行复制，然后在复制后的页面上进行修改。</p>
-<h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ol>
-<li>页面引用 api 目录下对应的文件，其中定义了前后端交互接口及方式</li>
-<li>api 中引用了 request.js 其中定义了前后端交互的服务器地址</li>
-<li>前端对返回的数据进行相应解析 <h2 id="前端效果控制"><a href="#前端效果控制" class="headerlink" title="前端效果控制"></a>前端效果控制</h2>在页面获取相应的数据后，需要进行数据加载，然后页面呈现出相应的效果，同时根据业务的需要进行页面元素修改。</li>
-</ol>
-<p>参考自：<br><a href="https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/">https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/</a></p>
-]]></content>
-      <categories>
-        <category>全栈开发</category>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>转载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>博客List</title>
-    <url>/2023/11/19/%E8%BD%AC%E8%BD%BD/%E5%8D%9A%E5%AE%A2List/</url>
-    <content><![CDATA[<p><a href="https://evestorm.github.io/tags/">https://evestorm.github.io/tags/</a></p>
-]]></content>
-      <categories>
-        <category>转载</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>springboot教程</title>
-    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot/</url>
-    <content><![CDATA[<h1 id="springboot-概述"><a href="#springboot-概述" class="headerlink" title="springboot 概述"></a>springboot 概述</h1><h2 id="1-什么是-spring"><a href="#1-什么是-spring" class="headerlink" title="1. 什么是 spring"></a>1. 什么是 spring</h2><p><a href="https://potoyang.gitbook.io/spring-in-action-v5/">spring实战（第五版）</a></p>
-<p>Spring 是一个开源框架，Spring是于2003 年兴起的一个轻量级的Java 开发框架。</p>
-<p>简单来说，它是一个容器框架，用来装 javabean（java对象），中间层框架（万能胶）可以起一个连接作用，比如说把 Struts 和 hibernate 粘合在一起运用。简单来说，Spring 是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。</p>
-<h2 id="2-spring-web-工程创建"><a href="#2-spring-web-工程创建" class="headerlink" title="2. spring web 工程创建"></a>2. spring web 工程创建</h2><p><a href="https://www.bilibili.com/video/BV14z4y1N7pg?p=3&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">基础篇-02_springboot入门_哔哩哔哩_bilibili</a></p>
-<ol>
-<li>创建maven工程</li>
-<li>导入spring-boot-starter-web起步依赖（使用idea自动构建）</li>
-<li>编写controller</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KaoqinController</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World ~&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World ~&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="4">
-<li>提供启动类</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication()</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SpringApplication.run(MyApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Spring-基础篇"><a href="#3-Spring-基础篇" class="headerlink" title="3. Spring 基础篇"></a>3. Spring 基础篇</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h3 id="整合Mybatis"><a href="#整合Mybatis" class="headerlink" title="整合Mybatis"></a>整合Mybatis</h3><h3 id="Bean管理"><a href="#Bean管理" class="headerlink" title="Bean管理"></a>Bean管理</h3><h3 id="自动配置原理"><a href="#自动配置原理" class="headerlink" title="自动配置原理"></a>自动配置原理</h3><h3 id="自定义starter"><a href="#自定义starter" class="headerlink" title="自定义starter"></a>自定义starter</h3><h2 id="4-实战篇"><a href="#4-实战篇" class="headerlink" title="4. 实战篇"></a>4. 实战篇</h2><h3 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h3><h3 id="整合三方技术"><a href="#整合三方技术" class="headerlink" title="整合三方技术"></a>整合三方技术</h3><h3 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h3><h2 id="5-面试篇"><a href="#5-面试篇" class="headerlink" title="5. 面试篇"></a>5. 面试篇</h2><h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3>]]></content>
-      <categories>
-        <category>全栈开发</category>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>spring</tag>
-        <tag>springboot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全栈开发</title>
-    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>什么是前后端分离</strong>？</p>
-<p>前端HTML页面通过AJAX调用后端的RESTFUL API接口并使用JSON数据进行交互</p>
-<blockquote>
-<p><a href="https://eolink.csdn.net/64376d0d7de2bc0e53e304f7.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQxNjA4NywiZXhwIjoxNzAwODI4NTQ1LCJpYXQiOjE3MDAyMjM3NDUsInVzZXJuYW1lIjoid2VpeGluXzQ1MDY2NDEyIn0.anTo0I4uRccESjtRzy6MTCdGb4jhh4UApYEuZ2XR9ao">前后端分离架构概述</a></p>
-</blockquote>
-<p><img data-src="/.io//quanzhan1.png" alt="img"></p>
-<h3 id="全栈学习路线"><a href="#全栈学习路线" class="headerlink" title="全栈学习路线"></a>全栈学习路线</h3><p><a href="https://blog.csdn.net/guorui_java/article/details/120643691?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=1">Java学习路线总结（思维导图篇）_哪 吒的博客-CSDN博客</a></p>
-<p><a href="https://www.bilibili.com/video/BV14z4y1N7pg/?spm_id_from=333.337.search-card.all.click&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">黑马程序员SpringBoot3+Vue3全套视频教程，springboot+vue企业级全栈开发从基础、实战到面试一套通关_哔哩哔哩_bilibili</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Learn">web开发学习</a></p>
-<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="安装多个java"><a href="#安装多个java" class="headerlink" title="安装多个java"></a>安装多个java</h2><p><a href="https://blog.csdn.net/u013066244/article/details/108311123?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-108311123-blog-105246997.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-108311123-blog-105246997.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=6">window10 安装Java11 并可以和Java8进行自由切换_jdk 切换-CSDN博客</a></p>
-]]></content>
-      <categories>
-        <category>全栈开发</category>
-      </categories>
-      <tags>
-        <tag>vue</tag>
-        <tag>java</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>配置ruoyi</title>
-    <url>/2023/11/19/ruoyi/%E9%85%8D%E7%BD%AEruoyi/</url>
-    <content><![CDATA[<h2 id="若依前后端分离配置"><a href="#若依前后端分离配置" class="headerlink" title="若依前后端分离配置"></a>若依前后端分离配置</h2><p>文档：<a href="http://doc.ruoyi.vip/ruoyi/">介绍 | RuoYi</a></p>
-<h3 id="1-云服务器准备工作"><a href="#1-云服务器准备工作" class="headerlink" title="1. 云服务器准备工作"></a>1. 云服务器准备工作</h3><ol>
-<li>安装 centos<ol>
-<li>放行 1000 - 10000 端口，0.0.0.0</li>
-</ol>
-</li>
-<li>安装宝塔，使用LAMP面板推荐</li>
-<li>安装若依所需依赖，注意jdk使用1.8，避免不必要的配置</li>
-<li>放行端口，链接测试</li>
-</ol>
-<h3 id="2-本地配置修改"><a href="#2-本地配置修改" class="headerlink" title="2. 本地配置修改"></a>2. 本地配置修改</h3><h5 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h5><p>修改端口：ruoyi-admin/src/main/resources/application.yml</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开发环境配置</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="comment"># 服务器的HTTP端口，默认为8080</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">7777</span></span><br><span class="line">  <span class="attr">servlet:</span></span><br><span class="line">    <span class="comment"># 应用的访问路径</span></span><br><span class="line">    <span class="attr">context-path:</span> <span class="string">/</span></span><br><span class="line">  <span class="attr">tomcat:</span></span><br><span class="line">    <span class="comment"># tomcat的URI编码</span></span><br><span class="line">    <span class="attr">uri-encoding:</span> <span class="string">UTF-8</span></span><br><span class="line">    <span class="comment"># 连接数满后的排队数，默认为100</span></span><br><span class="line">    <span class="attr">accept-count:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">threads:</span></span><br><span class="line">      <span class="comment"># tomcat最大线程数，默认为200</span></span><br><span class="line">      <span class="attr">max:</span> <span class="number">800</span></span><br><span class="line">      <span class="comment"># Tomcat启动初始化的线程数，默认值10</span></span><br><span class="line">      <span class="attr">min-spare:</span> <span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-<p>mysql 配置修改：ruoyi-admin/src/main/resources/application-druid.yml</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">master:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://&#123;数据库URL&#125;:3306/&#123;数据库名称&#125;?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">数据库用户名</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">密码</span></span><br></pre></td></tr></table></figure>
-
-<p>修改权限，允许匿名访问，测试接口：ruoyi-framework/src/main/java/com/ruoyi/framework/config/SecurityConfig.java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = false/*修改为false*/, securedEnabled = true)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 静态资源，可匿名访问</span></span><br><span class="line">                .antMatchers(HttpMethod.GET, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;/*.html&quot;</span>, <span class="string">&quot;/**/*.html&quot;</span>, <span class="string">&quot;/**/*.css&quot;</span>, <span class="string">&quot;/**/*.js&quot;</span>, <span class="string">&quot;/profile/**&quot;</span>,<span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(HttpMethod.POST, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br><span class="line">                .antMatchers(<span class="string">&quot;/swagger-ui.html&quot;</span>, <span class="string">&quot;/swagger-resources/**&quot;</span>, <span class="string">&quot;/webjars/**&quot;</span>, <span class="string">&quot;/*/api-docs&quot;</span>, <span class="string">&quot;/druid/**&quot;</span>, <span class="string">&quot;/**/**&quot;</span>).permitAll()</span><br></pre></td></tr></table></figure>
-
-<h5 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h5><p>前端端口：ruoyi-ui/vue.config.js</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> port = process.env.port || process.env.npm_config_port || <span class="number">70</span> <span class="comment">// 端口</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// webpack-dev-server 相关配置</span></span><br><span class="line"> <span class="attr">devServer</span>: &#123;</span><br><span class="line">   <span class="attr">host</span>: <span class="string">&#x27;0.0.0.0&#x27;</span>,</span><br><span class="line">   <span class="attr">port</span>: port,</span><br><span class="line">   <span class="attr">open</span>: <span class="literal">true</span>,</span><br><span class="line">   <span class="attr">proxy</span>: &#123;</span><br><span class="line">     <span class="comment">// detail: https://cli.vuejs.org/config/#devserver-proxy</span></span><br><span class="line">     [process.env.VUE_APP_BASE_API]: &#123;</span><br><span class="line">       <span class="attr">target</span>: <span class="string">`http://服务器地址:7777`</span>,</span><br><span class="line">       <span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">       <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">         [<span class="string">&#x27;^&#x27;</span> + process.env.VUE_APP_BASE_API]: <span class="string">&#x27;&#x27;</span></span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-云端部署配置"><a href="#3-云端部署配置" class="headerlink" title="3.云端部署配置"></a>3.云端部署配置</h3><ol>
-<li><p>前端打包后dist，放在根目录下</p>
-</li>
-<li><p>后端java包随便放位置，java -jar 启动即可</p>
-</li>
-<li><p>网站/伪静态配置</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment">#PROXY-STARTprod-api</span></span><br><span class="line"><span class="string">location</span> <span class="string">/prod-api/</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">proxy_pass</span> <span class="string">http://服务器地址:7777/;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">Host</span> <span class="string">$host;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Real-IP</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">X-Forwarded-For</span> <span class="string">$proxy_add_x_forwarded_for;</span></span><br><span class="line">    <span class="string">proxy_set_header</span> <span class="string">REMOTE-HOST</span> <span class="string">$remote_addr;</span></span><br><span class="line">    <span class="string">add_header</span> <span class="string">X-Cache</span> <span class="string">$upstream_cache_status;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">#Set Nginx Cache</span></span><br><span class="line">    </span><br><span class="line">    	<span class="string">add_header</span> <span class="string">Cache-Control</span> <span class="literal">no</span><span class="string">-cache;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">######!!!!!!!</span></span><br><span class="line"><span class="comment">########!!!!!!!!</span></span><br><span class="line"><span class="string">location</span> <span class="string">/</span> &#123;</span><br><span class="line">    <span class="string">try_files</span> <span class="string">$uri</span> <span class="string">$uri/</span> <span class="string">/index.html;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#PROXY-ENDprod-api</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
+<p>耐心等待~~~</p>
+<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2>]]></content>
       <categories>
         <category>教程</category>
-        <category>若依</category>
+        <category>环境搭建</category>
       </categories>
       <tags>
-        <tag>若依</tag>
+        <tag>深度学习</tag>
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
-    <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
-<h2 id="8-2-默认网关"><a href="#8-2-默认网关" class="headerlink" title="8.2 默认网关"></a>8.2 默认网关</h2><p>如果搞清了什么是网关，默认网关也就好理解了。就好像一个房间可以有多扇门一样，一台主机可以有多个网关。默认网关的意思是一台主机如果找不到可用的网关，就把数据包发给默认指定的网关，由这个网关来处理数据包。现在主机使用的网关，一般指的是默认网关。</p>
-<p>默认网关必须是电脑自己所在的网段（将IP地址和子网掩码作与运算，得到网段）中的IP地址，而不能填写其他网段中的IP地址。</p>
-<h2 id="8-3-特殊的网络IP"><a href="#8-3-特殊的网络IP" class="headerlink" title="8.3 特殊的网络IP"></a>8.3 特殊的网络IP</h2><p>每一个网段的最后一个 IP 地址，都是广播IP。<br>另一个同样是用于广播的比较特殊的广播 IP，那就是 255.255.255.255。<br>这个地址指本网段内(同一个广播域)的所有主机，该地址用于主机配置过程中IP数据包的目的地址，这时主机可能还不知道它所在网络的网络掩码，甚至连自己的IP地址也还不知道。</p>
+    <title>【计算机网络】基础概念总结1-网络概念</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
+    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
+<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
+<span id="more"></span>
+
+<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
 <blockquote>
-<p>注 ：避免路由器转发255.255.255.255，造成死循环<br>在任何情况下，路由器都会禁止转发目的地址为受限的广播地址的数据包，这样的数据包仅会出现在本地网络中.</p>
+<p> network : 网络  protocal : 协议</p>
 </blockquote>
-<h2 id="8-4-单播网络-unicast-traffic"><a href="#8-4-单播网络-unicast-traffic" class="headerlink" title="8.4 单播网络 unicast traffic"></a>8.4 单播网络 unicast traffic</h2><p>单播(unicast): 是指封包在计算机网络的传输中，目的地址为单一目标的一种传输方式。它是现今网络应用最为广泛，通常所使用的网络协议或服务大多采用单播传输，例如一切基于TCP的协议。<br><img data-src="https://img-blog.csdnimg.cn/20210427152005381.png"><br>单播在网络中得到了广泛的应用，网络上绝大部分的数据都是以单播的形式传输的，只是一般网络用户不知道而已。例如，你在收发电子邮件、浏览网页时，必须与邮件服务器、Web服务器建立连接，此时使用的就是单播数据传输方式。但是通常使用“点对点通信”（Point to Point）代替“单播”，因为“单播”一般与“多播”和“广播”相对应使用。</p>
-<h2 id="8-5-多播网络Multicast-traffic"><a href="#8-5-多播网络Multicast-traffic" class="headerlink" title="8.5 多播网络Multicast traffic"></a>8.5 多播网络Multicast traffic</h2><p>要向其他网络多个主机传递消息，单播网络局限性。255.255.255.255又只有本地有用。所以就有了多播网络<br>多播流量需要使用特殊 IP 地址，也就是我们之前所说的 D 类 IP 地址，D 类 IP 地址的地址范围从 224.0.0.0 到 239.255.255.255，多播是设备选择接受特定流量的一种方式。<br><img data-src="https://img-blog.csdnimg.cn/2021042715005090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="8-6-公-私IP"><a href="#8-6-公-私IP" class="headerlink" title="8.6 公/私IP"></a>8.6 公/私IP</h2><p>每个IP都是唯一</p>
-<h3 id="8-6-1-互联网号码分配局（IANA）"><a href="#8-6-1-互联网号码分配局（IANA）" class="headerlink" title="8.6.1 互联网号码分配局（IANA）"></a>8.6.1 互联网号码分配局（IANA）</h3><p>这些 IP 地址统一由 互联网号码分配局 （Internet Assigned Numbers Authority）简称 IANA 进行管理，它们将大量地址分配给分布于世界各地的子机构，我们也称其为 区域性互联网注册管理机构 （Regional Internet Registry）简称 RIR。</p>
-<ol>
-<li>RIPE：欧洲 IP 地址注册中心</li>
-<li>LACNIC：拉丁美洲和加勒比海 Internet 地址注册中心</li>
-<li>ARIN：美国 Internet 编号注册中心</li>
-<li>AFRINIC：非洲网络信息中心</li>
-<li>APNIC：亚太地址网络信息中心</li>
-</ol>
-<h3 id="8-6-2-互联网服务提供商（ISP）"><a href="#8-6-2-互联网服务提供商（ISP）" class="headerlink" title="8.6.2 互联网服务提供商（ISP）"></a>8.6.2 互联网服务提供商（ISP）</h3><p>RIR 为各地的互联网服务提供商（简称 ISP）分配地址空间，也会分配空间给拥有庞大用户量的【大客户】。</p>
-<p>IANA 分配地址给 RIR<br>RIR 分配地址给 ISP， 大客户<br>ISP 分配地址给小客户</p>
-<h2 id="8-7-私人-IP与公共-IP"><a href="#8-7-私人-IP与公共-IP" class="headerlink" title="8.7 私人 IP与公共 IP"></a>8.7 私人 IP与公共 IP</h2><h3 id="8-7-1-私人-IP"><a href="#8-7-1-私人-IP" class="headerlink" title="8.7.1 私人 IP"></a>8.7.1 私人 IP</h3><p>当我们想要创建一个新的网络，则需要获取更多的 IP 地址，我们需要找到当地的服务提供商进行申请。<br>私人IP包括以下：<br>10.0.0.0 /8<br>172.16.0.0 /12<br>192.168.0.0 /16</p>
-<p>由于IPV4的数量有限<br>这些IP只能在局域网中使用，不能在互联网上使用，使用NAT（网络地址转换）技术完成上网，将私人IP修改为公共IP<br><img data-src="https://img-blog.csdnimg.cn/20210427154826998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427154848918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427160531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="8-7-2-公共IP"><a href="#8-7-2-公共IP" class="headerlink" title="8.7.2 公共IP"></a>8.7.2 公共IP</h3><p>除了私人 IP 之外的 IP 地址，均属于公共 IP。</p>
-]]></content>
-      <categories>
-        <category>基础知识</category>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/</url>
-    <content><![CDATA[<h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
-<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
-<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
-<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
-<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
-<p><a href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>基础知识</category>
-        <category>计算机网络</category>
-      </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【计算机网络】基础概念总结6-子网掩码</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/</url>
-    <content><![CDATA[<h1 id="6-子网掩码"><a href="#6-子网掩码" class="headerlink" title="6 子网掩码"></a>6 子网掩码</h1><h2 id="6-1-为什么要有子网掩码"><a href="#6-1-为什么要有子网掩码" class="headerlink" title="6.1 为什么要有子网掩码"></a>6.1 为什么要有子网掩码</h2><p>随着互联网的飞速发展，我们消耗 IP 的速度越来越快，IP 地址渐渐的又不够用了，因此，在 1993 年，引入了一种新的方法，称为无类别域间路由（Classless Inter-Domain Routing）简称 CIDR。</p>
-<blockquote>
-<p>无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。</p>
-</blockquote>
-<h2 id="6-2-子网掩码的两种表示方式"><a href="#6-2-子网掩码的两种表示方式" class="headerlink" title="6.2 子网掩码的两种表示方式"></a>6.2 子网掩码的两种表示方式</h2><p><font color="blue">wiki解释</font><br>“子网掩码”（subnet mask），它是一种用来指明一个IP地址的哪些位标识的是主机所在的网络地址以及哪些位标识的是主机地址的位掩码。</p>
-<h3 id="6-2-1-与IPV4相同的表示方法1"><a href="#6-2-1-与IPV4相同的表示方法1" class="headerlink" title="6.2.1 与IPV4相同的表示方法1"></a>6.2.1 与IPV4相同的表示方法1</h3><p>通常情况下，子网掩码的表示方法和地址本身的表示方法是一样的。在IPv4中，就是点分十进制四组表示法。如图，255.255.0.0 就是 172.16.3.4 的子网掩码。<br><img data-src="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以ABC三类的子网掩码为：<br><img data-src="https://img-blog.csdnimg.cn/20210424192155216.png"></p>
-<h3 id="6-2-2-无类别域间路由表示方法2"><a href="#6-2-2-无类别域间路由表示方法2" class="headerlink" title="6.2.2 无类别域间路由表示方法2"></a>6.2.2 无类别域间路由表示方法2</h3><p>另一种更为简短的形式叫做无类别域间路由（CIDR）表示法，它给出的是一个地址加上一个斜杠以及网络掩码的二进制表示法中“1”的位数（即网络号中和网络掩码相关的是哪些位）。例如，172.16.3.4/16表示的是一个前16位被用作网络号的IP地址（和255.255.0.0的意思一样）。</p>
-<p><font color="red" size="5">使用CIDR表示，忘记掉该网络是第几类</font><br><img data-src="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p>子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运算（AND）即得出网络地址来。这样在路由器处理到来的分组时就可以采用同样的方法。</p>
 <hr>
-<h2 id="6-2-子网划分"><a href="#6-2-子网划分" class="headerlink" title="6.2 子网划分"></a>6.2 子网划分</h2><p>把基于每类的IP网络进一步分成更小的网络，每个子网由路由器界定并分配一个新的子网网络地址,子网地址是借用基于每类的网络地址的主机部分创建的。划分子网后，通过使用掩码，把子网隐藏起来，使得从外部看网络没有变化，这就是子网掩码。</p>
-<h3 id="子网划分例子"><a href="#子网划分例子" class="headerlink" title="子网划分例子"></a>子网划分例子</h3><p>上节知识我们计算了网络号的个数和主机数，下图大家计算一下，该网络属是几类网络，有多少主机。<br><img data-src="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>网络类：<br>172 = 1010 1100‬<br>10开头说明为B类<br>结点个数：<br>0.0 - 255.255个<br>2的16次方个<br>65536个<br><font color="green" size="5">大家思考一下，一个局域网网络中有65536个，是不是太多了，一个办公室根本不需要这么多，所以我们进行子网划分</font></p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>经过划分之后，我们有了256个子网，每个子网有256个结点，合理多了！</p>
-<h2 id="6-3-CIDR-记录法"><a href="#6-3-CIDR-记录法" class="headerlink" title="6.3  CIDR 记录法"></a>6.3  CIDR 记录法</h2><p><img data-src="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>问：<br>为什么网段 A 中的设备无法通过路由器与网段 B 进行通信？<br>答：<br>问题的重点在中间路由器所在的网段，通过 172.16.2.0/30 得知，前30位都是掩码，因此只留下 2 位允许划分空间，根据 2 的 2 次方=4 可以确定该网段之划分了 4 个 IP 地址 172.16.2.0~172.16.2.3。右侧的路由器 IP 为 172.16.2.20，很明显不在正确范围内。</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果，我们拥有一个 B 类地址，172.16.0.0，子网掩码为 255.255.0.0，我们使用子网划分将子网掩码设置为 255.255.240.0，请问：</p>
-<p>问：我们此时拥有多少个子网空间？<br>答：16 个，172.16.0.0 打开了八位位组的前 16 位，而【255.255.240.0】打开了八位位组的前 20 位，20-16=4 位，这是子网的另外 4 位，因此 2 的 4 次方=16，因此，我们此时拥有16个子网空间。分别为：<br>172.16.0.0<br>172.16.16.0<br>172.16.32.0<br>172.16.48.0<br>172.16.64.0<br>172.16.80.0<br>172.16.96.0<br>172.16.112.0<br>172.16.128.0<br>172.16.144.0<br>172.16.160.0<br>172.16.176.0<br>172.16.192.0<br>172.16.208.0<br>172.16.224.0<br>172.16.240.0<br>问：每个子网空间可以划分多少 IP 地址？【例如：176.16.0.1 ~176.16.15.255】<br>答：每个子网有 16 * 256 = 4096 个 IP 地址。</p>
+<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
+<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
+<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
+<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
+<hr>
+<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
+<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
+<li>coper电缆：cheaper、short distance、electric signal </li>
+<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
+</ol>
+<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
+<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
+</ol>
+<hr>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%BD%91">子网-wiki</a></p>
-<p><a href="https://sspai.com/post/64688#!">小白也能看懂的网络基础 04 | IP地址是如何工作的</a></p>
+<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -369,27 +486,54 @@
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结5-IP地址工作方式</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/</url>
-    <content><![CDATA[<h1 id="5-IP地址工作"><a href="#5-IP地址工作" class="headerlink" title="5 IP地址工作"></a>5 IP地址工作</h1><h2 id="5-1-IP地址存在意义"><a href="#5-1-IP地址存在意义" class="headerlink" title="5.1 IP地址存在意义"></a>5.1 IP地址存在意义</h2><p>前面已经说过，全世界设备非常多，不可能通过【MAC地址】来寻址<br>通过【IP地址】我们可以很轻松的找到一台已经接入网络中的设备。</p>
-<h2 id="5-2-IP地址分类"><a href="#5-2-IP地址分类" class="headerlink" title="5.2 IP地址分类"></a>5.2 IP地址分类</h2><p><img data-src="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IPV4
-IPV6"></p>
-<p>介绍最常见的IPV4这种地址形式</p>
-<h2 id="5-3-IPV4地址"><a href="#5-3-IPV4地址" class="headerlink" title="5.3 IPV4地址"></a>5.3 IPV4地址</h2><p>IPv4 地址是一段由<strong>四组数字</strong>组成的整体，每组数字中间使用<strong>点</strong>来隔开，每组数字有八位字节<br><img data-src="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以IPV4的取值范围为<br><img data-src="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<h2 id="5-4-IPV4由两部分组成"><a href="#5-4-IPV4由两部分组成" class="headerlink" title="5.4 IPV4由两部分组成"></a>5.4 IPV4由两部分组成<img data-src="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></h2><p>1 网络号<br>同一网络号就是处于同一网段<br>不同网段的主机要通信需要路由器<br>2 主机号</p>
-<h2 id="5-5-IPV4的分级"><a href="#5-5-IPV4的分级" class="headerlink" title="5.5 IPV4的分级"></a>5.5 IPV4的分级</h2><h3 id="5-5-1-Class-A–Large-Networks"><a href="#5-5-1-Class-A–Large-Networks" class="headerlink" title="5.5.1 Class A–Large Networks"></a>5.5.1 Class A–Large Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">第一位保留0</font><br>因为网络号的第一位保留，所以<br>【网络号】<br>0000 0000 - 0111 1111<br>共8位，锁一位，共128个<br>即0-127<br>共180个<br>【主机号】<br>0000 0000.0000 0000.0000 0000 - 1111 1111.1111 1111.1111 1111个<br>即0 - 16,777,215<br>共16,777,216个</p>
-<h3 id="5-5-2-Class-B-–-Medium-Networks"><a href="#5-5-2-Class-B-–-Medium-Networks" class="headerlink" title="5.5.2 Class B – Medium Networks"></a>5.5.2 Class B – Medium Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
-<p><font color="green" size="5">前两位保留10</font><br>【网络号】<br>IP前两组从：1000 0000.0000 0000 到 1011 1111.1111 1111<br>即128.0-191.255<br>总共16位，锁了两位，剩14位，共16384个<br>共32768 - 49151个‬<br>共16384个<br>【主机号】<br>IP的后两组从：0000 0000.0000 0000 到1111 1111.1111 1111<br>即0.0 - 255.255<br>共0 - 65535个<br>共65536个</p>
-<h3 id="5-5-3-Class-C-–-Small-Networks"><a href="#5-5-3-Class-C-–-Small-Networks" class="headerlink" title="5.5.3 Class C – Small Networks"></a>5.5.3 Class C – Small Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">前三位保留110</font><br>【网络号】<br>IP前三组数从：1100 0000.0000 0000 到 1101 1111.1111 1111. 1111 1111<br>即192.0.0-223.255.255<br>由于前三位锁定，所以有21位网络可供使用<br>共2097152个<br>【主机号】<br>IP的最后一组数从：0000 0000 到1111 1111<br>即0 - 255<br>共256个</p>
-<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img data-src="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>假如【172.16.0.1】的主机需要和【172.16.0.2】通信<br>0.1 主机首先就会查看 0.2 主机是否与自己在同一网段下</p>
-<p>两种方式查看：</p>
-<ol>
-<li>查看八位位组是否一致；</li>
-<li>查看IP地址的前两组数是否一致<br>若一致，则代表在同一网段，因此可以直接发送信息；</li>
+    <title>【计算机网络】基础概念总结2-初识以太网协议</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
+    <content><![CDATA[<h1 id="2-以太网协议（简单认识）"><a href="#2-以太网协议（简单认识）" class="headerlink" title="2 以太网协议（简单认识）"></a>2 以太网协议（简单认识）</h1><p>The Ethernet protocol describes physical links， and how data is formatted<br>描述了线缆的类型以及不同线缆的传输速度；另一部分则描述了数据应该如何进行格式化和发送的操作。<br>由于「以太网」构建简单、成本低、可扩展性强、与IP网能够很好地结合等特点，使它成为局域网网络构建中最常用的一种技术。对于「以太网协议」，则代表了接入以太网的节点设备都达成一致的一组规则。想要接入以太网，就必须按「合同」办事。</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210422083604490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IEEE标准"></p>
+<span id="more"></span>
+
+<p>802.3an 可以写为 10GBase-T<br>10G = 10 Gigabits per second<br>BASE = Baseband （cables）：use digital signal<br>T = UTP（type of cable）<br>10G代表了其传输速度为「10 Gigabits per second」；<br>BASE = Baseband(cables) 是基带的意思，代表它使用数字信号进行传输（另一种是模拟信号）；<br>T代表所使用的线缆类型，T=UTP也就是双绞线（另一种是LX光纤）</p>
+<blockquote>
+<p>UTP：Unshilded Twristed  （非屏蔽双绞线）</p>
+</blockquote>
+<hr>
+<h2 id="2-1-电缆"><a href="#2-1-电缆" class="headerlink" title="2.1 电缆"></a>2.1 电缆</h2><p>想要发送电信号，就需要拥有电路，这意味着我们需要准备多根电线以传输数据，而我们最常见的线缆称为「非屏蔽双绞线」（UTP，也就是常见的网线），每对电线构成一个电路。<br>双绞线消除串扰<br><img data-src="https://img-blog.csdnimg.cn/20210422084817697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="双绞线"><br>每对电线都是由纯色和条纹色组成<br>不同的<strong>以太网标准</strong>，需要使用不同的线缆，我们应该都听说过 【5类线】 或 【6类线】 这样的名称，其实这就是不同网线的专用术语，不同的类别对应了不同线缆的标准（例如：线缆的对数、线缆的粗细以及线缆的交合程度）。<br><img data-src="https://img-blog.csdnimg.cn/20210422085010233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="以太网标准"></p>
+<h3 id="2-1-1-电缆连接器"><a href="#2-1-1-电缆连接器" class="headerlink" title="2.1.1 电缆连接器"></a>2.1.1 电缆连接器</h3><p>线缆两端都会安装一个连接器，这个连接器的名字叫做【rj45连接器】，其实就是我们所说的水晶头，它们是接入到网卡与交换机端口的部分，该连接器有八个引脚，它们与电缆内部的八根铜线对齐，必须按正确的顺序与引脚对齐才能保证通信。<br><img data-src="https://img-blog.csdnimg.cn/2021042208524619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="rj45连接器"><br>橙白-橙，绿白-蓝，蓝白-绿，棕白-棕</p>
+<h3 id="2-2-2-连接方式"><a href="#2-2-2-连接方式" class="headerlink" title="2.2.2 连接方式"></a>2.2.2 连接方式</h3><hr>
+<p>HOST    —–    SWITCH   直连<br><img data-src="https://img-blog.csdnimg.cn/20210422085437201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="直连"></p>
+<hr>
+<p>HOST    —–     HOST    交叉<br><img data-src="https://img-blog.csdnimg.cn/20210422085622972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="交叉"></p>
+<hr>
+<p>自动引脚切换。目前最常用<br>【Auto MDI-X】 可以支持的设备可以检测是否使用了错误的线缆，然后，可以再逻辑上切换引脚的功能，使其与电缆相匹配，但是需要注意的是在以太网为 100BASE-T 及以上的标准才可以支持这项技术。<br><img data-src="https://img-blog.csdnimg.cn/2021042208570122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Auto MDI-X"></p>
+<h2 id="2-2-两种光纤"><a href="#2-2-两种光纤" class="headerlink" title="2.2 两种光纤"></a>2.2 两种光纤</h2><p>① 单模光纤   Single Mode Fibre<br>Laser Light<br>2Km以上距离<br>Expensive<br>Half Duplex （半双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084034409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="单模光纤"></p>
+<p>② 多模光纤   Multi Mode Fibre<br>LED Light<br>500m<br>cheap<br>Full Duplex （全双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084102525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="多模光纤"></p>
+<p>光纤弯曲程度<br><img data-src="https://img-blog.csdnimg.cn/20210423140324611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="光纤弯曲程度"></p>
+<p>全双工：<br>同时接收和发送信息<br><img data-src="https://img-blog.csdnimg.cn/20210422084001785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="全双工"></p>
+<p>半双工：<br>不同时接受和发送消息<br><img data-src="https://img-blog.csdnimg.cn/20210422083935750.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="半双工"></p>
+<hr>
+<h2 id="2-3-Wi-Fi连接"><a href="#2-3-Wi-Fi连接" class="headerlink" title="2.3 Wi-Fi连接"></a>2.3 Wi-Fi连接</h2><p>我们的另一种通信方法就是无线Wi-Fi通信，它不需要使用电缆连接，无线网络就像一个无线的交换机，可以让手机、笔记本之类的无线设备链接到接入点，但这个接入点是需要链接到有线网络的，此时，有线和无线设备可以在同一个网络当中使用。当然，并不是所有的设备都会连接到无线接入点的，例如我们不能把路由器或服务器连接到无线接入点。<br><img data-src="https://img-blog.csdnimg.cn/20210422085954586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wi-Fi连接"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>网络可以是有线或无线的，网络连接可以使用铜缆或光缆</li>
+<li>以太网标准用于描述了物理连接线缆的类型以及如何格式化数据</li>
+<li>UTP有四对双绞线，其中一些用于数据发送，另一些用于数据接收</li>
+<li>线缆可以以直通方式或交叉方式连接到交换机</li>
+<li>现如今的大部分平台都支持 Auto MDI-X，可自动对线缆进行检测并做出调整</li>
+<li>双工设备可以同时发送和接受数据，半双工则需要收到响应后再发送数据</li>
+<li>双芯光纤支持全双工，单芯光纤支持半双工</li>
+<li>若想要短距离连接，并节省更多成本，可以选择多模光纤</li>
+<li>若想要远距离连接，则需要支付更高的价格，选择单模光纤，同时需采用正确收发器</li>
+<li>如果有线连接无法满足你的需求，可以采用无线网络连接<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1></li>
+<li>1000BASE-T以什么速度运行？需要使用什么类型的电缆？</li>
+<li>使用哪种类型的UTP电缆将主机连接到交换机？那种类型的电缆可以将一个交换机连接到另一个交换机？</li>
+<li>哪种情况下我们需要使用 Auto MDI-X 技术？</li>
+<li>那种情况下需要使用光纤代替UTP？什么时候需要单模式光纤而不是多模光纤？</li>
+<li>什么是弯曲半径？使用哪种类型的电缆，需要特别注意弯曲半径？</li>
+<li>请简单阐述全双工工作模式的特点</li>
 </ol>
-<p>若172.16 网段中的 0.1 主机想要发送信息给 172.17 网段中的 0.2 主机，同样是根据上述方法检测，此时发现 0.2 主机在另一网段，因此需要借助【路由器】来实现信息的交互。</p>
-<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>A、B 和 C 类 IP 地址的网络空间范围：<br>A 类 IP 地址：0.0.0.0 ~ 127.0.0.0<br>B 类 IP 地址：128.0.0.0 ~ 191.255.0.0<br>C 类 IP 地址：192.0.0.0 ~ 223.255.255.0</p>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
+<p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
+<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>基础知识</category>
@@ -476,53 +620,57 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结2-初识以太网协议</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C02/</url>
-    <content><![CDATA[<h1 id="2-以太网协议（简单认识）"><a href="#2-以太网协议（简单认识）" class="headerlink" title="2 以太网协议（简单认识）"></a>2 以太网协议（简单认识）</h1><p>The Ethernet protocol describes physical links， and how data is formatted<br>描述了线缆的类型以及不同线缆的传输速度；另一部分则描述了数据应该如何进行格式化和发送的操作。<br>由于「以太网」构建简单、成本低、可扩展性强、与IP网能够很好地结合等特点，使它成为局域网网络构建中最常用的一种技术。对于「以太网协议」，则代表了接入以太网的节点设备都达成一致的一组规则。想要接入以太网，就必须按「合同」办事。</p>
-<p><img data-src="https://img-blog.csdnimg.cn/20210422083604490.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IEEE标准"></p>
-<span id="more"></span>
-
-<p>802.3an 可以写为 10GBase-T<br>10G = 10 Gigabits per second<br>BASE = Baseband （cables）：use digital signal<br>T = UTP（type of cable）<br>10G代表了其传输速度为「10 Gigabits per second」；<br>BASE = Baseband(cables) 是基带的意思，代表它使用数字信号进行传输（另一种是模拟信号）；<br>T代表所使用的线缆类型，T=UTP也就是双绞线（另一种是LX光纤）</p>
-<blockquote>
-<p>UTP：Unshilded Twristed  （非屏蔽双绞线）</p>
-</blockquote>
-<hr>
-<h2 id="2-1-电缆"><a href="#2-1-电缆" class="headerlink" title="2.1 电缆"></a>2.1 电缆</h2><p>想要发送电信号，就需要拥有电路，这意味着我们需要准备多根电线以传输数据，而我们最常见的线缆称为「非屏蔽双绞线」（UTP，也就是常见的网线），每对电线构成一个电路。<br>双绞线消除串扰<br><img data-src="https://img-blog.csdnimg.cn/20210422084817697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="双绞线"><br>每对电线都是由纯色和条纹色组成<br>不同的<strong>以太网标准</strong>，需要使用不同的线缆，我们应该都听说过 【5类线】 或 【6类线】 这样的名称，其实这就是不同网线的专用术语，不同的类别对应了不同线缆的标准（例如：线缆的对数、线缆的粗细以及线缆的交合程度）。<br><img data-src="https://img-blog.csdnimg.cn/20210422085010233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="以太网标准"></p>
-<h3 id="2-1-1-电缆连接器"><a href="#2-1-1-电缆连接器" class="headerlink" title="2.1.1 电缆连接器"></a>2.1.1 电缆连接器</h3><p>线缆两端都会安装一个连接器，这个连接器的名字叫做【rj45连接器】，其实就是我们所说的水晶头，它们是接入到网卡与交换机端口的部分，该连接器有八个引脚，它们与电缆内部的八根铜线对齐，必须按正确的顺序与引脚对齐才能保证通信。<br><img data-src="https://img-blog.csdnimg.cn/2021042208524619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="rj45连接器"><br>橙白-橙，绿白-蓝，蓝白-绿，棕白-棕</p>
-<h3 id="2-2-2-连接方式"><a href="#2-2-2-连接方式" class="headerlink" title="2.2.2 连接方式"></a>2.2.2 连接方式</h3><hr>
-<p>HOST    —–    SWITCH   直连<br><img data-src="https://img-blog.csdnimg.cn/20210422085437201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="直连"></p>
-<hr>
-<p>HOST    —–     HOST    交叉<br><img data-src="https://img-blog.csdnimg.cn/20210422085622972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="交叉"></p>
-<hr>
-<p>自动引脚切换。目前最常用<br>【Auto MDI-X】 可以支持的设备可以检测是否使用了错误的线缆，然后，可以再逻辑上切换引脚的功能，使其与电缆相匹配，但是需要注意的是在以太网为 100BASE-T 及以上的标准才可以支持这项技术。<br><img data-src="https://img-blog.csdnimg.cn/2021042208570122.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Auto MDI-X"></p>
-<h2 id="2-2-两种光纤"><a href="#2-2-两种光纤" class="headerlink" title="2.2 两种光纤"></a>2.2 两种光纤</h2><p>① 单模光纤   Single Mode Fibre<br>Laser Light<br>2Km以上距离<br>Expensive<br>Half Duplex （半双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084034409.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="单模光纤"></p>
-<p>② 多模光纤   Multi Mode Fibre<br>LED Light<br>500m<br>cheap<br>Full Duplex （全双工）<br><img data-src="https://img-blog.csdnimg.cn/20210422084102525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="多模光纤"></p>
-<p>光纤弯曲程度<br><img data-src="https://img-blog.csdnimg.cn/20210423140324611.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="光纤弯曲程度"></p>
-<p>全双工：<br>同时接收和发送信息<br><img data-src="https://img-blog.csdnimg.cn/20210422084001785.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="全双工"></p>
-<p>半双工：<br>不同时接受和发送消息<br><img data-src="https://img-blog.csdnimg.cn/20210422083935750.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="半双工"></p>
-<hr>
-<h2 id="2-3-Wi-Fi连接"><a href="#2-3-Wi-Fi连接" class="headerlink" title="2.3 Wi-Fi连接"></a>2.3 Wi-Fi连接</h2><p>我们的另一种通信方法就是无线Wi-Fi通信，它不需要使用电缆连接，无线网络就像一个无线的交换机，可以让手机、笔记本之类的无线设备链接到接入点，但这个接入点是需要链接到有线网络的，此时，有线和无线设备可以在同一个网络当中使用。当然，并不是所有的设备都会连接到无线接入点的，例如我们不能把路由器或服务器连接到无线接入点。<br><img data-src="https://img-blog.csdnimg.cn/20210422085954586.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wi-Fi连接"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
-<li>网络可以是有线或无线的，网络连接可以使用铜缆或光缆</li>
-<li>以太网标准用于描述了物理连接线缆的类型以及如何格式化数据</li>
-<li>UTP有四对双绞线，其中一些用于数据发送，另一些用于数据接收</li>
-<li>线缆可以以直通方式或交叉方式连接到交换机</li>
-<li>现如今的大部分平台都支持 Auto MDI-X，可自动对线缆进行检测并做出调整</li>
-<li>双工设备可以同时发送和接受数据，半双工则需要收到响应后再发送数据</li>
-<li>双芯光纤支持全双工，单芯光纤支持半双工</li>
-<li>若想要短距离连接，并节省更多成本，可以选择多模光纤</li>
-<li>若想要远距离连接，则需要支付更高的价格，选择单模光纤，同时需采用正确收发器</li>
-<li>如果有线连接无法满足你的需求，可以采用无线网络连接<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1></li>
-<li>1000BASE-T以什么速度运行？需要使用什么类型的电缆？</li>
-<li>使用哪种类型的UTP电缆将主机连接到交换机？那种类型的电缆可以将一个交换机连接到另一个交换机？</li>
-<li>哪种情况下我们需要使用 Auto MDI-X 技术？</li>
-<li>那种情况下需要使用光纤代替UTP？什么时候需要单模式光纤而不是多模光纤？</li>
-<li>什么是弯曲半径？使用哪种类型的电缆，需要特别注意弯曲半径？</li>
-<li>请简单阐述全双工工作模式的特点</li>
+    <title>【计算机网络】基础概念总结5-IP地址工作方式</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C05/</url>
+    <content><![CDATA[<h1 id="5-IP地址工作"><a href="#5-IP地址工作" class="headerlink" title="5 IP地址工作"></a>5 IP地址工作</h1><h2 id="5-1-IP地址存在意义"><a href="#5-1-IP地址存在意义" class="headerlink" title="5.1 IP地址存在意义"></a>5.1 IP地址存在意义</h2><p>前面已经说过，全世界设备非常多，不可能通过【MAC地址】来寻址<br>通过【IP地址】我们可以很轻松的找到一台已经接入网络中的设备。</p>
+<h2 id="5-2-IP地址分类"><a href="#5-2-IP地址分类" class="headerlink" title="5.2 IP地址分类"></a>5.2 IP地址分类</h2><p><img data-src="https://img-blog.csdnimg.cn/20210423150633837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="IPV4
+IPV6"></p>
+<p>介绍最常见的IPV4这种地址形式</p>
+<h2 id="5-3-IPV4地址"><a href="#5-3-IPV4地址" class="headerlink" title="5.3 IPV4地址"></a>5.3 IPV4地址</h2><p>IPv4 地址是一段由<strong>四组数字</strong>组成的整体，每组数字中间使用<strong>点</strong>来隔开，每组数字有八位字节<br><img data-src="https://img-blog.csdnimg.cn/20210423150859200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以IPV4的取值范围为<br><img data-src="https://img-blog.csdnimg.cn/20210423151045956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210423151057594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="5-4-IPV4由两部分组成"><a href="#5-4-IPV4由两部分组成" class="headerlink" title="5.4 IPV4由两部分组成"></a>5.4 IPV4由两部分组成<img data-src="https://img-blog.csdnimg.cn/2021042315122338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></h2><p>1 网络号<br>同一网络号就是处于同一网段<br>不同网段的主机要通信需要路由器<br>2 主机号</p>
+<h2 id="5-5-IPV4的分级"><a href="#5-5-IPV4的分级" class="headerlink" title="5.5 IPV4的分级"></a>5.5 IPV4的分级</h2><h3 id="5-5-1-Class-A–Large-Networks"><a href="#5-5-1-Class-A–Large-Networks" class="headerlink" title="5.5.1 Class A–Large Networks"></a>5.5.1 Class A–Large Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423152137759.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">第一位保留0</font><br>因为网络号的第一位保留，所以<br>【网络号】<br>0000 0000 - 0111 1111<br>共8位，锁一位，共128个<br>即0-127<br>共180个<br>【主机号】<br>0000 0000.0000 0000.0000 0000 - 1111 1111.1111 1111.1111 1111个<br>即0 - 16,777,215<br>共16,777,216个</p>
+<h3 id="5-5-2-Class-B-–-Medium-Networks"><a href="#5-5-2-Class-B-–-Medium-Networks" class="headerlink" title="5.5.2 Class B – Medium Networks"></a>5.5.2 Class B – Medium Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423153050706.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p><font color="green" size="5">前两位保留10</font><br>【网络号】<br>IP前两组从：1000 0000.0000 0000 到 1011 1111.1111 1111<br>即128.0-191.255<br>总共16位，锁了两位，剩14位，共16384个<br>共32768 - 49151个‬<br>共16384个<br>【主机号】<br>IP的后两组从：0000 0000.0000 0000 到1111 1111.1111 1111<br>即0.0 - 255.255<br>共0 - 65535个<br>共65536个</p>
+<h3 id="5-5-3-Class-C-–-Small-Networks"><a href="#5-5-3-Class-C-–-Small-Networks" class="headerlink" title="5.5.3 Class C – Small Networks"></a>5.5.3 Class C – Small Networks</h3><p><img data-src="https://img-blog.csdnimg.cn/20210423155615705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><font color="green" size="5">前三位保留110</font><br>【网络号】<br>IP前三组数从：1100 0000.0000 0000 到 1101 1111.1111 1111. 1111 1111<br>即192.0.0-223.255.255<br>由于前三位锁定，所以有21位网络可供使用<br>共2097152个<br>【主机号】<br>IP的最后一组数从：0000 0000 到1111 1111<br>即0 - 255<br>共256个</p>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img data-src="https://img-blog.csdnimg.cn/2021042316121033.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>假如【172.16.0.1】的主机需要和【172.16.0.2】通信<br>0.1 主机首先就会查看 0.2 主机是否与自己在同一网段下</p>
+<p>两种方式查看：</p>
+<ol>
+<li>查看八位位组是否一致；</li>
+<li>查看IP地址的前两组数是否一致<br>若一致，则代表在同一网段，因此可以直接发送信息；</li>
 </ol>
+<p>若172.16 网段中的 0.1 主机想要发送信息给 172.17 网段中的 0.2 主机，同样是根据上述方法检测，此时发现 0.2 主机在另一网段，因此需要借助【路由器】来实现信息的交互。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>A、B 和 C 类 IP 地址的网络空间范围：<br>A 类 IP 地址：0.0.0.0 ~ 127.0.0.0<br>B 类 IP 地址：128.0.0.0 ~ 191.255.0.0<br>C 类 IP 地址：192.0.0.0 ~ 223.255.255.0</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>请问下面的 IP 分别属于第几类 IP 地址，请将答案写在 IP 地址后方。请问下面的IP地址哪一部分是主机地址？哪一部分是网络地址？<br>9.4.3.47<br>203.42.62.1<br>103.88.77.22<br>151.10.13.55<br>222.127.16.4</p>
+]]></content>
+      <categories>
+        <category>基础知识</category>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【计算机网络】基础概念总结7-VLSM可变长子网掩码</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C07/</url>
+    <content><![CDATA[<h1 id="7-VLSM概念"><a href="#7-VLSM概念" class="headerlink" title="7 VLSM概念"></a>7 VLSM概念</h1><p>上节说到我们使用无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。<br>无类别域间路由是基于可变长子网掩码（VLSM)来进行任意长度的前缀的分配的</p>
+<h2 id="7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）"><a href="#7-1-先了解什么是FLSM（Fixed-Length-Subnet-Mask）" class="headerlink" title="7.1 先了解什么是FLSM（Fixed Length Subnet Mask）"></a>7.1 先了解什么是FLSM（Fixed Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425144853475.png"><br>当使用有类路由协议并规划子网的时候，要将相同主机的所有子网设置成相同的掩码。例如：172.16.1.0和172.16.2.0——172.16.0.0</p>
+<h2 id="7-2-什么是VLSM（Variable-Length-Subnet-Mask）"><a href="#7-2-什么是VLSM（Variable-Length-Subnet-Mask）" class="headerlink" title="7.2 什么是VLSM（Variable Length Subnet Mask）"></a>7.2 什么是VLSM（Variable Length Subnet Mask）</h2><p><img data-src="https://img-blog.csdnimg.cn/20210425145331345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="7-3-使用VLSM划分一个网络"><a href="#7-3-使用VLSM划分一个网络" class="headerlink" title="7.3 使用VLSM划分一个网络"></a>7.3 使用VLSM划分一个网络</h2><p>给我们的IP范围为192.168.4.0/24<br>要求使用VLSM给每一个网络分配IP<br><img data-src="https://img-blog.csdnimg.cn/20210425153642671.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="7-3-1-观察IP范围"><a href="#7-3-1-观察IP范围" class="headerlink" title="7.3.1 观察IP范围"></a>7.3.1 观察IP范围</h3><p>192.168.4.0/24<br>主机数256个，也就是我们可以连接最多254个设备（第一个为网络地址，最后一个为广播地址）<br>待分配区域结点数：25 + 55 + 12 + 2 + 2 + 2 共98个设备</p>
+<h3 id="7-3-2-子网个数"><a href="#7-3-2-子网个数" class="headerlink" title="7.3.2 子网个数"></a>7.3.2 子网个数</h3><p>首先观察一共有几个子网：我们第一节学习了，网络用来连接设备，所以观察上图，一共有6个子网<br>LAN1、LAN2、LAN3、LINKA、LINKB、LINKC</p>
+<h3 id="step1-对所有网络按照结点数排序"><a href="#step1-对所有网络按照结点数排序" class="headerlink" title="step1 对所有网络按照结点数排序"></a>step1 对所有网络按照结点数排序</h3><p><img data-src="https://img-blog.csdnimg.cn/20210425153857410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step-2-给最大的网络（LAN2）分配"><a href="#step-2-给最大的网络（LAN2）分配" class="headerlink" title="step 2 给最大的网络（LAN2）分配"></a>step 2 给最大的网络（LAN2）分配</h3><p>LAN2有55个主机，所以选择掩码为/26。共四个子网，每个子网64个主机（可用为62个）<br>因为给我们的范围前24位是锁住的，所以可以使用范围为：192.168.4.0 - 192.168.4.255<br><img data-src="https://img-blog.csdnimg.cn/20210425154306685.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step3-给次大的网络（LAN1）分配"><a href="#step3-给次大的网络（LAN1）分配" class="headerlink" title="step3 给次大的网络（LAN1）分配"></a>step3 给次大的网络（LAN1）分配</h3><p>step2分配了四个子网，每个子网64个主机（可用为62个）<br>由于第一个子网分配给LAN2了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425154905758.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step4-给第三大网络（LAN3）分配"><a href="#step4-给第三大网络（LAN3）分配" class="headerlink" title="step4 给第三大网络（LAN3）分配"></a>step4 给第三大网络（LAN3）分配</h3><p>step3分配了2个子网，每个子网32个主机（可用为30个）<br>第一个子网分配给LAN1了，所以使用接下来的子网</p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210425155146278.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="step5-给LINK网络（LINKA、B、C）分配"><a href="#step5-给LINK网络（LINKA、B、C）分配" class="headerlink" title="step5 给LINK网络（LINKA、B、C）分配"></a>step5 给LINK网络（LINKA、B、C）分配</h3><p>step4分配了2个子网，每个子网16个主机（可用为14个）<br>第一个子网分配给LAN3了，所以使用接下来的子网<br><img data-src="https://img-blog.csdnimg.cn/20210425152253246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h1 id="VLSM划分子网总结"><a href="#VLSM划分子网总结" class="headerlink" title="VLSM划分子网总结"></a>VLSM划分子网总结</h1><p>划分步骤：<br><img data-src="https://img-blog.csdnimg.cn/20210425155513815.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>好处：<br>节约了大量的IP地址，有效的解决了IPV4不足的情况</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>思考下下图子网划分正确吗<br><img data-src="https://img-blog.csdnimg.cn/20210425155723184.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
-<p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
+<p><a href="https://www.youtube.com/watch?v=RLCd5u0sjoU">VLSM Subnetting - subnetting a<br>subnet</a></p>
+<p><a href="https://baike.baidu.com/item/VLSM">vlsm百科</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -534,34 +682,28 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>【计算机网络】基础概念总结1-网络概念</title>
-    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C01/</url>
-    <content><![CDATA[<h1 id="1-网络概念"><a href="#1-网络概念" class="headerlink" title="1 网络概念"></a>1 网络概念</h1><hr>
-<h2 id="1-1-网络的定义"><a href="#1-1-网络的定义" class="headerlink" title="1.1 网络的定义"></a>1.1 网络的定义</h2><p>网络是什么？网络用来干什么？设备之间怎么通信？<br> 1.network connect devices<br> 2.devices share imformation<br> 3.to share imformation, devices need to speak the same language, which is called protocal</p>
-<span id="more"></span>
-
-<h3 id="1-1-1-协议，就是【给双方制定的通讯规则】"><a href="#1-1-1-协议，就是【给双方制定的通讯规则】" class="headerlink" title="1.1.1 协议，就是【给双方制定的通讯规则】"></a>1.1.1 协议，就是【给双方制定的通讯规则】</h3><p> 无论通过哪种方式进行连接，我们的最终目的，是要将信息从一台设备发送到另一台设备，因此，发送方和接收方必须相互理解才行，这就需要它们在网络中说相同的语言。虽然我们并不需要担心这个问题，毕竟设备之间基本都知道该如何组织数据并进行处理和发送。究其根本，就是因为他们都遵循了同一套规则，我们称这套规则为【协议】</p>
+    <title>【计算机网络】基础概念总结6-子网掩码</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C06/</url>
+    <content><![CDATA[<h1 id="6-子网掩码"><a href="#6-子网掩码" class="headerlink" title="6 子网掩码"></a>6 子网掩码</h1><h2 id="6-1-为什么要有子网掩码"><a href="#6-1-为什么要有子网掩码" class="headerlink" title="6.1 为什么要有子网掩码"></a>6.1 为什么要有子网掩码</h2><p>随着互联网的飞速发展，我们消耗 IP 的速度越来越快，IP 地址渐渐的又不够用了，因此，在 1993 年，引入了一种新的方法，称为无类别域间路由（Classless Inter-Domain Routing）简称 CIDR。</p>
 <blockquote>
-<p> network : 网络  protocal : 协议</p>
+<p>无类域间路由（Classless Inter-Domain Routing，CIDR）可以将路由集中起来，在路由表中更灵活地定义地址。<br>它不区分 A 类、B 类、C 类地址，而是使用 CIDR 前缀的值指定地址中作为网络 ID 的位数。</p>
 </blockquote>
+<h2 id="6-2-子网掩码的两种表示方式"><a href="#6-2-子网掩码的两种表示方式" class="headerlink" title="6.2 子网掩码的两种表示方式"></a>6.2 子网掩码的两种表示方式</h2><p><font color="blue">wiki解释</font><br>“子网掩码”（subnet mask），它是一种用来指明一个IP地址的哪些位标识的是主机所在的网络地址以及哪些位标识的是主机地址的位掩码。</p>
+<h3 id="6-2-1-与IPV4相同的表示方法1"><a href="#6-2-1-与IPV4相同的表示方法1" class="headerlink" title="6.2.1 与IPV4相同的表示方法1"></a>6.2.1 与IPV4相同的表示方法1</h3><p>通常情况下，子网掩码的表示方法和地址本身的表示方法是一样的。在IPv4中，就是点分十进制四组表示法。如图，255.255.0.0 就是 172.16.3.4 的子网掩码。<br><img data-src="https://img-blog.csdnimg.cn/20210424191959981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>所以ABC三类的子网掩码为：<br><img data-src="https://img-blog.csdnimg.cn/20210424192155216.png"></p>
+<h3 id="6-2-2-无类别域间路由表示方法2"><a href="#6-2-2-无类别域间路由表示方法2" class="headerlink" title="6.2.2 无类别域间路由表示方法2"></a>6.2.2 无类别域间路由表示方法2</h3><p>另一种更为简短的形式叫做无类别域间路由（CIDR）表示法，它给出的是一个地址加上一个斜杠以及网络掩码的二进制表示法中“1”的位数（即网络号中和网络掩码相关的是哪些位）。例如，172.16.3.4/16表示的是一个前16位被用作网络号的IP地址（和255.255.0.0的意思一样）。</p>
+<p><font color="red" size="5">使用CIDR表示，忘记掉该网络是第几类</font><br><img data-src="https://img-blog.csdnimg.cn/2021042514594187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<p>子网掩码的好处就是：不管网络有没有划分子网，只要把子网掩码和IP地址进行逐位的“与”运算（AND）即得出网络地址来。这样在路由器处理到来的分组时就可以采用同样的方法。</p>
 <hr>
-<h2 id="1-2-网络的类型"><a href="#1-2-网络的类型" class="headerlink" title="1.2 网络的类型"></a>1.2 网络的类型</h2><h3 id="1-2-1-网络的结点"><a href="#1-2-1-网络的结点" class="headerlink" title="1.2.1 网络的结点"></a>1.2.1 网络的结点</h3><p>连接到网络中，并且能够通过通信通道发送、接收或转发信息的设备，我们都可以称其为一个【网络节点】。比如交换机、路由器、电脑、打印机、手机等，都属于网络中的一个节点。</p>
-<h3 id="1-2-2-网络的类型"><a href="#1-2-2-网络的类型" class="headerlink" title="1.2.2 网络的类型"></a>1.2.2 网络的类型</h3><p> ① Soho Network:     Small Office Home Office<br> 通常适合家庭或小型办公室<br> <img data-src="https://img-blog.csdnimg.cn/20210422082815783.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 1"><br><img data-src="https://img-blog.csdnimg.cn/2021042208290655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="soho network 2"></p>
-<p> ② LAN：                Local Area Network<br> 适合多个楼层的网络架构<br> 城域网MAN：适合10~100km范围内的网络架构<img data-src="https://img-blog.csdnimg.cn/20210422082946417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 1"><img data-src="https://img-blog.csdnimg.cn/20210422083008711.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Local Area Network 2"></p>
-<p> ③ WAN：                 Wide Area Network<br> 适合100km以上，通常是跨越国家与地区的大型网络架构<br><img data-src="https://img-blog.csdnimg.cn/20210422083032393.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="Wide Area Network"></p>
-<hr>
-<h2 id="1-3-设备之间的联系方式"><a href="#1-3-设备之间的联系方式" class="headerlink" title="1.3 设备之间的联系方式"></a>1.3 设备之间的联系方式</h2><p>设备之间怎么连接？</p>
-<h3 id="wires"><a href="#wires" class="headerlink" title="wires"></a>wires</h3><ol>
-<li>coper电缆：cheaper、short distance、electric signal </li>
-<li>fibre光纤：  expensive、made from glass、light signal、long distance<br><img data-src="https://img-blog.csdnimg.cn/20210422083307218.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70" alt="wires"></li>
-</ol>
-<h3 id="wireless"><a href="#wireless" class="headerlink" title="wireless"></a>wireless</h3><ol>
-<li>wifi<br>无论是台式机，还是移动笔记本，或者是手机平板电脑，如果想要实现无线连接，就必须配备无线网卡，大部分情况下，台式机是没有无线网卡的，因此需要单独购买无线网卡，可以直接通过USB连接以实现无线上网</li>
-</ol>
-<hr>
+<h2 id="6-2-子网划分"><a href="#6-2-子网划分" class="headerlink" title="6.2 子网划分"></a>6.2 子网划分</h2><p>把基于每类的IP网络进一步分成更小的网络，每个子网由路由器界定并分配一个新的子网网络地址,子网地址是借用基于每类的网络地址的主机部分创建的。划分子网后，通过使用掩码，把子网隐藏起来，使得从外部看网络没有变化，这就是子网掩码。</p>
+<h3 id="子网划分例子"><a href="#子网划分例子" class="headerlink" title="子网划分例子"></a>子网划分例子</h3><p>上节知识我们计算了网络号的个数和主机数，下图大家计算一下，该网络属是几类网络，有多少主机。<br><img data-src="https://img-blog.csdnimg.cn/20210424193128765.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>网络类：<br>172 = 1010 1100‬<br>10开头说明为B类<br>结点个数：<br>0.0 - 255.255个<br>2的16次方个<br>65536个<br><font color="green" size="5">大家思考一下，一个局域网网络中有65536个，是不是太多了，一个办公室根本不需要这么多，所以我们进行子网划分</font></p>
+<p><img data-src="https://img-blog.csdnimg.cn/20210424193856795.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>经过划分之后，我们有了256个子网，每个子网有256个结点，合理多了！</p>
+<h2 id="6-3-CIDR-记录法"><a href="#6-3-CIDR-记录法" class="headerlink" title="6.3  CIDR 记录法"></a>6.3  CIDR 记录法</h2><p><img data-src="https://img-blog.csdnimg.cn/20210424194303658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br>问：<br>为什么网段 A 中的设备无法通过路由器与网段 B 进行通信？<br>答：<br>问题的重点在中间路由器所在的网段，通过 172.16.2.0/30 得知，前30位都是掩码，因此只留下 2 位允许划分空间，根据 2 的 2 次方=4 可以确定该网段之划分了 4 个 IP 地址 172.16.2.0~172.16.2.3。右侧的路由器 IP 为 172.16.2.20，很明显不在正确范围内。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>如果，我们拥有一个 B 类地址，172.16.0.0，子网掩码为 255.255.0.0，我们使用子网划分将子网掩码设置为 255.255.240.0，请问：</p>
+<p>问：我们此时拥有多少个子网空间？<br>答：16 个，172.16.0.0 打开了八位位组的前 16 位，而【255.255.240.0】打开了八位位组的前 20 位，20-16=4 位，这是子网的另外 4 位，因此 2 的 4 次方=16，因此，我们此时拥有16个子网空间。分别为：<br>172.16.0.0<br>172.16.16.0<br>172.16.32.0<br>172.16.48.0<br>172.16.64.0<br>172.16.80.0<br>172.16.96.0<br>172.16.112.0<br>172.16.128.0<br>172.16.144.0<br>172.16.160.0<br>172.16.176.0<br>172.16.192.0<br>172.16.208.0<br>172.16.224.0<br>172.16.240.0<br>问：每个子网空间可以划分多少 IP 地址？【例如：176.16.0.1 ~176.16.15.255】<br>答：每个子网有 16 * 256 = 4096 个 IP 地址。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><blockquote>
 <p><a href="https://www.youtube.com/watch?v=v8aYhOxZuNg&list=PLDQaRcbiSnqF5U8ffMgZzS7fq1rHUI3Q8&index=16&t=28s">Network Direction</a></p>
-<p><a href="https://sspai.com/post/64634#!">小白也能看懂的网络基础 01 | 什么是网络？</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%BD%91">子网-wiki</a></p>
+<p><a href="https://sspai.com/post/64688#!">小白也能看懂的网络基础 04 | IP地址是如何工作的</a></p>
 </blockquote>
 ]]></content>
       <categories>
@@ -573,304 +715,162 @@ IPV6"></p>
       </tags>
   </entry>
   <entry>
-    <title>无额外空间逆序栈</title>
-    <url>/2023/11/19/c++/%E6%97%A0%E9%A2%9D%E5%A4%96%E7%A9%BA%E9%97%B4%E9%80%86%E5%BA%8F%E6%A0%88/</url>
-    <content><![CDATA[<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//2021/05/27H:\无额外空间的栈逆序-使用递归\无额外空间的栈逆序-使用递归.vcxproj</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="built_in">printStack</span>(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="keyword">int</span>&gt; mys;</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">4</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">3</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">2</span>);</span><br><span class="line">	mys.<span class="built_in">push</span>(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//cout &lt;&lt; getDownItem(mys) &lt;&lt; endl;</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;逆序之后&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">rStack</span>(mys);</span><br><span class="line">	<span class="built_in">printStack</span>(mys);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主要功能函数，实现栈的逆序，并且不使用额外内存空间</span></span><br><span class="line"><span class="comment">//函数1 实现取到栈底元素，并且弹出栈底元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getDownItem</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> result = s.<span class="built_in">top</span>();</span><br><span class="line">	s.<span class="built_in">pop</span>();</span><br><span class="line">	<span class="comment">//base case</span></span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span> result;	<span class="comment">//只有一个元素，栈底就是栈头</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> last = <span class="built_in">getDownItem</span>(s);		<span class="comment">//取到剩余部分栈底元素，并且弹出栈底元素</span></span><br><span class="line">	s.<span class="built_in">push</span>(result);</span><br><span class="line">	<span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数2  实现栈的逆序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rStack</span><span class="params">(stack&lt;<span class="keyword">int</span>&gt;&amp; s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="built_in">getDownItem</span>(s);	<span class="comment">//得到栈底元素，并且原栈中该元素已弹出</span></span><br><span class="line">	<span class="built_in">rStack</span>(s);					<span class="comment">//对剩下的部分逆序</span></span><br><span class="line">	s.<span class="built_in">push</span>(ret);				<span class="comment">//把元素压回去</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;hello world!&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>编程语言</category>
-        <category>c++</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回文链表</title>
-    <url>/2023/11/19/c++/%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h1 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h1><p>使用栈，将链表全部入栈，然后比较链表和栈顶，相同就出栈和链表向后移动<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开辟一个栈</span></span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stackval;</span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            stackval.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        <span class="keyword">while</span> (head)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (head-&gt;val != stackval.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stackval.<span class="built_in">pop</span>();  </span><br><span class="line">            head = head-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512192256866.png" alt="在这里插入图片描述"></p>
-<span id="more"></span>
-
-<h1 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h1><p>压一半链表进栈，空间复杂度减半，需要遍历链表求长度，时间复杂度会增加<br>时间复杂度：O（n）<br>空间复杂度：O（n）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode* tmp = head;</span><br><span class="line">        <span class="keyword">if</span> (!tmp || !tmp-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;   <span class="comment">//保存链表的长度</span></span><br><span class="line">        <span class="keyword">int</span> middle = <span class="number">0</span>;</span><br><span class="line">        stack&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求链表的长度</span></span><br><span class="line">        <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            ++size;</span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//入一半的栈</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">         <span class="keyword">while</span> (tmp)</span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (i &gt; middle)</span><br><span class="line">            &#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(tmp-&gt;val);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//比较</span></span><br><span class="line">        middle = size / <span class="number">2</span>;</span><br><span class="line">        tmp = head;</span><br><span class="line">        <span class="keyword">while</span> (middle-- &amp;&amp; tmp)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmp-&gt;val != stk.<span class="built_in">top</span>()) </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;               </span><br><span class="line">            &#125;</span><br><span class="line">            stk.<span class="built_in">pop</span>();  </span><br><span class="line">            tmp = tmp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512195329523.png" alt="在这里插入图片描述"></p>
-<h1 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h1><p>将链表的后半段反转，前后指针依次向后指，比较直到反转部分指针指向nullptr时停止<br>时间复杂度：O（n）<br>空间复杂度：O（1）</p>
-<p>缺点：破坏了链表的结构</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//辅助函数，反转链表</span></span><br><span class="line">    <span class="function">ListNode* <span class="title">listReverse</span><span class="params">(ListNode* head)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head || !head-&gt;next) <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* pre = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* cur = head;</span><br><span class="line">        ListNode* nxt = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur)</span><br><span class="line">        &#123;</span><br><span class="line">            nxt = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nxt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!head|| !head-&gt;next) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//快慢指针找到链表的中间位置</span></span><br><span class="line">        ListNode* fast = head;</span><br><span class="line">        ListNode* slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//奇数情况</span></span><br><span class="line">        <span class="keyword">if</span> (fast != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始反转，从slow指针位置反转，包含slow位置</span></span><br><span class="line">        slow = <span class="built_in">listReverse</span>(slow);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始比较</span></span><br><span class="line">        fast = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != <span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (fast -&gt;val != slow-&gt;val)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast -&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://img-blog.csdnimg.cn/20210512205004657.png" alt="在这里插入图片描述"></p>
-]]></content>
-      <categories>
-        <category>编程语言</category>
-        <category>c++</category>
-      </categories>
-      <tags>
-        <tag>c++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>windows安装 anaconda3 + pytorch</title>
-    <url>/2023/11/19/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/windows%E5%AE%89%E8%A3%85%20anaconda3%20+%20pytorch/</url>
-    <content><![CDATA[<h2 id="本机信息"><a href="#本机信息" class="headerlink" title="本机信息"></a>本机信息</h2><p>显卡：GTX-1650</p>
-<p>CUDA：10.2</p>
-<h2 id="1-安装Anaconda"><a href="#1-安装Anaconda" class="headerlink" title="1 安装Anaconda"></a>1 安装Anaconda</h2><p>官网下载，安装python3.8版本</p>
-<p>安装目录：D:\anaconda\</p>
-<h3 id="1-1-换源"><a href="#1-1-换源" class="headerlink" title="1.1 换源"></a>1.1 换源</h3><p>用户目录下找到.condarc</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">ssl_verify: true</span><br><span class="line">channels:</span><br><span class="line"></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line">  - https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/pytorch/</span></span><br><span class="line">  - default</span><br><span class="line">    show_channel_urls: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-测试"><a href="#1-2-测试" class="headerlink" title="1.2 测试"></a>1.2 测试</h3><p>打开anaconda prompt，输入以下内容，显示版本号，说明安装成功</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-创建自己的虚拟环境"><a href="#1-3-创建自己的虚拟环境" class="headerlink" title="1.3 创建自己的虚拟环境"></a>1.3 创建自己的虚拟环境</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">create -n pytorch python=3.6</span><br></pre></td></tr></table></figure>
-
-<p>注：其中pytorch是虚拟环境的名字，python可指定版本号</p>
-<p>更换到自己创建的虚拟环境</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">activate pytorch</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-4-pycharm里面更换解释器"><a href="#1-4-pycharm里面更换解释器" class="headerlink" title="1.4 pycharm里面更换解释器"></a>1.4 pycharm里面更换解释器</h3><p>项目中更换解释器为anaconda里的版本即可</p>
-<h2 id="2-安装CUDA"><a href="#2-安装CUDA" class="headerlink" title="2 安装CUDA"></a>2 安装CUDA</h2><p>CUDA官网找到自己显卡支持的版本</p>
-<p>安装即可</p>
-<h3 id="2-1-测试"><a href="#2-1-测试" class="headerlink" title="2.1 测试"></a>2.1 测试</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvcc -V</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装pytorch"><a href="#3-安装pytorch" class="headerlink" title="3 安装pytorch"></a>3 安装pytorch</h2><p>1 找到与自己显卡相符合的CUDA版本，我的显卡为GTX1650，CUDA为10.2</p>
-<p>2 在<a href="https://pytorch.org/get-started/previous-versions/%EF%BC%8C%E6%89%BE%E5%88%B0%E6%83%B3%E8%A6%81%E5%AE%89%E8%A3%85%E7%9A%84pytorch%E7%89%88%E6%9C%AC%EF%BC%8C%E5%B9%B6%E4%B8%94%E4%B8%8ECUDA%E7%89%88%E6%9C%AC%E7%9B%B8%E5%90%8C">https://pytorch.org/get-started/previous-versions/，找到想要安装的pytorch版本，并且与CUDA版本相同</a></p>
-<p>3 在虚拟环境中进行安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># CUDA 10.2</span></span><br><span class="line">conda install pytorch==1.5.1 torchvision==0.6.1 cudatoolkit=10.2 -c pytorch</span><br></pre></td></tr></table></figure>
-
-<p>耐心等待~~~</p>
-<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2>]]></content>
-      <categories>
-        <category>教程</category>
-        <category>环境搭建</category>
-      </categories>
-      <tags>
-        <tag>深度学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一半人生</title>
-    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/%E4%B8%80%E5%8D%8A%E4%BA%BA%E7%94%9F/</url>
-    <content><![CDATA[<p>在某個清晨 回望我一生<br>活得雖認真 卻微小如塵<br>想要唱首歌 去唱哭別人<br>最後卻是我 滿臉淚痕<br>早告別青春 活成了別人<br>經歷的時代 已如此陌生<br>年少時的話 又不敢承認<br>低頭在人海 浮浮沉沉<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>在某個清晨 回望我一生<br>活得雖認真 卻微小如塵<br>想要唱首歌 去唱哭別人<br>最後卻是我 滿臉淚痕<br>早告別青春 活成了別人<br>經歷的時代 已如此陌生<br>年少時的話 又不敢承認<br>低頭在人海 浮浮沉沉<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>我的一半人生 飄蕩就像只風箏<br>如果命運是風 什麼又是我的繩<br>我的一半人生 冷暖就讓我自己過問<br>有熱愛有恨 有未知的前程<br>有熱愛有恨 有未知的前程</p>
-]]></content>
-      <categories>
-        <category>摘抄</category>
-        <category>音乐</category>
-      </categories>
-      <tags>
-        <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Five Hundred Miles</title>
-    <url>/2023/11/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/Five-Hundred-Miles/</url>
-    <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/song?id=1403133995&userid=292202272"></iframe>
-
-
-<p>If you missed the train I’m on</p>
-<p>You will know that I am gone</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>A hundred miles a hundred miles</p>
-<p>A hundred miles a hundred miles</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>Lord I’m one Lord I’m two</p>
-<p>Lord I’m three Lord I’m four</p>
-<p>Lord I’m five hundred miles away from home</p>
-<p>Away from home away from home</p>
-<p>Away from home away from home</p>
-<p>Lord I’m five hundred miles away from home</p>
-<p>Not a shirt on my back</p>
-<p>Not a penny to my name</p>
-<p>Lord I can’t go back home this a-way</p>
-<p>This a-way this a-way</p>
-<p>This a-way this a-way</p>
-<p>Lord I can’t go back home this a-way</p>
-<p>If you missed the train I’m on</p>
-<p>You will know that I am gone</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>A hundred miles</p>
-<p>A hundred miles</p>
-<p>A hundred miles</p>
-<p>A hundred miles</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>You can hear the whistle blow a hundred miles</p>
-<p>生活的本质是重复的，无聊的</p>
-<p>有趣的也是这一点，生活给了我们机会不断修正自己对待生活的态度</p>
-]]></content>
-      <categories>
-        <category>摘抄</category>
-        <category>音乐</category>
-      </categories>
-      <tags>
-        <tag>音乐</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网站运行时间</title>
-    <url>/2023/11/19/next/%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
-    <content><![CDATA[<p>修改主题下layout_partials\footer.swig，并添加内容如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 网站运行时间的设置 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeDate&quot;</span>&gt;</span>载入天数...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;times&quot;</span>&gt;</span>载入时分秒...<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  Sometimes your whole life boils down to one insame move.</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">createtime</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> grt= <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">&quot;01/05/2020 00:00:00&quot;</span>);<span class="comment">//此处修改你的建站时间或者网站上线时间</span></span></span><br><span class="line"><span class="javascript">          now.setTime(now.getTime()+<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">          days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = <span class="built_in">Math</span>.floor(days);</span></span><br><span class="line"><span class="javascript">          hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = <span class="built_in">Math</span>.floor(hours);</span></span><br><span class="line"><span class="javascript">          <span class="keyword">if</span>(<span class="built_in">String</span>(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span></span><br><span class="line"><span class="javascript">          mnum = <span class="built_in">Math</span>.floor(minutes); <span class="keyword">if</span>(<span class="built_in">String</span>(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span></span><br><span class="line"><span class="javascript">          seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span></span><br><span class="line"><span class="javascript">          snum = <span class="built_in">Math</span>.round(seconds); <span class="keyword">if</span>(<span class="built_in">String</span>(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">document</span>.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">setInterval</span>(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span></span><br><span class="line"><span class="javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>标签云特效</title>
-    <url>/2023/11/19/next/%E6%A0%87%E7%AD%BE%E4%BA%91/</url>
-    <content><![CDATA[<p>主站目录bash下</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">npm</span> install hexo-tag-cloud@^<span class="number">2</span>.<span class="number">0</span>.* --save </span><br></pre></td></tr></table></figure>
-
-<p>在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> site.tags.length &gt; 1 %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; list_tags() &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br></pre></td></tr></table></figure>
-
-<p>在主站配置文加下添加内容如下</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attribute">tag_cloud</span>:</span><br><span class="line">    <span class="attribute">textFont</span>: Trebuchet MS, Helvetica</span><br><span class="line">    <span class="attribute">textColor</span>: &#x27;#<span class="number">333</span>&#x27;</span><br><span class="line">    <span class="attribute">textHeight</span>: <span class="number">25</span></span><br><span class="line">    <span class="attribute">outlineColor</span>: &#x27;#E<span class="number">2</span>E<span class="number">1</span>D<span class="number">1</span>&#x27;</span><br><span class="line">    <span class="attribute">maxSpeed</span>: <span class="number">0</span>.<span class="number">1</span> </span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql  8 快速入门</title>
-    <url>/2023/11/19/mySQL/mysql%20%208%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h1 id="mysql-8-快速入门"><a href="#mysql-8-快速入门" class="headerlink" title="mysql  8 快速入门"></a>mysql  8 快速入门</h1><p>ubuntu 20.04</p>
-<p>mysql 8.0.25</p>
-<h2 id="安装、登陆以及修改密码"><a href="#安装、登陆以及修改密码" class="headerlink" title="安装、登陆以及修改密码"></a>安装、登陆以及修改密码</h2><p>1 安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install mysql-server </span><br><span class="line">sudo apt-get install mysql-client </span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
-
-<p>2 登陆</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf    <span class="comment"># 查看默认配置文件</span></span><br></pre></td></tr></table></figure>
-
-<p><a href="https://imgtu.com/i/2oCYy4"><img data-src="https://z3.ax1x.com/2021/06/13/2oCYy4.png" alt="2oCYy4.png"></a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p        <span class="comment"># 登陆  用户名以上图的user后名字为准</span></span><br></pre></td></tr></table></figure>
-
-<p>提示输入密码，这里要输入的就是上一步的‘password=855euFyQpqMhe6v0’（密码以自己的配置文件为准）。</p>
-<p>记得不要手敲密码，复制粘贴</p>
-<p>3 修改密码</p>
-<p>安装完之后，在家目录下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cat /etc/mysql/debian.cnf  <span class="comment"># 查看debian-sys-maint的密码</span></span><br><span class="line">mysql -u debian-sys-maint -p  <span class="comment"># 使用debian-sys-maint登录</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql&gt; use mysql;  <span class="comment"># 切换到mysql数据库</span></span><br><span class="line">mysql&gt; alter user <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified with mysql_native_password by <span class="string">&#x27;123456&#x27;</span>;  <span class="comment"># 修改密码为123456</span></span><br><span class="line">mysql&gt; quit；  <span class="comment"># 退出</span></span><br></pre></td></tr></table></figure>
-
-<p>重新进入，成功进入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u debian-sys-maint -p </span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>写作模板</title>
-    <url>/2023/11/19/%E5%86%99%E4%BD%9C%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<p>title: 写作模板<br>date: 1700365689969<br>urlname:<br>tags:<br>categories:<br>description:</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用 git 进行更加高效规范的开发</title>
-    <url>/2021/10/18/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/2021-10-18-%E6%9B%B4%E5%8A%A0%E9%AB%98%E6%95%88%E8%A7%84%E8%8C%83%E7%9A%84%E5%BC%80%E5%8F%91--%E6%8A%80%E5%B7%A7%E7%AF%87%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p><strong>写本文的原因</strong>：由于转岗做一个了解甚少的行业（IC方面的EDA开发）。最近在思考未来怎么规划更好，需要学习哪些东西来弥补。是否应该先学习一些知a识以备转岗，同时是否应该规划出未来的学习路线。和上司沟通了之后，他提出了一些较好的建议，我加上一些自己的想法，写出来也给一些转岗的人员一些思路（也是抛砖引玉，能够了解到更多大佬的见解）：</p>
-<ol>
-<li>不要试图学习一些东西来等待未来工作的需要，而是从需求中来进行学习 </li>
-<li>从提升个人的效率的方面进行学习（例如Linux技术等）</li>
-<li>其次多了解行业的广度</li>
-<li>由于2中个人效率的提高，可以更快的从项目中了解行业的深度</li>
-</ol>
-<p>以下是本人在学习工作中遇到的困难，面向百度谷歌记录下来的一些提升效率的小技巧，遇到了就持续更新进来。<br>写文章的目的也是为了监督自己，做技术最害怕的就是停留在自己的小圈里，不提升学习一些新技术。</p>
-<span id="more"></span>
-
-<h1 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h1><p>git在项目中使用非常多，掌握好git的技巧可以事半功倍的完成开发</p>
-<h2 id="git项目搭建方面"><a href="#git项目搭建方面" class="headerlink" title="git项目搭建方面"></a>git项目搭建方面</h2><ol>
-<li>使用github gitee gitlab等托管代码</li>
-<li>首先将ssh公钥加入到设置中</li>
-<li>创建仓库，并且pull下代码<h2 id="个人工作使用方面"><a href="#个人工作使用方面" class="headerlink" title="个人工作使用方面"></a>个人工作使用方面</h2><h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3></li>
-<li>确定好本次分支的需求<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先做pull确保使用的是最新分支</span></span><br><span class="line">git pull origin/&lt;远程主分支(最好为主分支)&gt;</span><br><span class="line"><span class="comment"># 以当前分支为模板创建并且检出到该分支</span></span><br><span class="line">git checkout -b &lt;分支名&gt;</span><br></pre></td></tr></table></figure></li>
-<li>修改完代码之后的事情<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add &lt;code&gt;</span><br><span class="line">git commit -m <span class="string">&quot;本次提交的信息&quot;</span></span><br><span class="line">git push origin &lt;分支名&gt;</span><br><span class="line"><span class="comment"># 若遇到冲突，在本次分支做merge，再做上面的事情</span></span><br><span class="line">git merge master</span><br></pre></td></tr></table></figure></li>
-<li>到远程merge本次commit</li>
-</ol>
-<h3 id="查看相关修改"><a href="#查看相关修改" class="headerlink" title="查看相关修改"></a>查看相关修改</h3><ol>
-<li>使用<code>git diff </code>查看相关代码的异同。在本分支commit了之后，常使用<code>git diff origin/&lt;分支名&gt;</code>来比较本次修改的内容与远程的<code>&lt;分支名&gt;</code>的异同</li>
-<li>使用<code>git blame</code> 查看相关代码是何时何人做的提交</li>
-</ol>
-<h3 id="查看信息与分支切换"><a href="#查看信息与分支切换" class="headerlink" title="查看信息与分支切换"></a>查看信息与分支切换</h3><ol>
-<li>使用<code>git status</code> 查看代码修改情况</li>
-<li>使用<code>git branch</code>查看本地分支，加-a参数为本地远程所有分支</li>
-<li>使用<code>git checkout &lt;分支名&gt;</code>切换到相应分支</li>
-</ol>
-<h3 id="版本信息"><a href="#版本信息" class="headerlink" title="版本信息"></a>版本信息</h3><ol>
-<li><code>git log</code>来查看历史的提交版本</li>
-<li><code>git reset --hard &lt;commit ID&gt;</code> 来回退版本<h3 id="submodule问题"><a href="#submodule问题" class="headerlink" title="submodule问题"></a>submodule问题</h3>当项目中存在submodule时候，在做每次分支代码时，确保用到最新的submodule，使用以下代码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule update</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="同时处理多个分支"><a href="#同时处理多个分支" class="headerlink" title="同时处理多个分支"></a>同时处理多个分支</h3><p>在开发中，当前分支做了一些修改之后，突然接到任务要处理其他的情况。这时应该首先考虑两个事件的优先级。确定好之后，</p>
-<ol>
-<li>使用<code>git stash</code>来保存住当前分支的快照</li>
-<li>到优先级高的任务处理</li>
-<li><code>git checkout &lt;之前的分支&gt;</code>， 使用<code>git stash pop</code>拿出</li>
-</ol>
-<h1 id="文件相关"><a href="#文件相关" class="headerlink" title="文件相关"></a>文件相关</h1><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ol>
-<li>工作中遇到了需要通过名字定位到文件的需求，但是有时候文件名字也没有记清楚，通过以下命令来完成这个操作<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用通配符* ？ 等实现模糊查找</span></span><br><span class="line">find &lt;directory&gt; -name *aaa*</span><br></pre></td></tr></table></figure></li>
-<li>查找文件里面的内容<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;search content&quot;</span> filename1</span><br><span class="line"><span class="comment"># 查找当前目录下所有的文件内容</span></span><br><span class="line">grep <span class="string">&quot;search content&quot;</span> *</span><br><span class="line"><span class="comment"># 递归查找</span></span><br><span class="line">grep -nr <span class="string">&quot;search content&quot;</span> *</span><br></pre></td></tr></table></figure>
-<h2 id="编辑（vim）"><a href="#编辑（vim）" class="headerlink" title="编辑（vim）"></a>编辑（vim）</h2>有时候需要使用vim进行编辑，vim真的太强大了！！<br><a href="https://www.w3cschool.cn/vim/vim-o6bc3keq.html">W3Cschool</a><br><img data-src="https://img-blog.csdnimg.cn/e983357500e84a168bdb7212a42862f8.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWw57uE5a2X56ym5Liy6YO95aW96bq754Om,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></li>
-</ol>
-<h3 id="分屏操作"><a href="#分屏操作" class="headerlink" title="分屏操作"></a>分屏操作</h3><h3 id="查找定位跳转"><a href="#查找定位跳转" class="headerlink" title="查找定位跳转"></a>查找定位跳转</h3><h1 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h1><h1 id="gdb"><a href="#gdb" class="headerlink" title="gdb"></a>gdb</h1><h1 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h1><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h1 id="C-C-语言"><a href="#C-C-语言" class="headerlink" title="C/C++语言"></a>C/C++语言</h1><h2 id="string的处理"><a href="#string的处理" class="headerlink" title="string的处理"></a>string的处理</h2><h3 id="情景一"><a href="#情景一" class="headerlink" title="情景一"></a>情景一</h3><blockquote>
-<p>输入带空格的一串英文，将每个单词存入向量之中。即每个向量的元素是一个string</p>
+    <title>【计算机网络】基础概念总结8-网关、广播和公/私IP</title>
+    <url>/2023/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C08/</url>
+    <content><![CDATA[<h1 id="8-网关、广播和私人地址"><a href="#8-网关、广播和私人地址" class="headerlink" title="8 网关、广播和私人地址"></a>8 网关、广播和私人地址</h1><h2 id="8-1-网关"><a href="#8-1-网关" class="headerlink" title="8.1 网关"></a>8.1 网关</h2><p>比如有【网络A】和【网络B】：<br>网络A的IP地址范围为”192.168.1.1 - 192. 168.1.254”，子网掩码为255.255.255.0;<br>网络B的IP地址范围为”192.168.2.1 - 192.168.2.254”，子网掩码为255.255.255.0。<br>在没有路由器的情况下，两个网络之间是不能进行通信的，即使是两个网络连接在同一台交换机(或集线器)上。<br>如果网络A中的主机发现数据包的目的主机不在本地网络中，就把数据包转发给它自己的网关，再由网关转发给网络B的网关，网络B的网关再转发给网络B的某个主机。<br>网关的IP地址是具有路由功能的设备的IP地址，即路由器的地址<br><font color="green" size="5">从一个网络向另一个网络发送信息，必须经过一道“关口”，这道关口就是网关。网关就是路由器的地址</font></p>
+<h2 id="8-2-默认网关"><a href="#8-2-默认网关" class="headerlink" title="8.2 默认网关"></a>8.2 默认网关</h2><p>如果搞清了什么是网关，默认网关也就好理解了。就好像一个房间可以有多扇门一样，一台主机可以有多个网关。默认网关的意思是一台主机如果找不到可用的网关，就把数据包发给默认指定的网关，由这个网关来处理数据包。现在主机使用的网关，一般指的是默认网关。</p>
+<p>默认网关必须是电脑自己所在的网段（将IP地址和子网掩码作与运算，得到网段）中的IP地址，而不能填写其他网段中的IP地址。</p>
+<h2 id="8-3-特殊的网络IP"><a href="#8-3-特殊的网络IP" class="headerlink" title="8.3 特殊的网络IP"></a>8.3 特殊的网络IP</h2><p>每一个网段的最后一个 IP 地址，都是广播IP。<br>另一个同样是用于广播的比较特殊的广播 IP，那就是 255.255.255.255。<br>这个地址指本网段内(同一个广播域)的所有主机，该地址用于主机配置过程中IP数据包的目的地址，这时主机可能还不知道它所在网络的网络掩码，甚至连自己的IP地址也还不知道。</p>
+<blockquote>
+<p>注 ：避免路由器转发255.255.255.255，造成死循环<br>在任何情况下，路由器都会禁止转发目的地址为受限的广播地址的数据包，这样的数据包仅会出现在本地网络中.</p>
 </blockquote>
-<p>在询问东哥得到解决方法</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testVector3</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s1;</span><br><span class="line">	vector&lt;string&gt; s2;</span><br><span class="line">	<span class="keyword">char</span> ch = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	<span class="keyword">while</span> (ch != <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">		cin &gt;&gt; s1;</span><br><span class="line">		ch = <span class="built_in">getchar</span>();</span><br><span class="line">		s2.<span class="built_in">push_back</span>(s1);		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>总结收获</strong><br>cin 用法介绍<br>getchar用法介绍</p>
-<h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><p><a href="https://www.runoob.com/">菜鸟教程</a></p>
+<h2 id="8-4-单播网络-unicast-traffic"><a href="#8-4-单播网络-unicast-traffic" class="headerlink" title="8.4 单播网络 unicast traffic"></a>8.4 单播网络 unicast traffic</h2><p>单播(unicast): 是指封包在计算机网络的传输中，目的地址为单一目标的一种传输方式。它是现今网络应用最为广泛，通常所使用的网络协议或服务大多采用单播传输，例如一切基于TCP的协议。<br><img data-src="https://img-blog.csdnimg.cn/20210427152005381.png"><br>单播在网络中得到了广泛的应用，网络上绝大部分的数据都是以单播的形式传输的，只是一般网络用户不知道而已。例如，你在收发电子邮件、浏览网页时，必须与邮件服务器、Web服务器建立连接，此时使用的就是单播数据传输方式。但是通常使用“点对点通信”（Point to Point）代替“单播”，因为“单播”一般与“多播”和“广播”相对应使用。</p>
+<h2 id="8-5-多播网络Multicast-traffic"><a href="#8-5-多播网络Multicast-traffic" class="headerlink" title="8.5 多播网络Multicast traffic"></a>8.5 多播网络Multicast traffic</h2><p>要向其他网络多个主机传递消息，单播网络局限性。255.255.255.255又只有本地有用。所以就有了多播网络<br>多播流量需要使用特殊 IP 地址，也就是我们之前所说的 D 类 IP 地址，D 类 IP 地址的地址范围从 224.0.0.0 到 239.255.255.255，多播是设备选择接受特定流量的一种方式。<br><img data-src="https://img-blog.csdnimg.cn/2021042715005090.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h2 id="8-6-公-私IP"><a href="#8-6-公-私IP" class="headerlink" title="8.6 公/私IP"></a>8.6 公/私IP</h2><p>每个IP都是唯一</p>
+<h3 id="8-6-1-互联网号码分配局（IANA）"><a href="#8-6-1-互联网号码分配局（IANA）" class="headerlink" title="8.6.1 互联网号码分配局（IANA）"></a>8.6.1 互联网号码分配局（IANA）</h3><p>这些 IP 地址统一由 互联网号码分配局 （Internet Assigned Numbers Authority）简称 IANA 进行管理，它们将大量地址分配给分布于世界各地的子机构，我们也称其为 区域性互联网注册管理机构 （Regional Internet Registry）简称 RIR。</p>
+<ol>
+<li>RIPE：欧洲 IP 地址注册中心</li>
+<li>LACNIC：拉丁美洲和加勒比海 Internet 地址注册中心</li>
+<li>ARIN：美国 Internet 编号注册中心</li>
+<li>AFRINIC：非洲网络信息中心</li>
+<li>APNIC：亚太地址网络信息中心</li>
+</ol>
+<h3 id="8-6-2-互联网服务提供商（ISP）"><a href="#8-6-2-互联网服务提供商（ISP）" class="headerlink" title="8.6.2 互联网服务提供商（ISP）"></a>8.6.2 互联网服务提供商（ISP）</h3><p>RIR 为各地的互联网服务提供商（简称 ISP）分配地址空间，也会分配空间给拥有庞大用户量的【大客户】。</p>
+<p>IANA 分配地址给 RIR<br>RIR 分配地址给 ISP， 大客户<br>ISP 分配地址给小客户</p>
+<h2 id="8-7-私人-IP与公共-IP"><a href="#8-7-私人-IP与公共-IP" class="headerlink" title="8.7 私人 IP与公共 IP"></a>8.7 私人 IP与公共 IP</h2><h3 id="8-7-1-私人-IP"><a href="#8-7-1-私人-IP" class="headerlink" title="8.7.1 私人 IP"></a>8.7.1 私人 IP</h3><p>当我们想要创建一个新的网络，则需要获取更多的 IP 地址，我们需要找到当地的服务提供商进行申请。<br>私人IP包括以下：<br>10.0.0.0 /8<br>172.16.0.0 /12<br>192.168.0.0 /16</p>
+<p>由于IPV4的数量有限<br>这些IP只能在局域网中使用，不能在互联网上使用，使用NAT（网络地址转换）技术完成上网，将私人IP修改为公共IP<br><img data-src="https://img-blog.csdnimg.cn/20210427154826998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427154848918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"><br><img data-src="https://img-blog.csdnimg.cn/20210427160531743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTA2NjQxMg==,size_16,color_FFFFFF,t_70"></p>
+<h3 id="8-7-2-公共IP"><a href="#8-7-2-公共IP" class="headerlink" title="8.7.2 公共IP"></a>8.7.2 公共IP</h3><p>除了私人 IP 之外的 IP 地址，均属于公共 IP。</p>
 ]]></content>
       <categories>
-        <category>工具</category>
-        <category>版本控制</category>
+        <category>基础知识</category>
+        <category>计算机网络</category>
       </categories>
       <tags>
-        <tag>工作</tag>
-        <tag>学习</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
-    <title>校园日记</title>
-    <url>/2021/05/19/%E5%AD%A6%E6%A0%A1%E5%86%99%E4%BD%9C/daka-md/</url>
-    <content><![CDATA[<h1 id="每天都打卡"><a href="#每天都打卡" class="headerlink" title="每天都打卡"></a>每天都打卡</h1><p>啧啧啧，每天都打卡</p>
-<p>无聊</p>
-<p>还不能去实习呀，投了这么多没响应</p>
+    <title>Vue 开发流程总结</title>
+    <url>/2023/11/21/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<p>由于主要做后端开发，对于前端开发不怎么熟悉，在最近学习 vue 后，下载了一个 vue-admin 快速开发框架，框架中把基本需要的组件都集成好了，在实现功能的时候，对相关的页面进行一定的修改就能达到目的。<br>由此，各个不同业务对应的修改流程是差不多的，这里做一个小的总结。</p>
+<h2 id="基本页面确定"><a href="#基本页面确定" class="headerlink" title="基本页面确定"></a>基本页面确定</h2><p>业务需要什么页面就对其进行复制，然后在复制后的页面上进行修改。</p>
+<h2 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h2><ol>
+<li>页面引用 api 目录下对应的文件，其中定义了前后端交互接口及方式</li>
+<li>api 中引用了 request.js 其中定义了前后端交互的服务器地址</li>
+<li>前端对返回的数据进行相应解析 <h2 id="前端效果控制"><a href="#前端效果控制" class="headerlink" title="前端效果控制"></a>前端效果控制</h2>在页面获取相应的数据后，需要进行数据加载，然后页面呈现出相应的效果，同时根据业务的需要进行页面元素修改。</li>
+</ol>
+<p>参考自：<br><a href="https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/">https://potoyang.github.io/Vue%E6%95%99%E7%A8%8B/Vue%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/</a></p>
 ]]></content>
       <categories>
-        <category>其他</category>
+        <category>全栈开发</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>思考</tag>
+        <tag>vue</tag>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>springboot教程</title>
+    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot/</url>
+    <content><![CDATA[<h1 id="springboot-概述"><a href="#springboot-概述" class="headerlink" title="springboot 概述"></a>springboot 概述</h1><h2 id="1-什么是-spring"><a href="#1-什么是-spring" class="headerlink" title="1. 什么是 spring"></a>1. 什么是 spring</h2><p><a href="https://potoyang.gitbook.io/spring-in-action-v5/">spring实战（第五版）</a></p>
+<p>Spring 是一个开源框架，Spring是于2003 年兴起的一个轻量级的Java 开发框架。</p>
+<p>简单来说，它是一个容器框架，用来装 javabean（java对象），中间层框架（万能胶）可以起一个连接作用，比如说把 Struts 和 hibernate 粘合在一起运用。简单来说，Spring 是一个轻量级的控制反转(IoC)和面向切面(AOP)的容器框架。</p>
+<h2 id="2-spring-web-工程创建"><a href="#2-spring-web-工程创建" class="headerlink" title="2. spring web 工程创建"></a>2. spring web 工程创建</h2><p><a href="https://www.bilibili.com/video/BV14z4y1N7pg?p=3&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">基础篇-02_springboot入门_哔哩哔哩_bilibili</a></p>
+<ol>
+<li>创建maven工程</li>
+<li>导入spring-boot-starter-web起步依赖（使用idea自动构建）</li>
+<li>编写controller</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KaoqinController</span> <span class="keyword">extends</span> <span class="title">BaseController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping(&quot;/hello&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World ~&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World ~&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>提供启动类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication()</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        SpringApplication.run(MyApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Spring-基础篇"><a href="#3-Spring-基础篇" class="headerlink" title="3. Spring 基础篇"></a>3. Spring 基础篇</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h3 id="整合Mybatis"><a href="#整合Mybatis" class="headerlink" title="整合Mybatis"></a>整合Mybatis</h3><h3 id="Bean管理"><a href="#Bean管理" class="headerlink" title="Bean管理"></a>Bean管理</h3><h3 id="自动配置原理"><a href="#自动配置原理" class="headerlink" title="自动配置原理"></a>自动配置原理</h3><h3 id="自定义starter"><a href="#自定义starter" class="headerlink" title="自定义starter"></a>自定义starter</h3><h2 id="4-实战篇"><a href="#4-实战篇" class="headerlink" title="4. 实战篇"></a>4. 实战篇</h2><h3 id="项目开发"><a href="#项目开发" class="headerlink" title="项目开发"></a>项目开发</h3><h3 id="整合三方技术"><a href="#整合三方技术" class="headerlink" title="整合三方技术"></a>整合三方技术</h3><h3 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h3><h2 id="5-面试篇"><a href="#5-面试篇" class="headerlink" title="5. 面试篇"></a>5. 面试篇</h2><h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3>]]></content>
+      <categories>
+        <category>全栈开发</category>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全栈开发</title>
+    <url>/2023/11/19/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>什么是前后端分离</strong>？</p>
+<p>前端HTML页面通过AJAX调用后端的RESTFUL API接口并使用JSON数据进行交互</p>
+<blockquote>
+<p><a href="https://eolink.csdn.net/64376d0d7de2bc0e53e304f7.html?dp_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTQxNjA4NywiZXhwIjoxNzAwODI4NTQ1LCJpYXQiOjE3MDAyMjM3NDUsInVzZXJuYW1lIjoid2VpeGluXzQ1MDY2NDEyIn0.anTo0I4uRccESjtRzy6MTCdGb4jhh4UApYEuZ2XR9ao">前后端分离架构概述</a></p>
+</blockquote>
+<p><img data-src="/.io//quanzhan1.png" alt="img"></p>
+<h3 id="全栈学习路线"><a href="#全栈学习路线" class="headerlink" title="全栈学习路线"></a>全栈学习路线</h3><p><a href="https://blog.csdn.net/guorui_java/article/details/120643691?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromBaidu~PayColumn-1-120643691-blog-130037262.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=1">Java学习路线总结（思维导图篇）_哪 吒的博客-CSDN博客</a></p>
+<p><a href="https://www.bilibili.com/video/BV14z4y1N7pg/?spm_id_from=333.337.search-card.all.click&vd_source=d92703befe7aeaa6c92ae4e8d4284ec9">黑马程序员SpringBoot3+Vue3全套视频教程，springboot+vue企业级全栈开发从基础、实战到面试一套通关_哔哩哔哩_bilibili</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Learn">web开发学习</a></p>
+<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="安装多个java"><a href="#安装多个java" class="headerlink" title="安装多个java"></a>安装多个java</h2><p><a href="https://blog.csdn.net/u013066244/article/details/108311123?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-108311123-blog-105246997.235%5Ev38%5Epc_relevant_anti_vip_base&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-108311123-blog-105246997.235%5Ev38%5Epc_relevant_anti_vip_base&utm_relevant_index=6">window10 安装Java11 并可以和Java8进行自由切换_jdk 切换-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>全栈开发</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>java</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客List</title>
+    <url>/2023/11/19/%E8%BD%AC%E8%BD%BD/%E5%8D%9A%E5%AE%A2List/</url>
+    <content><![CDATA[<p><a href="https://evestorm.github.io/tags/">https://evestorm.github.io/tags/</a></p>
+]]></content>
+      <categories>
+        <category>转载</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring 基础篇</title>
+    <url>/2023/11/26/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0/springboot%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<h1 id="Spring-基础篇"><a href="#Spring-基础篇" class="headerlink" title="Spring 基础篇"></a>Spring 基础篇</h1><h2 id="1-配置文件"><a href="#1-配置文件" class="headerlink" title="1. 配置文件"></a>1. 配置文件</h2><h4 id="properties配置文件"><a href="#properties配置文件" class="headerlink" title="properties配置文件"></a>properties配置文件</h4><p>官方文档：<a href="https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#appendix.application-properties.core">Common Application Properties (spring.io)</a></p>
+<p>springboot可以自动识别</p>
+<p>yml使用最多 </p>
+<h4 id="yml-实际使用方式"><a href="#yml-实际使用方式" class="headerlink" title="yml 实际使用方式"></a>yml 实际使用方式</h4><ol>
+<li><p>三方技术配置信息</p>
+</li>
+<li><p>自定义配置信息</p>
+</li>
+</ol>
+<h4 id="配置信息的书写和获取"><a href="#配置信息的书写和获取" class="headerlink" title="配置信息的书写和获取"></a>配置信息的书写和获取</h4><p>书写配置  yml 文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">email:</span></span><br><span class="line"><span class="string">&lt;左侧对齐&gt;user:&lt;空格&gt;1111</span></span><br><span class="line">	<span class="attr">code:</span> <span class="number">2222</span></span><br><span class="line">	<span class="attr">host:</span> <span class="number">3333</span></span><br><span class="line">	<span class="attr">auth:</span> <span class="number">4444</span></span><br></pre></td></tr></table></figure>
+
+<p>获取配置信息</p>
+<p>方法一：  利用注解 @Value(“${键名}”)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;email.user&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> String user;</span><br></pre></td></tr></table></figure>
+
+<p>方法二： @ConfigurationProperties(prefix=”前缀”)</p>
+<p>​    实体类的成员变量名与配置文件中的键名保持一致</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ConfigurationProperties(prefix=&quot;email&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EmailProperties</span> </span>&#123;</span><br><span class="line">  ...  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-整合Mybatis"><a href="#2-整合Mybatis" class="headerlink" title="2. 整合Mybatis"></a>2. 整合Mybatis</h2><h2 id="3-Bean管理"><a href="#3-Bean管理" class="headerlink" title="3. Bean管理"></a>3. Bean管理</h2><h2 id="4-自动配置原理"><a href="#4-自动配置原理" class="headerlink" title="4. 自动配置原理"></a>4. 自动配置原理</h2><h2 id="5-自定义starter"><a href="#5-自定义starter" class="headerlink" title="5. 自定义starter"></a>5. 自定义starter</h2>]]></content>
+      <categories>
+        <category>全栈开发</category>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>spring</tag>
+        <tag>springboot</tag>
       </tags>
   </entry>
 </search>
